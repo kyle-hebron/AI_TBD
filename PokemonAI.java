@@ -3,7 +3,6 @@
 
 public class PokemonAI{
     public static void main(String[] args){
-        System.out.println("Hello world");
-        //Test or is it?
+        Pokemon rhydon = new Pokemon("Rhydon", 150, 150, 20);
     }
 }
