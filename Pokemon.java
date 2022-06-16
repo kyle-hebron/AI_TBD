@@ -3,11 +3,12 @@ import java.util.*;
 public class Pokemon{
 
     String name;
-    int health, attack, defense, speed;
+    int health, attack, defense, speed, currentHP;
 
     public Pokemon(String name, int health, int attack, int defense, int speed) {
         this.name = name;
         this.health = health;
+        currentHP = health;
         this.attack = attack;
         this.defense = defense;
         this.speed = speed;
@@ -16,7 +17,7 @@ public class Pokemon{
     
     //setter method only really needed for health, other stats should remain the same (for now)
     private void setHealth(int newHP) {
-        health = newHP;
+        currentHP = newHP;
     }
     //getter methods
     private String getName() {
