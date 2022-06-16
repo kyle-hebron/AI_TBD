@@ -5,7 +5,7 @@ public class Pokemon{
     String name;
     int health, attack, defense, speed;
 
-    Pokemon(String name, int health, int attack, int defense, int speed) {
+    public Pokemon(String name, int health, int attack, int defense, int speed) {
         this.name = name;
         this.health = health;
         this.attack = attack;
