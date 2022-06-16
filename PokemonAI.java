@@ -2,7 +2,15 @@ import java.util.*;
 
 
 public class PokemonAI{
-    
+
+    int[][] type = {
+        {2, 2, 1, 1, 0, 0},     //0 = water, 1 = grass, 2 = fire, 3 = ground, 4 = electric, 5 = flying
+        {1, 2, 2, 1, 0, 2},     //0 means neutral, 1 means super effective, 2 means not very effective, 3 means no effect
+        {2, 1, 2, 0, 0, 0},     //type[attack][defend]
+        {0, 2, 1, 0, 1, 3}, 
+        {1, 0, 0, 3, 0, 1}, 
+        {0, 1, 0, 0, 2, 0}
+    };
     
 
     public static void main(String[] args) throws InterruptedException{
