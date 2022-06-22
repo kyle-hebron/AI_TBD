@@ -9,11 +9,11 @@ public class PokemonTeam{
         this.trainerName = trainerName;
     }
 
-    public void insertPokemon(String name, int attack, int defense, int speed){
+    public void insertPokemon(Pokemon poke){
 
         for(int i = 0; i < 3; i++) {
             if(teamList[i] == null) {
-                Pokemon temp = new Pokemon(name, attack, defense, speed);
+                teamList[i] = poke;
                 break;
             }
             if(i == 2) {
@@ -22,6 +22,10 @@ public class PokemonTeam{
         }
         
         
+    }
+
+    public Pokemon getPokemon(int i) {
+        return teamList[i];
     }
 
 

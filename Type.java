@@ -45,5 +45,11 @@ class Type{
     public String getTypeName(){
         return typeName;
     }
+
+    public int getEffectiveness(Type defense) {         
+        
+        return type[typeNum][defense.typeNum];
+        
+    }
     
 }

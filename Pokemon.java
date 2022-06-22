@@ -19,29 +19,33 @@ public class Pokemon{
     }
     
     //setter method only really needed for health, other stats should remain the same (for now)
-    private void setHealth(int newHP) {
+    public void setHealth(int newHP) {
         currentHP = newHP;
     }
-    private void insertMoves(Moves move) {
+    public void insertMoves(Moves move) {
         for(int i = 0; i < 4; i++)
             if(moveList[i] == null)
                 moveList[i] = move;
     }
     //getter methods
-    private String getName() {
+    public String getName() {
         return name;
     }
-    private int getHP() {
+    public int getHP() {
         return health;
     }
-    private int getAtk() {
+    public int getAtk() {
         return attack;
     }
-    private int getDef() {
+    public int getDef() {
         return defense;
     }
-    private int getSpd() {
+    public int getSpd() {
         return speed;
+    }
+
+    public Type getPokeType(){
+        return pokeType;
     }
     
 }
