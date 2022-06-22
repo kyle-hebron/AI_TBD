@@ -4,8 +4,7 @@ import java.util.ArrayList;
 public class Points{
 
     ArrayList<Integer> ptsArr;
-    int totalPts;
-    Moves damage; 
+    int totalPts; 
 
     public Points(int totalPts){ 
     
@@ -13,7 +12,7 @@ public class Points{
         ptsArr = new ArrayList<Integer>();
     }  
 
-    public void setPoints(){   
+    public void setPoints(Moves damage){   
 
         ptsArr.add(damage.getDamage()); 
 
