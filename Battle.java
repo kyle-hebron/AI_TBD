@@ -1,7 +1,7 @@
 import java.util.*;
 
 
-
+//this class should be the battle simulator, will need to work as a "main" function for the game -MD
 public class Battle {
     PokemonTeam userTeam;
     PokemonTeam enemyTeam;

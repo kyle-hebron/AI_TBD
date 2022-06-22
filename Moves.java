@@ -13,6 +13,7 @@ public class Moves {
         this.typeMove = typeMove;
     }
 
+    //not sure if this needs to be under Moves.java or Battle.java -MD
     public boolean hit() {
         Random rand = new Random();
         int randomInt = rand.nextInt(100) + 1;
