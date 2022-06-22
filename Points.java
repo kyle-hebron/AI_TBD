@@ -16,6 +16,8 @@ public class Points{
 
         ptsArr.add(damage.getDamage()); 
 
+        totalPts = 0;
+
         for(int i = 0; i < ptsArr.size(); i++){
             totalPts += ptsArr.get(i);
         }
