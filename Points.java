@@ -1,0 +1,30 @@
+import java.util.*;
+import java.util.ArrayList;
+
+public class Points{
+
+    ArrayList<Integer> ptsArr;
+    int totalPts;
+    Moves damage; 
+
+    public Points(int totalPts){ 
+    
+        this.totalPts = totalPts;
+        ptsArr = new ArrayList<Integer>();
+    }  
+
+    public void setPoints(){   
+
+        ptsArr.add(damage.getDamage()); 
+
+        for(int i = 0; i < ptsArr.size(); i++){
+            totalPts += ptsArr.get(i);
+        }
+            
+    }
+
+    public int getPoints(){ 
+        return totalPts;
+    }
+
+}
