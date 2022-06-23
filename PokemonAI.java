@@ -97,7 +97,7 @@ public class PokemonAI{
         currentBattle.chooseOption();
         System.out.println(squirtle.getCurrHP() + " out of " + squirtle.getHP());
                 
-                 
+        //Ignore this
                 
         /* 
         System.out.println("Hello there! Welcome to the world of POKEMON! My name is OAK! People call me the POKEMON PROF!");
