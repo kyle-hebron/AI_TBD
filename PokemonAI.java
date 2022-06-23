@@ -6,7 +6,7 @@ public class PokemonAI{
     //Battle AI needs to determine how to attack, or switch pokemon
 
     /*
-
+    //Should AI have their own class?
     //AI checks both active pokemon on the field, their type matchup, and determines if it should stay on the field
     public Pokemon shouldSwitch(PokemonTeam user, PokemonTeam computer) {
         if(user.getCurrentPokemon().getPokeType().getEffectiveness() == 1) {

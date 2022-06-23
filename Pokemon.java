@@ -18,6 +18,12 @@ public class Pokemon{
        
     }
     
+    public boolean isFainted(){
+        if(currentHP == 0)
+            return true;
+        return false;
+    }
+
     //setter method only really needed for health, other stats should remain the same (for now)
     public void setHealth(int newHP) {
         currentHP = newHP;
@@ -46,5 +52,7 @@ public class Pokemon{
     public Type getPokeType(){
         return pokeType;
     }
+
+
     
 }
