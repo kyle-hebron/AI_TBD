@@ -47,10 +47,8 @@ class Type{
         return typeName;
     }
 
-    public int getEffectiveness(Type defense) {         
-        
-        return type[typeNum][defense.typeNum];
-        
+    public int getEffectiveness(Type targetDEF) {        
+        return type[typeNum][targetDEF.typeNum];
     }
     
 }
