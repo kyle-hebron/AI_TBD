@@ -6,7 +6,7 @@ public class PokemonAI{
     //Battle AI needs to determine how to attack, or switch pokemon
 
     /*
-    //Should AI have their own class?
+    //Should AI have their own class? -Kyle
     //AI checks both active pokemon on the field, their type matchup, and determines if it should stay on the field
     public Pokemon shouldSwitch(PokemonTeam user, PokemonTeam computer) {
         if(user.getCurrentPokemon().getPokeType().getEffectiveness() == 1) {
@@ -87,11 +87,17 @@ public class PokemonAI{
         Pokemon charmander = new Pokemon("Charmander", 39, 52, 43, 65, 2);
         Pokemon bulbasaur = new Pokemon("Bulbasaur", 45, 49, 50, 45, 1);
         Pokemon squirtle = new Pokemon("Squirtle", 44, 48, 65, 43, 0);
+        charmander.insertMoves(ember);
+        bulbasaur.insertMoves(vinewhip);
 
+        user.insertPokemon(charmander);
+        user.insertPokemon(bulbasaur);
+        enemy1.insertPokemon(squirtle);
         Battle currentBattle = new Battle(user, enemy1);
-        //int damage = currentBattle.calculateDamage(ember, charmander, bulbasaur);
-        System.out.println(damage);
-        
+        currentBattle.chooseOption();
+                
+                 
+                
         /* 
         System.out.println("Hello there! Welcome to the world of POKEMON! My name is OAK! People call me the POKEMON PROF!");
         Thread.sleep(2000);

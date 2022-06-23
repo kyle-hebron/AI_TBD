@@ -24,4 +24,8 @@ public class Moves {
     public int getAccuracy(){
         return accuracy;
     }
+
+    public String getName(){
+        return moveName;
+    }
 }
