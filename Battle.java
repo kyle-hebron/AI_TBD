@@ -5,8 +5,8 @@ import java.util.*;
 public class Battle {
     PokemonTeam userTeam;
     PokemonTeam enemyTeam;
-    Pokemon currentPokemon;// = userTeam.getPokemon(0);
-    Pokemon enemyCurrent;// = enemyTeam.getPokemon(0);
+    Pokemon currentPokemon = userTeam.getPokemon(0);
+    Pokemon enemyCurrent = enemyTeam.getPokemon(0);
 
     public Battle(PokemonTeam userTeam, PokemonTeam enemyTeam) {
         this.userTeam = userTeam;
@@ -21,8 +21,12 @@ public class Battle {
         }
     }
 
-    //damage calculator (STAB and critical hit included)
+    //damage calculator (STAB and critical hit included) //Added accuracy check -Kyle
     public double calculateDamage(Moves attackingMove, Pokemon attacker, Pokemon target) {
+        if(!hit(attackingMove)){
+            System.out.println("Attack missed");
+            return 0.0;
+        }
         double damage = 0.0;
         int basePower = attackingMove.getDamage();
 
@@ -93,6 +97,15 @@ public class Battle {
             return true;
         else
             return false;
+    }
+
+    //Accuracy for move
+    public boolean hit(Moves move) {
+        Random rand = new Random();
+        int randomInt = rand.nextInt(100) + 1;
+        if(randomInt < move.getAccuracy())
+            return true;
+        return false;
     }
 
 }
