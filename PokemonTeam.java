@@ -2,31 +2,25 @@ import java.util.*;
 
 public class PokemonTeam{
 
+    //switched from standard array to ArrayList to optimize insertPokemon()
     String trainerName;
-    Pokemon[] teamList = new Pokemon[3];
+    ArrayList<Pokemon> team = new ArrayList<Pokemon>();
 
     PokemonTeam(String trainerName) {
         this.trainerName = trainerName;
     }
 
     public void insertPokemon(Pokemon poke){
-
-        for(int i = 0; i < 3; i++) {
-            if(teamList[i] == null) {
-                teamList[i] = poke;
-                break;
-            }
-            if(i == 2) {
-                System.out.println("Team is full");
-            }
+        if(team.size() > 3) {
+            System.out.println("Team is full! Max party of 3.");
+            return;
         }
         
-        
+        team.add(poke);
     }
 
     public Pokemon getPokemon(int i) {
-        return teamList[i];
+        return team.get(i);
     }
-
 
 }
