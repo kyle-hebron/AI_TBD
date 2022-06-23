@@ -3,13 +3,55 @@ import java.util.*;
 
 public class PokemonAI{
 
-    
-    
+    //Battle AI needs to determine how to attack, or switch pokemon
+
+    /*
+
+    //AI checks both active pokemon on the field, their type matchup, and determines if it should stay on the field
+    public Pokemon shouldSwitch(PokemonTeam user, PokemonTeam computer) {
+        if(user.getCurrentPokemon().getPokeType().getEffectiveness() == 1) {
+            for(team size) {
+                if(any pokemon on the team are super effective against the user)
+                    switch to that pokemon
+                else if(any pokemon on the team aren't weak to the user)
+                    switch to that pokemon
+                else //i.e. all the pokemon are weak to the user
+                    switch to the pokemon with the most health
+            }
+        } else {
+            return NULL;
+        }
+    }
+
+    //AI checks the user's pokemon type, and searches for the best attack to use
+    public Moves shouldSwitch(PokemonTeam user, PokemonTeam computer) {
+        Type userType = user.getCurrentPokemon().getPokeType();
+        Moves[] computerMovesList = computer.getCurrentPokemon().getMovesList();
+        ArrayList<Moves> bestMoves = new ArrayList<Moves>();
+
+        //gather which moves are the best
+        for(movelist size) {
+            if(moveslist[i].getType.getEffectiveness() == 1)
+                bestMoves.add(moveslist[i]);
+        }
+
+        //out of all the moves, which deals the most damage
+        for(bestMoves.size()) {
+            if(size == 1)
+                return bestmoves.get(i);
+            else {
+                if(bestmoves.get(i).getDamage() > bestmoves.get(i + 1).getDamage())
+                    bestmoves.remove(i + 1);
+            }
+        }
+    }
+    */
 
     public static void main(String[] args) throws InterruptedException{
 
         Scanner scan = new Scanner(System.in);
         String name, rival;
+        double damage = 0.0;
 
         Type fire = new Type(2);
         Type water = new Type(0);
@@ -29,10 +71,7 @@ public class PokemonAI{
         Battle currentBattle = new Battle(user, enemy1);
         //int damage = currentBattle.calculateDamage(ember, charmander, bulbasaur);
         System.out.println(damage);
-
-
         
-
         /* 
         System.out.println("Hello there! Welcome to the world of POKEMON! My name is OAK! People call me the POKEMON PROF!");
         Thread.sleep(2000);
@@ -57,6 +96,5 @@ public class PokemonAI{
         PokemonTeam enemy1 = new PokemonTeam(rival);
         */
 
-        
     }
 }

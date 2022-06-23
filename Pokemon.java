@@ -43,7 +43,9 @@ public class Pokemon{
     public int getSpd() {
         return speed;
     }
-
+    public Moves[] getMovesList() {
+        return moveList;
+    }
     public Type getPokeType(){
         return pokeType;
     }
