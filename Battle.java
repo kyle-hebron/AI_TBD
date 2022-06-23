@@ -21,6 +21,7 @@ public class Battle {
         }
     }
 
+    //need to look into STAB (same type attack bonus) -MD
     public int calculateDamage(Moves move, Pokemon currentPoke, Pokemon enemyPoke) {
 
         currentPokemon = currentPoke;       //Used for testing purposes
@@ -50,6 +51,43 @@ public class Battle {
 
         return 0;
 
+    }
+
+    //damage multiplier based off type matchup is done in a separate method
+    public double typeEffectivenesMultiplier(Pokemon attacker, Pokemon defender) {
+        double multiplier = 0;
+        Type atkType, defType;
+
+        atkType = attacker.getPokeType();
+        defType = defender.getPokeType();
+
+
+        return multiplier;
+    }
+
+    //damage multiplier based off of attacker's ATK stat and defender's DEF stat
+    public double damageMultiplier(Pokemon attacker, Pokemon defender) {
+        double multiplier = 0.0;
+        int attackerATK, defenderDEF;
+
+        attackerATK = attacker.getAtk();
+        defenderDEF = defender.getDef();
+
+        multiplier = (((2.4) * (attackerATK / defenderDEF)) / 50) + 2;
+
+        return multiplier;
+    }
+
+    //critical hit for a move
+    public boolean isCritical() {
+        boolean answer = false;
+        Random ran = new Random();
+        int coin = ran.nextInt(2);
+
+        if(coin == 1)
+            answer = true;
+        
+        return answer;
     }
 
 }
