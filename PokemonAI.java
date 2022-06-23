@@ -35,6 +35,26 @@ public class PokemonAI{
                 bestMoves.add(moveslist[i]);
         }
 
+        //if no moves are super effective, check for any neutral attacks
+        if(bestmoves.size() == 0) {
+            for(movelist size) {
+            if(moveslist[i].getType.getEffectiveness() == 0)
+                bestMoves.add(moveslist[i]);
+            }
+        }
+        //if no moves are neutral, check for any least effective attacks
+        if(bestmoves.size() == 0) {
+            for(movelist size) {
+            if(moveslist[i].getType.getEffectiveness() == 2)
+                bestMoves.add(moveslist[i]);
+            }
+        }
+        //at this point, switch pokemon or use a move
+        if(bestmoves.size() == 0) {
+            switch pokemon if possible,
+            otherwise use first available move
+        }
+
         //out of all the moves, which deals the most damage
         for(bestMoves.size()) {
             if(size == 1)
