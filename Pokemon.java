@@ -55,6 +55,10 @@ public class Pokemon{
     public Type getPokeType(){
         return pokeType;
     }
+    public double getCurrHP(){
+        return currentHP;
+    }
+    
 
 
     

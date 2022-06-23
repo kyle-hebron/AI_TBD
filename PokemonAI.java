@@ -95,6 +95,7 @@ public class PokemonAI{
         enemy1.insertPokemon(squirtle);
         Battle currentBattle = new Battle(user, enemy1);
         currentBattle.chooseOption();
+        System.out.println(squirtle.getCurrHP() + " out of " + squirtle.getHP());
                 
                  
                 

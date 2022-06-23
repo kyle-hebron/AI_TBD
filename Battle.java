@@ -5,28 +5,31 @@ import java.util.*;
 public class Battle {
     PokemonTeam userTeam;
     PokemonTeam enemyTeam;
-    Pokemon currentPokemon; //= userTeam.getPokemon(0);
-    Pokemon enemyCurrent; //= enemyTeam.getPokemon(0);
+    Pokemon currentPokemon;
+    Pokemon enemyCurrent;
 
     public Battle(PokemonTeam userTeam, PokemonTeam enemyTeam) {
         
         this.userTeam = userTeam;
         this.enemyTeam = enemyTeam;
+        currentPokemon = userTeam.getPokemon(1);
+        enemyCurrent = enemyTeam.getPokemon(0);
     }
 
     
     public void chooseOption(){ //Maybe have this for the main to call -Kyle
         Scanner scan = new Scanner(System.in);
-        currentPokemon = userTeam.getPokemon(1);
-        enemyCurrent = enemyTeam.getPokemon(0);
+        
 
         while(!userTeam.allFainted() && !enemyTeam.allFainted()){
             System.out.println("Please pick a move");
             int i = scan.nextInt();
             double damage = calculateDamage(currentPokemon.moveList[i - 1], currentPokemon, enemyCurrent);
-            //enemyCurrent.setHealth(damage);
+            enemyCurrent.setHealth(damage);
 
+            
             System.out.println(currentPokemon.name + " used " + currentPokemon.moveList[i - 1].getName() + " dealing " + damage);
+            System.out.println(enemyCurrent.getName() + " has " + enemyCurrent.getCurrHP() + " now.");
             return;
                 //Need to call the AI here to make their move
           }
