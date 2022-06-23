@@ -43,6 +43,10 @@ class Type{
         }
     }
 
+    public int getTypeNum(){
+        return typeNum;
+    }
+
     public String getTypeName(){
         return typeName;
     }
@@ -52,3 +56,5 @@ class Type{
     }
     
 }
+
+//Ignore this too
