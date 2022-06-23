@@ -57,18 +57,21 @@ public class Battle {
     public double typeEffectivenesMultiplier(Moves move, Pokemon defender) {
         double multiplier = 1.0;
         Type atkType, defType;
-
+        
+        //the type of the attacker's move
         atkType = move.getType();
+        //the type of the target pokemon
         defType = defender.getPokeType();
 
-        /* 
-        if(move is effective against target) {
-            multiplier = calculation; //2x
-        } else if(move is not effective against target) {
-            multiplier = some calculation; //0.5x
+    
+        if(atkType.getEffectiveness(defType) == 1) {
+            multiplier = 2.0;
+        } else if(atkType.getEffectiveness(defType) == 2) {
+            multiplier = 0.5;
+        } else if(atkType.getEffectiveness(defType) == 3) {
+            multiplier = 0.0;
         }
-        */
-
+        
         return multiplier;
     }
 
