@@ -27,7 +27,7 @@ public class PokemonAI{
         Pokemon squirtle = new Pokemon("Squirtle", 44, 48, 65, 43, 0);
 
         Battle currentBattle = new Battle(user, enemy1);
-        int damage = currentBattle.calculateDamage(ember, charmander, bulbasaur);
+        //int damage = currentBattle.calculateDamage(ember, charmander, bulbasaur);
         System.out.println(damage);
 
 
