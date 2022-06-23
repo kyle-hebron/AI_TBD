@@ -54,20 +54,27 @@ public class Battle {
     }
 
     //damage multiplier based off type matchup is done in a separate method
-    public double typeEffectivenesMultiplier(Pokemon attacker, Pokemon defender) {
-        double multiplier = 0;
+    public double typeEffectivenesMultiplier(Moves move, Pokemon defender) {
+        double multiplier = 1.0;
         Type atkType, defType;
 
-        atkType = attacker.getPokeType();
+        atkType = move.getType();
         defType = defender.getPokeType();
 
+        /* 
+        if(move is effective against target) {
+            multiplier = calculation; //2x
+        } else if(move is not effective against target) {
+            multiplier = some calculation; //0.5x
+        }
+        */
 
         return multiplier;
     }
 
     //damage multiplier based off of attacker's ATK stat and defender's DEF stat
     public double damageMultiplier(Pokemon attacker, Pokemon defender) {
-        double multiplier = 0.0;
+        double multiplier = 1.0;
         int attackerATK, defenderDEF;
 
         attackerATK = attacker.getAtk();
