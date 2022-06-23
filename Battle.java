@@ -21,40 +21,28 @@ public class Battle {
         }
     }
 
-    //need to look into STAB (same type attack bonus) -MD
-    public int calculateDamage(Moves move, Pokemon currentPoke, Pokemon enemyPoke) {
+    //damage calculator (STAB and critical hit included)
+    public double calculateDamage(Moves attackingMove, Pokemon attacker, Pokemon target) {
+        double damage = 0.0;
+        int basePower = attackingMove.getDamage();
 
-        currentPokemon = currentPoke;       //Used for testing purposes
-        enemyCurrent = enemyPoke;
+        double multiplierT = typeEffectivenesMultiplier(attackingMove, attacker, target);
+        double multiplierD = damageMultiplier(attacker, target);
 
-        int attack = currentPokemon.getAtk();
-        int defense = enemyCurrent.getDef();
-        int basePower = move.getDamage();
-        Type tempType = move.getType();
-        Type enemyType = enemyPoke.getPokeType();
-        int damage = attack - defense;
+        damage = basePower * multiplierD * multiplierT;
 
-        if(damage <= 0)
-            damage = basePower;
+        if(isSTAB(attackingMove, attacker))
+            damage *= 1.5;
 
-        switch(tempType.getEffectiveness(enemyType)){
-            case 0:
-                return damage;
-            case 1: 
-                return 2 * damage;
-            case 2:
-                return damage / 2;
-            case 3:
-                return 0;
+        if(isCritical())
+            damage *= 1.5;
 
-        }
-
-        return 0;
+        return damage;
 
     }
 
     //damage multiplier based off type matchup is done in a separate method
-    public double typeEffectivenesMultiplier(Moves move, Pokemon defender) {
+    public double typeEffectivenesMultiplier(Moves move, Pokemon attacker, Pokemon defender) {
         double multiplier = 1.0;
         Type atkType, defType;
         
@@ -88,16 +76,23 @@ public class Battle {
         return multiplier;
     }
 
-    //critical hit for a move
+    //critical hit for a move (using the 6.25% chance standard)
     public boolean isCritical() {
         boolean answer = false;
         Random ran = new Random();
-        int coin = ran.nextInt(2);
+        int chance = ran.nextInt(100);
 
-        if(coin == 1)
+        if(chance <= 16)
             answer = true;
         
         return answer;
+    }
+
+    public boolean isSTAB(Moves atk, Pokemon attacker) {
+        if(atk.getType() == attacker.getPokeType())
+            return true;
+        else
+            return false;
     }
 
 }
