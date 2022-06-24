@@ -74,29 +74,31 @@ public class PokemonAI{
         // double damage = 0.0;
 
         Type fire = new Type(2);
-        // Type water = new Type(0);
+        Type water = new Type(0);
         Type grass = new Type(1);
 
         PokemonTeam user = new PokemonTeam("User");
         PokemonTeam enemy1 = new PokemonTeam("Doodoo head");
 
         Moves ember = new Moves(40,100, "Ember", fire);
-        // Moves watergun = new Moves(40, 100, "Water Gun", water);
-        Moves vinewhip = new Moves(60, 100, "Vine Whip", grass);
+        Moves watergun = new Moves(40, 100, "Water Gun", water);
+        Moves vinewhip = new Moves(40, 100, "Vine Whip", grass);
 
         Pokemon charizard = new Pokemon("Charizard", 359, 266, 268, 298, 2);
         Pokemon venasaur = new Pokemon("Venasaur", 363, 262, 298, 258, 1);
         Pokemon blastoise = new Pokemon("Blastoise", 361, 264, 298, 254, 0);
         charizard.insertMoves(ember);
         venasaur.insertMoves(vinewhip);
+        blastoise.insertMoves((watergun));
 
         user.insertPokemon(charizard);
         user.insertPokemon(venasaur);
         user.insertPokemon(blastoise);
         enemy1.insertPokemon(blastoise);
+
         Battle currentBattle = new Battle(user, enemy1);
         currentBattle.chooseOption();
-        System.out.println(blastoise.getCurrHP() + " out of " + blastoise.getHP());
+        
                 
         //Ignore this
                 
