@@ -89,7 +89,7 @@ public class PokemonAI{
         Pokemon blastoise = new Pokemon("Blastoise", 361, 264, 298, 254, 0);
         charizard.insertMoves(ember);
         venasaur.insertMoves(vinewhip);
-        blastoise.insertMoves((watergun));
+        blastoise.insertMoves(watergun);
 
         user.insertPokemon(charizard);
         user.insertPokemon(venasaur);
