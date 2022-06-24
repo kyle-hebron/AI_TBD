@@ -314,6 +314,7 @@ public class PokemonAI{
         //Tangela, Leader 6
         Pokemon tangela = new Pokemon("Tangela", 271, 236, 266, 156, 3);
         Moves leafStorm = new Moves(130, 90, 8, "Leaf Storm", grass);
+        Moves vinewhip = new Moves(130, 100, 16, "Vine Whip", grass);
         tangela.insertMoves(vinewhip);
         tangela.insertMoves(nrgBall);
         tangela.insertMoves(leafStorm);
