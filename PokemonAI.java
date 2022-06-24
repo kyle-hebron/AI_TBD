@@ -75,7 +75,7 @@ public class PokemonAI{
         //Function to generate the player's team and all 8 Leaders' teams
         generateTeams();
 
-        currentBattle.chooseOption();
+        //currentBattle.chooseOption();
         
                 
         //Ignore this
