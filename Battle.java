@@ -5,12 +5,34 @@ import java.util.*;
 public class Battle {
     PokemonTeam userTeam;
     PokemonTeam enemyTeam;
-    Pokemon currentPokemon;// = userTeam.getPokemon(0);
-    Pokemon enemyCurrent;// = enemyTeam.getPokemon(0);
+    Pokemon currentPokemon;
+    Pokemon enemyCurrent;
 
     public Battle(PokemonTeam userTeam, PokemonTeam enemyTeam) {
+        
         this.userTeam = userTeam;
         this.enemyTeam = enemyTeam;
+        currentPokemon = userTeam.getPokemon(1);
+        enemyCurrent = enemyTeam.getPokemon(0);
+    }
+
+    
+    public void chooseOption(){ //Maybe have this for the main to call -Kyle
+        Scanner scan = new Scanner(System.in);
+        
+
+        while(!userTeam.allFainted() && !enemyTeam.allFainted()){
+            System.out.println("Please pick a move");
+            int i = scan.nextInt();
+            double damage = calculateDamage(currentPokemon.moveList[i - 1], currentPokemon, enemyCurrent);
+            enemyCurrent.setHealth(damage);
+
+            
+            System.out.println(currentPokemon.name + " used " + currentPokemon.moveList[i - 1].getName() + " dealing " + damage);
+            System.out.println(enemyCurrent.getName() + " has " + enemyCurrent.getCurrHP() + " now.");
+            return;
+                //Need to call the AI here to make their move
+          }
     }
 
     public void switchPokemon(int i) {
@@ -21,8 +43,12 @@ public class Battle {
         }
     }
 
-    //damage calculator (STAB and critical hit included)
+    //damage calculator (STAB and critical hit included) //Added accuracy check -Kyle
     public double calculateDamage(Moves attackingMove, Pokemon attacker, Pokemon target) {
+        if(!hit(attackingMove)){
+            System.out.println("Attack missed");
+            return 0.0;
+        }
         double damage = 0.0;
         int basePower = attackingMove.getDamage();
 
@@ -93,6 +119,15 @@ public class Battle {
             return true;
         else
             return false;
+    }
+
+    //Accuracy for move
+    public boolean hit(Moves move) {
+        Random rand = new Random();
+        int randomInt = rand.nextInt(100) + 1;
+        if(randomInt < move.getAccuracy())
+            return true;
+        return false;
     }
 
 }

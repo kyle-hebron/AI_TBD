@@ -13,20 +13,19 @@ public class Moves {
         this.typeMove = typeMove;
     }
 
-    //not sure if this needs to be under Moves.java or Battle.java -MD
-    public boolean hit() {
-        Random rand = new Random();
-        int randomInt = rand.nextInt(100) + 1;
-        if(randomInt < accuracy)
-            return true;
-        return false;
-    }
-
     public Type getType(){
         return typeMove;
     }
 
     public int getDamage(){
         return damage;
+    }
+
+    public int getAccuracy(){
+        return accuracy;
+    }
+
+    public String getName(){
+        return moveName;
     }
 }

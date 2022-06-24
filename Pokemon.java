@@ -3,11 +3,12 @@ import java.util.*;
 public class Pokemon{
 
     String name;
-    int health, attack, defense, speed, currentHP;
+    int attack, defense, speed;
+    double health, currentHP;
     Type pokeType;
     Moves[] moveList = new Moves[4];
 
-    public Pokemon(String name, int health, int attack, int defense, int speed, int typeNum) {
+    public Pokemon(String name, double health, int attack, int defense, int speed, int typeNum) {
         this.name = name;
         this.health = health;
         currentHP = health;
@@ -18,20 +19,31 @@ public class Pokemon{
        
     }
     
+    public boolean isFainted(){
+        if(currentHP == 0)
+            return true;
+        return false;
+    }
+
     //setter method only really needed for health, other stats should remain the same (for now)
-    public void setHealth(int newHP) {
-        currentHP = newHP;
+    public void setHealth(double damage) {
+        currentHP = currentHP - damage;
+        if(currentHP < 0)
+            currentHP = 0;
     }
     public void insertMoves(Moves move) {
         for(int i = 0; i < 4; i++)
-            if(moveList[i] == null)
+            if(moveList[i] == null){
                 moveList[i] = move;
+                break;
+            }
+                
     }
     //getter methods
     public String getName() {
         return name;
     }
-    public int getHP() {
+    public double getHP() {
         return health;
     }
     public int getAtk() {
@@ -43,11 +55,14 @@ public class Pokemon{
     public int getSpd() {
         return speed;
     }
-    public Moves[] getMovesList() {
-        return moveList;
-    }
     public Type getPokeType(){
         return pokeType;
     }
+    public double getCurrHP(){
+        return currentHP;
+    }
+    
+
+
     
 }

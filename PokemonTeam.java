@@ -23,4 +23,13 @@ public class PokemonTeam{
         return team.get(i);
     }
 
+    //Checks to see if all the pokemon are fainted
+    public boolean allFainted(){
+        for(int i = 0; i < 3; i++){
+            if(!team.get(i).isFainted())
+                return false;
+        }
+        return true;
+    }
+
 }
