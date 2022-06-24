@@ -147,7 +147,7 @@ public class PokemonAI{
         charizard.insertMoves(fireBlast);
         charizard.insertMoves(flamethrower);
         charizard.insertMoves(fly);
-        charizard.insertMoves(ancientPwr)
+        charizard.insertMoves(ancientPwr);
         //Venusaur, Player
         Pokemon venusaur = new Pokemon("Venusaur", 363, 262, 298, 258, 3);
         Moves earthquake = new Moves(100, 100, 16, "Earthquake", ground);
