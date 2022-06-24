@@ -62,7 +62,4 @@ public class Pokemon{
         return currentHP;
     }
     
-
-
-    
 }
