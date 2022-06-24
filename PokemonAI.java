@@ -24,7 +24,7 @@ public class PokemonAI{
     }
 
     //AI checks the user's pokemon type, and searches for the best attack to use
-    public Moves shouldSwitch(PokemonTeam user, PokemonTeam computer) {
+    public Moves whichAttack(PokemonTeam user, PokemonTeam computer) {
         Type userType = user.getCurrentPokemon().getPokeType();
         Moves[] computerMovesList = computer.getCurrentPokemon().getMovesList();
         ArrayList<Moves> bestMoves = new ArrayList<Moves>();
