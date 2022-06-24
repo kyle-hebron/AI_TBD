@@ -288,8 +288,7 @@ public class PokemonAI{
 //LEADER 5
         //Magmar, Leader 5
         Pokemon magmar = new Pokemon("Magmar", 333, 288, 212, 284, 1);
-        //Moves(int damage, int accuracy, int pp, String moveName, Type typeMove)
-        Moves hyperBeam = new Moves(150, 90, 8, "Hyper Beam", normal);
+        Moves hyperBeam = new Moves(150, 90, "Hyper Beam", normal);
         magmar.insertMoves(fireBlast);
         magmar.insertMoves(bodySlam);
         magmar.insertMoves(flamethrower);
