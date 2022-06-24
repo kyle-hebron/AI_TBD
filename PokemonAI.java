@@ -82,11 +82,11 @@ public class PokemonAI{
 
         Moves ember = new Moves(40,100, "Ember", fire);
         // Moves watergun = new Moves(40, 100, "Water Gun", water);
-        Moves vinewhip = new Moves(40, 100, "Vine Whip", grass);
+        Moves vinewhip = new Moves(60, 100, "Vine Whip", grass);
 
-        Pokemon charmander = new Pokemon("Charmander", 39, 52, 43, 65, 2);
-        Pokemon bulbasaur = new Pokemon("Bulbasaur", 45, 49, 50, 45, 1);
-        Pokemon squirtle = new Pokemon("Squirtle", 44, 48, 65, 43, 0);
+        Pokemon charmander = new Pokemon("Charizard", 359, 266, 268, 298, 2);
+        Pokemon bulbasaur = new Pokemon("Venasaur", 363, 262, 298, 258, 1);
+        Pokemon squirtle = new Pokemon("Blastoise", 361, 264, 298, 254, 0);
         charmander.insertMoves(ember);
         bulbasaur.insertMoves(vinewhip);
 
