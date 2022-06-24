@@ -316,7 +316,7 @@ public class PokemonAI{
         Moves leafStorm = new Moves(130, 90, 8, "Leaf Storm", grass);
 
         // the damage for vinewhip is NOT calculated. 
-        Moves vinewhip = new Moves(130, 100, 16, "Vine Whip", grass);
+        Moves vinewhip = new Moves(130, 100, 25, "Vine Whip", grass);
         tangela.insertMoves(vinewhip);
         tangela.insertMoves(nrgBall);
         tangela.insertMoves(leafStorm);
