@@ -105,7 +105,7 @@ public class PokemonAI{
         */
 
     }
-    void generateTeams(){
+    static void generateTeams(){
         //create Types? not sure if we still need this but did it anyway -- sam
         Type normal = new Type(0);
         Type fire = new Type(1);
