@@ -313,9 +313,7 @@ public class PokemonAI{
         //Tangela, Leader 6
         Pokemon tangela = new Pokemon("Tangela", 271, 236, 266, 156, 3);
         Moves leafStorm = new Moves(130, 90, 8, "Leaf Storm", grass);
-
-        // the damage for vinewhip is NOT calculated. 
-        Moves vinewhip = new Moves(130, 100, 25, "Vine Whip", grass);
+        Moves vinewhip = new Moves(45, 100, 25, "Vine Whip", grass);
         tangela.insertMoves(vinewhip);
         tangela.insertMoves(nrgBall);
         tangela.insertMoves(leafStorm);
