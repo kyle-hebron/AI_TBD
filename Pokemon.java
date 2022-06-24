@@ -33,8 +33,11 @@ public class Pokemon{
     }
     public void insertMoves(Moves move) {
         for(int i = 0; i < 4; i++)
-            if(moveList[i] == null)
+            if(moveList[i] == null){
                 moveList[i] = move;
+                break;
+            }
+                
     }
     //getter methods
     public String getName() {
