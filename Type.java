@@ -20,22 +20,49 @@ class Type{
         typeNum = num;
         switch(num) {
             case 0:
-                typeName = "water";
+                typeName = "normal";
                 break;
             case 1:
-                typeName = "grass";
-                break;
-            case 2:
                 typeName = "fire";
                 break;
+            case 2:
+                typeName = "water";
+                break;
             case 3:
-                typeName = "ground";
+                typeName = "grass";
                 break;
             case 4:
                 typeName = "electric";
                 break;
             case 5:
+                typeName = "ice";
+                break;
+            case 6:
+                typeName = "fighting";
+                break;
+            case 7:
+                typeName = "poison";
+                break;
+            case 8:
+                typeName = "ground";
+                break;
+            case 9:
                 typeName = "flying";
+                break;
+            case 10:
+                typeName = "psychic";
+                break;
+            case 11:
+                typeName = "bug";
+                break;
+            case 12:
+                typeName = "rock";
+                break;
+            case 13:
+                typeName = "ghost";
+                break;
+            case 14:
+                typeName = "dragon";
                 break;
             default:
                 System.out.println("Error, no type found");

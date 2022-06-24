@@ -97,7 +97,7 @@ public class PokemonAI{
         Battle currentBattle = new Battle(user, enemy1);
         currentBattle.chooseOption();
         System.out.println(blastoise.getCurrHP() + " out of " + blastoise.getHP());
-                
+                               
         //Ignore this
                 
         /* 
@@ -125,4 +125,99 @@ public class PokemonAI{
         */
 
     }
+    void generateTeams(){
+
+        //Initialize Teams
+        PokemonTeam Leader1;
+        PokemonTeam Leader2;
+        PokemonTeam Leader3;
+        PokemonTeam Leader4;
+        PokemonTeam Leader5;
+        PokemonTeam Leader6;
+        PokemonTeam Leader7;
+        PokemonTeam Leader8;
+
+        //Generate Mon
+        //Geodude, Leader 1
+        Pokemon geodude = new Pokemon("Geodude", 221, 196, 236, 96, 12);
+        Moves ancientPwr = new Moves(60, 100, "Ancient Power", rock);
+        Moves bodySlam = new Moves(85, 100, "Body Slam", normal);
+        Moves earthquake = new Moves(100, 100, "Earthquake", ground);
+        Moves brickBreak = new Moves(75, 100, "Brick Break", fighting);
+        geodude.insertMoves(ancientPwr);
+        geodude.insertMoves(bodySlam);
+        geodude.insertMoves(earthquake);
+        geodude.insertMoves(brickBreak);
+        //Sandshrew, Leader 1
+        Pokemon sandshrew = new Pokemon("Sandshrew", 241, 186, 206, 116, 8);
+        Moves focusPunch = new Moves(150, 100, "Focus Punch", fighting);
+        Moves poisonJab = new Moves(80, 100, "Poison Jab", poison);
+        sandshrew.insertMoves(bodySlam);
+        sandshrew.insertMoves(brickBreak);
+        sandshrew.insertMoves(focusPunch);
+        sandshrew.insertMoves(poisonJab);
+        //Onix, Leader 1
+        Pokemon onix = new Pokemon("Onix", 211, 126, 356, 176, 12);
+        Moves dragonPulse = new Moves(85, 100, "Dragon Pulse", dragon);
+        onix.insertMoves(bodySlam);
+        onix.insertMoves(earthquake);
+        onix.insertMoves(ancientPwr);
+        onix.insertMoves(dragonPulse);
+
+        //Magmar, Leader 5
+        Pokemon magmar = new Pokemon("Magmar", 333, 288, 212, 284, 1);
+        Moves fireBlast = new Moves(120, 85, "Fire Blast", fire);
+        Moves flamethrower = new Moves(95, 100, "Flamethrower", fire);
+        Moves hyperBeam = new Moves(150, 90, "Hyper Beam", normal);
+        magmar.insertMoves(fireBlast);
+        magmar.insertMoves(bodySlam);
+        magmar.insertMoves(flamethrower);
+        magmar.insertMoves(hyperBeam);
+
+
+
+        //Add Mon to Teams
+
+        //Leader 1
+        Leader1.insertPokemon(geodude);
+        Leader1.insertPokemon(sandshrew);
+        Leader1.insertPokemon(onix);
+
+        //Leader 2
+        Leader5.insertPokemon(pidgeot);
+        Leader5.insertPokemon(hitmonchan);
+        Leader5.insertPokemon(electabuzz);
+
+        //Leader 3
+        Leader5.insertPokemon(flareon);
+        Leader5.insertPokemon(jolteon);
+        Leader5.insertPokemon(vaporeon);
+
+        //Leader 4
+        Leader5.insertPokemon(starmie);
+        Leader5.insertPokemon(wartortle);
+        Leader5.insertPokemon(seadra);
+
+        //Leader 5
+        Leader5.insertPokemon(magmar);
+        Leader5.insertPokemon(charmeleon);
+        Leader5.insertPokemon(arcanine);
+
+
+        //Leader 6
+        Leader5.insertPokemon(ivysaur);
+        Leader5.insertPokemon(tangela);
+        Leader5.insertPokemon(vileplume);
+
+        //Leader 7
+        Leader5.insertPokemon(articuno);
+        Leader5.insertPokemon(moltres);
+        Leader5.insertPokemon(zapdos);
+
+        //Leader 8
+        Leader5.insertPokemon(dragonite);
+        Leader5.insertPokemon(mew);
+        Leader5.insertPokemon(mewtwo);
+    }
+    
 }
