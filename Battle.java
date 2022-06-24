@@ -21,18 +21,22 @@ public class Battle {
         Scanner scan = new Scanner(System.in);
         
 
-        while(!userTeam.allFainted() && !enemyTeam.allFainted()){
+        
             System.out.println("Please pick a move");
             int i = scan.nextInt();
             double damage = calculateDamage(currentPokemon.moveList[i - 1], currentPokemon, enemyCurrent);
-            enemyCurrent.setHealth(damage);
+            
 
             
             System.out.println(currentPokemon.name + " used " + currentPokemon.moveList[i - 1].getName() + " dealing " + damage);
             System.out.println(enemyCurrent.getName() + " has " + enemyCurrent.getCurrHP() + " now.");
-            return;
+            
                 //Need to call the AI here to make their move
-          }
+                //Check speed
+                //Then deal damage
+                
+                enemyCurrent.setHealth(damage);
+          
     }
 
     public void switchPokemon(int i) {
