@@ -147,7 +147,7 @@ public class PokemonAI{
         charizard.insertMoves(fireBlast);
         charizard.insertMoves(flamethrower);
         charizard.insertMoves(fly);
-        charizard.insertMoves(ancientPwr)
+        charizard.insertMoves(ancientPwr);
         //Venusaur, Player
         Pokemon venusaur = new Pokemon("Venusaur", 363, 262, 298, 258, 3);
         Moves earthquake = new Moves(100, 100, 16, "Earthquake", ground);
@@ -288,7 +288,8 @@ public class PokemonAI{
 //LEADER 5
         //Magmar, Leader 5
         Pokemon magmar = new Pokemon("Magmar", 333, 288, 212, 284, 1);
-        Moves hyperBeam = new Moves(150, 90, "Hyper Beam", normal);
+        //Moves(int damage, int accuracy, int pp, String moveName, Type typeMove)
+        Moves hyperBeam = new Moves(150, 90, 8, "Hyper Beam", normal);
         magmar.insertMoves(fireBlast);
         magmar.insertMoves(bodySlam);
         magmar.insertMoves(flamethrower);
