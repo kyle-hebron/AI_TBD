@@ -69,19 +69,19 @@ public class PokemonAI{
 
     public static void main(String[] args) throws InterruptedException{
 
-        Scanner scan = new Scanner(System.in);
-        String name, rival;
-        double damage = 0.0;
+        // Scanner scan = new Scanner(System.in);
+        // String name, rival;
+        // double damage = 0.0;
 
         Type fire = new Type(2);
-        Type water = new Type(0);
+        // Type water = new Type(0);
         Type grass = new Type(1);
 
         PokemonTeam user = new PokemonTeam("User");
         PokemonTeam enemy1 = new PokemonTeam("Doodoo head");
 
         Moves ember = new Moves(40,100, "Ember", fire);
-        Moves watergun = new Moves(40, 100, "Water Gun", water);
+        // Moves watergun = new Moves(40, 100, "Water Gun", water);
         Moves vinewhip = new Moves(40, 100, "Vine Whip", grass);
 
         Pokemon charmander = new Pokemon("Charmander", 39, 52, 43, 65, 2);
