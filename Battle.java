@@ -26,16 +26,23 @@ public class Battle {
             int i = scan.nextInt();
             double damage = calculateDamage(currentPokemon.moveList[i - 1], currentPokemon, enemyCurrent);
             
-
+            enemyCurrent.setHealth(damage);
             
             System.out.println(currentPokemon.name + " used " + currentPokemon.moveList[i - 1].getName() + " dealing " + damage);
-            System.out.println(enemyCurrent.getName() + " has " + enemyCurrent.getCurrHP() + " now.");
-            
+            System.out.println(enemyCurrent.getName() + " has " + enemyCurrent.getCurrHP() + " out of " + enemyCurrent.getHP());
+            System.out.println("Please pick a move");
+            i = scan.nextInt();
+
+            damage = calculateDamage(enemyCurrent.moveList[i - 1], enemyCurrent, currentPokemon);
+            currentPokemon.setHealth(damage);
+            System.out.println(enemyCurrent.name + " used " + enemyCurrent.moveList[i - 1].getName() + " dealing " + damage);
+            System.out.println(currentPokemon.getName() + " has " + currentPokemon.getCurrHP() + " out of " + currentPokemon.getHP());
                 //Need to call the AI here to make their move
                 //Check speed
                 //Then deal damage
+
                 
-                enemyCurrent.setHealth(damage);
+                
           
     }
 
