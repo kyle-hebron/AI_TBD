@@ -73,16 +73,50 @@ public class PokemonAI{
 
     public static void main(String[] args) throws InterruptedException{
 
-        // Scanner scan = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
         // String name, rival;
         // double damage = 0.0;
         //Function to generate the player's team and all 8 Leaders' teams
         generateTeams();
         Battle currentBattle = new Battle(player, Leader1);
 
-        currentBattle.chooseOption();
         //while 
-                
+        while(!player.allFainted() && !Leader1.allFainted()){
+            System.out.println("play (YOU)[10] or switch (YOU)[20]?");
+            int playOp = scan.nextInt();
+
+            System.out.println("play (PC)[10] or switch (PC)[20]?");
+            int pcOp = scan.nextInt();
+
+            // YOUr move
+            if(playOp == 10){ 
+                 currentBattle.chooseOption();
+            }
+
+            // PC's move
+            if(pcOp == 10){
+                 currentBattle.chooseOption();
+            } 
+            
+            // YOUr fighter
+            if(playOp == 20){
+                System.out.println("Choose your Pokemon.");
+                int choosePlyr = scan.nextInt();
+                currentBattle.switchPokemon(choosePlyr);
+            }
+
+            // PC's fighter
+            if(playOp == 20){
+                System.out.println("Choose PC's Pokemon.");
+                int choosePlyr = scan.nextInt();
+                currentBattle.switchPokemon(choosePlyr);
+            }
+
+            if(player.allFainted() || Leader1.allFainted()){
+                break;
+            }
+        }
+
         //Ignore this
                 
         /* 
