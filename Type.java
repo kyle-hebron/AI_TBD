@@ -15,7 +15,7 @@ class Type{
 
     // The order of appearance - from left to right / top to bottom
     // Normal, Fire, Water, Grass, Electric, Ice, Fighting, 
-    //Poison, Ground, Flying, Psychic, Bug, Rock, Ghost, Gragon
+    //Poison, Ground, Flying, Psychic, Bug, Rock, Ghost, Dragon
     private double[][] type = {
         {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0, 1},      
         {1, 0.5, 0.5, 2, 1, 2, 1, 1, 1, 1, 1, 2, 0.5, 1, 0.5},     
