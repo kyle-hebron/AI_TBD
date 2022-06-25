@@ -65,15 +65,21 @@ public class Battle {
 
                      if(a == 0){
                          enemyCurrent.setHealth(damage);
-                    System.out.println(currentPokemon.name + " used " + currentPokemon.moveList[i - 1].getName() + " dealing " + damage);
-                    System.out.println(enemyCurrent.getName() + " has " + enemyCurrent.getCurrHP() + " out of " + enemyCurrent.getHP());
+                         System.out.println(currentPokemon.name + " used " + currentPokemon.moveList[i - 1].getName() + " dealing " + damage);
+                          System.out.println(enemyCurrent.getName() + " has " + enemyCurrent.getCurrHP() + " out of " + enemyCurrent.getHP());
 
-                    //Check to see if pokemon fainted
-                    if(currentPokemon.isFainted()){
+                         //Check to see if pokemon fainted
+                         if(currentPokemon.isFainted()){
                         System.out.println("The pokemon (YOU) has fainted");
                     }
                      }else{
+                        currentPokemon.setHealth(endamage);
+                        System.out.println(enemyCurrent.name + " used " + enemyCurrent.moveList[i - 1].getName() + " dealing " + endamage);
+                        System.out.println(currentPokemon.getName() + " has " + currentPokemon.getCurrHP() + " out of " + currentPokemon.getHP());
 
+                        if(enemyCurrent.isFainted()){
+                        System.out.println("The pokemon (PC) has fainted");
+                    }
                      }
       
                 }
