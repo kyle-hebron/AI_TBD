@@ -81,7 +81,7 @@ public class PokemonAI{
         Battle currentBattle = new Battle(player, Leader1);
 
         currentBattle.chooseOption();
-        
+        //while 
                 
         //Ignore this
                 
