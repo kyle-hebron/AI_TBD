@@ -125,7 +125,7 @@ public class PokemonAI{
 
         //Initialize Teams
         PokemonTeam player = new PokemonTeam("player");
-
+        
         PokemonTeam Leader1 = new PokemonTeam("Leader1");
         PokemonTeam Leader2 = new PokemonTeam("Leader2");
         PokemonTeam Leader3 = new PokemonTeam("Leader3");
