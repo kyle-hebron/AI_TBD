@@ -104,6 +104,9 @@ class Type{
         return type[typeNum][targetDEF.typeNum];
     }
     
+    public void changeTypeNum(int i) {
+        typeNum = i;
+    }
+
 }
 
-//Ignore this too
