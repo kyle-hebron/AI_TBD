@@ -69,7 +69,7 @@ public class PokemonAI{
 
     static PokemonTeam player = new PokemonTeam("player");
         
-    static PokemonTeam Leader1 = new PokemonTeam("Leader1");
+    static PokemonTeam Leader1 = new PokemonTeam("Mo");
 
     public static void main(String[] args) throws InterruptedException{
 
@@ -130,13 +130,13 @@ public class PokemonAI{
 
         //Initialize Teams
         
-        PokemonTeam Leader2 = new PokemonTeam("Leader2");
-        PokemonTeam Leader3 = new PokemonTeam("Leader3");
-        PokemonTeam Leader4 = new PokemonTeam("Leader4");
-        PokemonTeam Leader5 = new PokemonTeam("Leader5");
-        PokemonTeam Leader6 = new PokemonTeam("Leader6");
-        PokemonTeam Leader7 = new PokemonTeam("Leader7");
-        PokemonTeam Leader8 = new PokemonTeam("Leader8");
+        PokemonTeam Leader2 = new PokemonTeam("Kelly Evans");
+        PokemonTeam Leader3 = new PokemonTeam("John Noga");
+        PokemonTeam Leader4 = new PokemonTeam("Richard Lorentz");
+        PokemonTeam Leader5 = new PokemonTeam("Adam Kaplan");
+        PokemonTeam Leader6 = new PokemonTeam("Donald Trump");
+        PokemonTeam Leader7 = new PokemonTeam("Chad");
+        PokemonTeam Leader8 = new PokemonTeam("Abhishek Verma");
 
         //Generate Mon
 
