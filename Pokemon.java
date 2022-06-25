@@ -61,5 +61,9 @@ public class Pokemon{
     public double getCurrHP(){
         return currentHP;
     }
+
+    public void changeName(String name){
+        this.name = name;
+    }
     
 }

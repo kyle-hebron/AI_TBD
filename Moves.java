@@ -33,4 +33,9 @@ public class Moves {
     public String getName(){
         return moveName;
     }
+
+    public void changeMovename(String name){
+        moveName = name;
+    }
+
 }
