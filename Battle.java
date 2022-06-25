@@ -33,13 +33,15 @@ public class Battle {
             System.out.println("Please pick a move");
             i = scan.nextInt();
 
-            damage = calculateDamage(enemyCurrent.moveList[i - 1], enemyCurrent, currentPokemon);
-            currentPokemon.setHealth(damage);
-            System.out.println(enemyCurrent.name + " used " + enemyCurrent.moveList[i - 1].getName() + " dealing " + damage);
+            double endamage = calculateDamage(enemyCurrent.moveList[i - 1], enemyCurrent, currentPokemon);
+            currentPokemon.setHealth(endamage);
+            System.out.println(enemyCurrent.name + " used " + enemyCurrent.moveList[i - 1].getName() + " dealing " + endamage);
             System.out.println(currentPokemon.getName() + " has " + currentPokemon.getCurrHP() + " out of " + currentPokemon.getHP());
                 //Need to call the AI here to make their move
                 //Check speed
                 //Then deal damage
+                //Check to see if pokemon fainted
+                //If fainted, cannot move
 
                 
                 
@@ -47,7 +49,7 @@ public class Battle {
     }
 
     public void switchPokemon(int i) {
-        if(userTeam.getPokemon(i) == currentPokemon) {
+        if(userTeam.getPokemon(i) == currentPokemon) {      //Check to see if pokemon being brought out is fainted
             System.out.println("Pokemon is already out");
         } else {
             currentPokemon = userTeam.getPokemon(i);
