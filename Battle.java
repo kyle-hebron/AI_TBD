@@ -49,11 +49,21 @@ public class Battle {
     }
 
     public void switchPokemon(int i) {
-        if(userTeam.getPokemon(i) == currentPokemon) {      //Check to see if pokemon being brought out is fainted
+        while(true){
+        if(userTeam.getPokemon(i) == currentPokemon) {      
             System.out.println("Pokemon is already out");
-        } else {
-            currentPokemon = userTeam.getPokemon(i);
+        } if(userTeam.getPokemon(i).isFainted())  {
+            System.out.println("Pokemon is fainted");
         }
+            else {
+            currentPokemon = userTeam.getPokemon(i);
+            break;
+        } 
+    }
+        Scanner scan = new Scanner(System.in);
+        int a = scan.nextInt();
+        double damage = calculateDamage(enemyCurrent.moveList[i - 1], enemyCurrent, currentPokemon);
+        currentPokemon.setHealth(damage);
 
     }
 
@@ -91,15 +101,6 @@ public class Battle {
         //the type of the target pokemon
         defType = defender.getPokeType();
 
-    
-        if(atkType.getEffectiveness(defType) == 1) {
-            multiplier = 2.0;
-        } else if(atkType.getEffectiveness(defType) == 2) {
-            multiplier = 0.5;
-        } else if(atkType.getEffectiveness(defType) == 3) {
-            multiplier = 0.0;
-        }
-        
         return atkType.getEffectiveness(defType);
     }
 
