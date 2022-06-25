@@ -67,6 +67,10 @@ public class PokemonAI{
     }
     */
 
+    static PokemonTeam player = new PokemonTeam("player");
+        
+    static PokemonTeam Leader1 = new PokemonTeam("Leader1");
+
     public static void main(String[] args) throws InterruptedException{
 
         // Scanner scan = new Scanner(System.in);
@@ -74,8 +78,9 @@ public class PokemonAI{
         // double damage = 0.0;
         //Function to generate the player's team and all 8 Leaders' teams
         generateTeams();
+        Battle currentBattle = new Battle(player, Leader1);
 
-        //currentBattle.chooseOption();
+        currentBattle.chooseOption();
         
                 
         //Ignore this
@@ -124,9 +129,7 @@ public class PokemonAI{
         Type dragon = new Type(14);
 
         //Initialize Teams
-        PokemonTeam player = new PokemonTeam("player");
         
-        PokemonTeam Leader1 = new PokemonTeam("Leader1");
         PokemonTeam Leader2 = new PokemonTeam("Leader2");
         PokemonTeam Leader3 = new PokemonTeam("Leader3");
         PokemonTeam Leader4 = new PokemonTeam("Leader4");

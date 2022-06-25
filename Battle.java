@@ -97,7 +97,7 @@ public class Battle {
             multiplier = 0.0;
         }
         
-        return multiplier;
+        return atkType.getEffectiveness(defType);
     }
 
     //damage multiplier based off of attacker's ATK stat and defender's DEF stat
