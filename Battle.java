@@ -54,6 +54,7 @@ public class Battle {
         } else {
             currentPokemon = userTeam.getPokemon(i);
         }
+
     }
 
     //damage calculator (STAB and critical hit included) //Added accuracy check -Kyle
