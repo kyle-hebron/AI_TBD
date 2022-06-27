@@ -26,22 +26,63 @@ public class Battle {
             int i = scan.nextInt();
             double damage = calculateDamage(currentPokemon.moveList[i - 1], currentPokemon, enemyCurrent);
             
-            enemyCurrent.setHealth(damage);
+            //enemyCurrent.setHealth(damage);
             
-            System.out.println(currentPokemon.name + " used " + currentPokemon.moveList[i - 1].getName() + " dealing " + damage);
-            System.out.println(enemyCurrent.getName() + " has " + enemyCurrent.getCurrHP() + " out of " + enemyCurrent.getHP());
+            // System.out.println(currentPokemon.name + " used " + currentPokemon.moveList[i - 1].getName() + " dealing " + damage);
+            // System.out.println(enemyCurrent.getName() + " has " + enemyCurrent.getCurrHP() + " out of " + enemyCurrent.getHP());
             System.out.println("Please pick a move");
             i = scan.nextInt();
 
             double endamage = calculateDamage(enemyCurrent.moveList[i - 1], enemyCurrent, currentPokemon);
-            currentPokemon.setHealth(endamage);
-            System.out.println(enemyCurrent.name + " used " + enemyCurrent.moveList[i - 1].getName() + " dealing " + endamage);
-            System.out.println(currentPokemon.getName() + " has " + currentPokemon.getCurrHP() + " out of " + currentPokemon.getHP());
+            //currentPokemon.setHealth(endamage);
+            // System.out.println(enemyCurrent.name + " used " + enemyCurrent.moveList[i - 1].getName() + " dealing " + endamage);
+            // System.out.println(currentPokemon.getName() + " has " + currentPokemon.getCurrHP() + " out of " + currentPokemon.getHP());
                 //Need to call the AI here to make their move
+                //ask to fight or switch
                 //Check speed
-                //Then deal damage
-                //Check to see if pokemon fainted
-                //If fainted, cannot move
+                if(currentPokemon.getSpd() > enemyCurrent.getSpd()){
+                    //Then deal damage
+                    enemyCurrent.setHealth(damage);
+                    System.out.println(currentPokemon.name + " used " + currentPokemon.moveList[i - 1].getName() + " dealing " + damage);
+                    System.out.println(enemyCurrent.getName() + " has " + enemyCurrent.getCurrHP() + " out of " + enemyCurrent.getHP());
+
+                    //Check to see if pokemon fainted
+                    if(currentPokemon.isFainted()){
+                        System.out.println("The pokemon (YOU) has fainted");
+                    }
+
+                }else if(currentPokemon.getSpd() < enemyCurrent.getSpd()){
+                    currentPokemon.setHealth(endamage);
+                    System.out.println(enemyCurrent.name + " used " + enemyCurrent.moveList[i - 1].getName() + " dealing " + endamage);
+                    System.out.println(currentPokemon.getName() + " has " + currentPokemon.getCurrHP() + " out of " + currentPokemon.getHP());
+
+                    if(enemyCurrent.isFainted()){
+                        System.out.println("The pokemon (PC) has fainted");
+                    }
+                }else if(currentPokemon.getSpd() == enemyCurrent.getSpd()){
+                     Random rand = new Random();
+                     int a = rand.nextInt(2);
+
+                     if(a == 0){
+                         enemyCurrent.setHealth(damage);
+                         System.out.println(currentPokemon.name + " used " + currentPokemon.moveList[i - 1].getName() + " dealing " + damage);
+                          System.out.println(enemyCurrent.getName() + " has " + enemyCurrent.getCurrHP() + " out of " + enemyCurrent.getHP());
+
+                         //Check to see if pokemon fainted
+                         if(currentPokemon.isFainted()){
+                        System.out.println("The pokemon (YOU) has fainted");
+                    }
+                     }else{
+                        currentPokemon.setHealth(endamage);
+                        System.out.println(enemyCurrent.name + " used " + enemyCurrent.moveList[i - 1].getName() + " dealing " + endamage);
+                        System.out.println(currentPokemon.getName() + " has " + currentPokemon.getCurrHP() + " out of " + currentPokemon.getHP());
+
+                        if(enemyCurrent.isFainted()){
+                        System.out.println("The pokemon (PC) has fainted");
+                    }
+                     }
+      
+                }
 
                 
                 
@@ -60,9 +101,23 @@ public class Battle {
             break;
         } 
     }
+        if(userTeam.getPokemon(i) == currentPokemon) {      //Check to see if pokemon being brought out is fainted
+             while(true){
+        if(userTeam.getPokemon(i) == currentPokemon) {      
+            System.out.println("Pokemon is already out");
+        } 
+        
+         if(userTeam.getPokemon(i).isFainted())  {
+            System.out.println("Pokemon is fainted");
+        } else {
+            currentPokemon = userTeam.getPokemon(i);
+            break;
+            }
+        }
+        }
         Scanner scan = new Scanner(System.in);
         int a = scan.nextInt();
-        double damage = calculateDamage(enemyCurrent.moveList[i - 1], enemyCurrent, currentPokemon);
+        double damage = calculateDamage(enemyCurrent.moveList[a - 1], enemyCurrent, currentPokemon);
         currentPokemon.setHealth(damage);
 
     }
