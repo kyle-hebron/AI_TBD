@@ -79,7 +79,7 @@ public class PokemonAI{
         //Function to generate the player's team and all 8 Leaders' teams
         generateTeams();
         Battle currentBattle = new Battle(player, Leader1);
-
+        
         //while 
         while(!player.allFainted() && !Leader1.allFainted()){
             System.out.println("play (YOU)[10] or switch (YOU)[20]?");
@@ -118,7 +118,7 @@ public class PokemonAI{
         }
 
         //Ignore this
-                
+
         /* 
         System.out.println("Hello there! Welcome to the world of POKEMON! My name is OAK! People call me the POKEMON PROF!");
         Thread.sleep(2000);
