@@ -67,57 +67,53 @@ public class PokemonAI{
     }
     */
 
+
+
     static PokemonTeam player = new PokemonTeam("player");
         
     static PokemonTeam Leader1 = new PokemonTeam("Mo");
+    static PokemonTeam Leader2 = new PokemonTeam("Kelly Evans");
+    static PokemonTeam Leader3 = new PokemonTeam("John Noga");
+    static PokemonTeam Leader4 = new PokemonTeam("Richard Lorentz");
+    static PokemonTeam Leader5 = new PokemonTeam("Adam Kaplan");
+    static PokemonTeam Leader6 = new PokemonTeam("Donald Trump");
+    static PokemonTeam Leader7 = new PokemonTeam("Chad");
+    static PokemonTeam Leader8 = new PokemonTeam("Abhishek Verma");
 
     public static void main(String[] args) throws InterruptedException{
 
-        Scanner scan = new Scanner(System.in);
+       
+
+        
         // String name, rival;
         // double damage = 0.0;
         //Function to generate the player's team and all 8 Leaders' teams
         generateTeams();
-        Battle currentBattle = new Battle(player, Leader1);
         
-        //while 
-        while(!player.allFainted() && !Leader1.allFainted()){
-            System.out.println("play (YOU)[10] or switch (YOU)[20]?");
-            int playOp = scan.nextInt();
+        doBattle(new Battle(player, Leader1));
+        player.healAll();
+        System.out.println("Continue to " + Leader2.trainerName);
+        doBattle(new Battle(player, Leader2));
+        player.healAll();
 
-            System.out.println("play (PC)[10] or switch (PC)[20]?");
-            int pcOp = scan.nextInt();
+        doBattle(new Battle(player, Leader3));
+        player.healAll();
 
-            // YOUr move
-            if(playOp == 10){ 
-                 currentBattle.chooseOption();
-            }
+        doBattle(new Battle(player, Leader4));
+        player.healAll();
 
-            // PC's move
-            if(pcOp == 10){
-                 currentBattle.chooseOption();
-            } 
-            
-            // YOUr fighter
-            if(playOp == 20){
-                System.out.println("Choose your Pokemon.");
-                int choosePlyr = scan.nextInt();
-                currentBattle.switchPokemon(choosePlyr);
-            }
+        doBattle(new Battle(player, Leader5));
+        player.healAll();
 
-            // PC's fighter
-            if(playOp == 20){
-                System.out.println("Choose PC's Pokemon.");
-                int choosePlyr = scan.nextInt();
-                currentBattle.switchPokemon(choosePlyr);
-            }
+        doBattle(new Battle(player, Leader6));
+        player.healAll();
 
-            if(player.allFainted() || Leader1.allFainted()){
-                break;
-            }
-        }
+        doBattle(new Battle(player, Leader7));
+        player.healAll();
 
-        //Ignore this
+        doBattle(new Battle(player, Leader8));
+        player.healAll();
+
 
         /* 
         System.out.println("Hello there! Welcome to the world of POKEMON! My name is OAK! People call me the POKEMON PROF!");
@@ -144,6 +140,61 @@ public class PokemonAI{
         */
 
     }
+
+    public static void printBattle(Battle currentBattle){
+        Pokemon userPoke = currentBattle.currentPokemon;
+        Pokemon enemyPoke = currentBattle.enemyCurrent;
+        System.out.println("---------------------");
+        System.out.println(userPoke.getName());
+        
+        System.out.println(userPoke.getCurrHP() + "/" + userPoke.getHP());
+        System.out.println("---------------------");
+        System.out.println(enemyPoke.getName());
+        
+        System.out.println(enemyPoke.getCurrHP() + "/" + enemyPoke.getHP());
+        System.out.println("---------------------");
+    }
+
+    public static void doBattle(Battle currentBattle){
+        Scanner scan = new Scanner(System.in);
+        while(!player.allFainted() && !Leader1.allFainted()){
+            printBattle(currentBattle);
+            System.out.println("play (YOU)[10] or switch (YOU)[20]?");
+            int playOp = scan.nextInt();
+            /* 
+            System.out.println("play (PC)[10] or switch (PC)[20]?");
+            int pcOp = scan.nextInt();
+            */
+            // YOUr move
+            if(playOp == 10){ 
+                 currentBattle.chooseMove();
+            }
+            /* 
+            // PC's move
+            if(pcOp == 10){
+                 currentBattle.chooseMove();
+            } 
+            */
+            // YOUr fighter
+            if(playOp == 20){
+                System.out.println("Choose your Pokemon.");
+                
+                currentBattle.switchPokemon();
+            }
+            /* 
+            // PC's fighter
+            if(playOp == 20){
+                System.out.println("Choose PC's Pokemon.");
+                
+                currentBattle.switchPokemon();
+            }
+            */
+            if(player.allFainted() || Leader1.allFainted()){
+                break;
+            }
+        }
+    }
+
     static void generateTeams(){
         //create Types? not sure if we still need this but did it anyway -- sam
         Type normal = new Type(0);
@@ -164,13 +215,7 @@ public class PokemonAI{
 
         //Initialize Teams
         
-        PokemonTeam Leader2 = new PokemonTeam("Kelly Evans");
-        PokemonTeam Leader3 = new PokemonTeam("John Noga");
-        PokemonTeam Leader4 = new PokemonTeam("Richard Lorentz");
-        PokemonTeam Leader5 = new PokemonTeam("Adam Kaplan");
-        PokemonTeam Leader6 = new PokemonTeam("Donald Trump");
-        PokemonTeam Leader7 = new PokemonTeam("Chad");
-        PokemonTeam Leader8 = new PokemonTeam("Abhishek Verma");
+        
 
         //Generate Mon
 

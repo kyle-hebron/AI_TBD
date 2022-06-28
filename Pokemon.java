@@ -65,5 +65,12 @@ public class Pokemon{
     public void changeName(String name){
         this.name = name;
     }
+
+    public void printMoves(){
+        for(int i = 0; i < 4; i++){
+            int k = i + 1;
+            System.out.println(k + ": " + moveList[i].getName());
+        }
+    }
     
 }

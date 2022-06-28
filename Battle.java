@@ -7,39 +7,36 @@ public class Battle {
     PokemonTeam enemyTeam;
     Pokemon currentPokemon;
     Pokemon enemyCurrent;
+    int ntemp = 0;
+    int utemp = 0;
 
     public Battle(PokemonTeam userTeam, PokemonTeam enemyTeam) {
         
         this.userTeam = userTeam;
         this.enemyTeam = enemyTeam;
-        currentPokemon = userTeam.getPokemon(1);
+        currentPokemon = userTeam.getPokemon(0);
         enemyCurrent = enemyTeam.getPokemon(0);
     }
 
     
-    public void chooseOption(){ //Maybe have this for the main to call -Kyle
+    public void chooseMove(){ //Maybe have this for the main to call -Kyle
         Scanner scan = new Scanner(System.in);
         
 
-        
+            currentPokemon.printMoves();;
             System.out.println("Please pick a move");
             int i = scan.nextInt();
             double damage = calculateDamage(currentPokemon.moveList[i - 1], currentPokemon, enemyCurrent);
             
-            //enemyCurrent.setHealth(damage);
-            
-            // System.out.println(currentPokemon.name + " used " + currentPokemon.moveList[i - 1].getName() + " dealing " + damage);
-            // System.out.println(enemyCurrent.getName() + " has " + enemyCurrent.getCurrHP() + " out of " + enemyCurrent.getHP());
+
+            /* 
             System.out.println("Please pick a move");
             i = scan.nextInt();
-
-            double endamage = calculateDamage(enemyCurrent.moveList[i - 1], enemyCurrent, currentPokemon);
-            //currentPokemon.setHealth(endamage);
-            // System.out.println(enemyCurrent.name + " used " + enemyCurrent.moveList[i - 1].getName() + " dealing " + endamage);
-            // System.out.println(currentPokemon.getName() + " has " + currentPokemon.getCurrHP() + " out of " + currentPokemon.getHP());
-                //Need to call the AI here to make their move
-                //ask to fight or switch
-                //Check speed
+        */
+            Random tempRand = new Random();
+            int temp = tempRand.nextInt(4) + 1;
+            double endamage = calculateDamage(enemyCurrent.moveList[temp - 1], enemyCurrent, currentPokemon);
+            
                 if(currentPokemon.getSpd() > enemyCurrent.getSpd()){
                     //Then deal damage
                     enemyCurrent.setHealth(damage);
@@ -47,38 +44,123 @@ public class Battle {
                     System.out.println(enemyCurrent.getName() + " has " + enemyCurrent.getCurrHP() + " out of " + enemyCurrent.getHP());
 
                     //Check to see if pokemon fainted
-                    if(currentPokemon.isFainted()){
-                        System.out.println("The pokemon (YOU) has fainted");
+                    if(enemyCurrent.isFainted()){
+                        if(enemyTeam.allFainted()){     //Checks to see if enemy has all fainted pokemon
+                            System.out.println("Congrats! You have defeated " + enemyTeam.trainerName);
+                            return;
+                        }  else {       //Switches out for the next pokemon in the party
+                            enemyCurrent = enemyTeam.getPokemon(++ntemp);
+                            System.out.println(enemyTeam.trainerName + " has brought out " + enemyCurrent.getName());
+                        }
+                    } else {    //If the pokemon has not fainted, enemy deals damage to user
+                        currentPokemon.setHealth(endamage);
+                        System.out.println(enemyCurrent.name + " used " + enemyCurrent.moveList[i - 1].getName() + " dealing " + endamage);
+                        System.out.println(currentPokemon.getName() + " has " + currentPokemon.getCurrHP() + " out of " + currentPokemon.getHP());
+                        if(currentPokemon.isFainted()){ //If user fainted, switches pokemon
+                            if(userTeam.allFainted()){
+                                System.out.println("You have been defeated. :( Sucks to suck");
+                                return;
+                            }  else {
+                                switchPokemon();
+                            }
+                        } 
+                        
                     }
 
-                }else if(currentPokemon.getSpd() < enemyCurrent.getSpd()){
+                    
+
+                }
+                
+                else if(currentPokemon.getSpd() < enemyCurrent.getSpd()){
                     currentPokemon.setHealth(endamage);
                     System.out.println(enemyCurrent.name + " used " + enemyCurrent.moveList[i - 1].getName() + " dealing " + endamage);
                     System.out.println(currentPokemon.getName() + " has " + currentPokemon.getCurrHP() + " out of " + currentPokemon.getHP());
 
-                    if(enemyCurrent.isFainted()){
-                        System.out.println("The pokemon (PC) has fainted");
+                    if(currentPokemon.isFainted()){     //Checls to see if user pokemon has fainted
+                        if(userTeam.allFainted()){
+                            System.out.println("You have been defeated. :( Sucks to suck");
+                            return;
+                        }  else {       //If user fainted, switches pokemon
+                            switchPokemon();
+                        }
+                    } else {
+                        enemyCurrent.setHealth(damage);
+                        System.out.println(currentPokemon.name + " used " + currentPokemon.moveList[i - 1].getName() + " dealing " + damage);
+                        System.out.println(enemyCurrent.getName() + " has " + enemyCurrent.getCurrHP() + " out of " + enemyCurrent.getHP());
+                        if(enemyCurrent.isFainted()){
+                            if(enemyTeam.allFainted()){     //Checks to see if enemy has all fainted pokemon
+                                System.out.println("Congrats! You have defeated " + enemyTeam.trainerName);
+                                return;
+                            }  else {       //Switches out for the next pokemon in the party
+                                enemyCurrent = enemyTeam.getPokemon(++ntemp);
+                                System.out.println(enemyTeam.trainerName + " has brought out " + enemyCurrent.getName());
+                            }
+                        }
                     }
-                }else if(currentPokemon.getSpd() == enemyCurrent.getSpd()){
+                }
+                
+                else if(currentPokemon.getSpd() == enemyCurrent.getSpd()){
                      Random rand = new Random();
                      int a = rand.nextInt(2);
 
-                     if(a == 0){
+                     if(a == 0){            //User attacks first
                          enemyCurrent.setHealth(damage);
                          System.out.println(currentPokemon.name + " used " + currentPokemon.moveList[i - 1].getName() + " dealing " + damage);
                           System.out.println(enemyCurrent.getName() + " has " + enemyCurrent.getCurrHP() + " out of " + enemyCurrent.getHP());
 
                          //Check to see if pokemon fainted
-                         if(currentPokemon.isFainted()){
-                        System.out.println("The pokemon (YOU) has fainted");
-                    }
-                     }else{
+                         if(enemyCurrent.isFainted()){
+                            if(enemyTeam.allFainted()){
+                                System.out.println("You have been defeated. :( Sucks to suck");
+                                return;
+                            }  else {
+                                if(enemyTeam.allFainted()){
+                                    System.out.println("Congrats! You have defeated " + enemyTeam.trainerName);
+                                    return;
+                                }  else {
+                                    enemyCurrent = enemyTeam.getPokemon(++ntemp);
+                                    System.out.println(enemyTeam.trainerName + " has brought out " + enemyCurrent.getName());
+                                }
+                            }
+                    } else {
+                        currentPokemon.setHealth(endamage);
+                        System.out.println(enemyCurrent.name + " used " + enemyCurrent.moveList[i - 1].getName() + " dealing " + endamage);
+                        System.out.println(currentPokemon.getName() + " has " + currentPokemon.getCurrHP() + " out of " + currentPokemon.getHP());}
+                        if(currentPokemon.isFainted()){ //If user fainted, switches pokemon
+                            if(userTeam.allFainted()){
+                                System.out.println("You have been defeated. :( Sucks to suck");
+                                return;
+                            }  else {
+                                switchPokemon();
+                            }
+                        } 
+                     } 
+                     
+                     else {           //Enemy attacks first
                         currentPokemon.setHealth(endamage);
                         System.out.println(enemyCurrent.name + " used " + enemyCurrent.moveList[i - 1].getName() + " dealing " + endamage);
                         System.out.println(currentPokemon.getName() + " has " + currentPokemon.getCurrHP() + " out of " + currentPokemon.getHP());
 
+                        if(currentPokemon.isFainted()){
+                            if(userTeam.allFainted()){
+                                System.out.println("You have been defeated. :( Sucks to suck");
+                                return;
+                            }  else {
+                                switchPokemon();
+                            }
+                    } else {
+                        enemyCurrent.setHealth(damage);
+                        System.out.println(currentPokemon.name + " used " + currentPokemon.moveList[i - 1].getName() + " dealing " + damage);
+                        System.out.println(enemyCurrent.getName() + " has " + enemyCurrent.getCurrHP() + " out of " + enemyCurrent.getHP());
                         if(enemyCurrent.isFainted()){
-                        System.out.println("The pokemon (PC) has fainted");
+                            if(enemyTeam.allFainted()){
+                                System.out.println("Congrats! You have defeated " + enemyTeam.trainerName);
+                                return;
+                            }  else {
+                                enemyCurrent = enemyTeam.getPokemon(++ntemp);
+                                System.out.println(enemyTeam.trainerName + " has brought out " + enemyCurrent.getName());
+                            }
+                        }
                     }
                      }
       
@@ -89,18 +171,26 @@ public class Battle {
           
     }
 
-    public void switchPokemon(int i) {
+    public void switchPokemon() {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Which pokemon would you like to switch out?");
+        userTeam.printTeam();
+        int i = scan.nextInt();
+        i--;
         while(true){
         if(userTeam.getPokemon(i) == currentPokemon) {      
-            System.out.println("Pokemon is already out");
+            System.out.println("Pokemon is already out, please pick another pokemon");
+            i = scan.nextInt();
         } if(userTeam.getPokemon(i).isFainted())  {
-            System.out.println("Pokemon is fainted");
+            System.out.println("Pokemon is fainted, please pick another pokemon");
+            i = scan.nextInt();
         }
             else {
             currentPokemon = userTeam.getPokemon(i);
             break;
         } 
     }
+    /* 
         if(userTeam.getPokemon(i) == currentPokemon) {      //Check to see if pokemon being brought out is fainted
              while(true){
         if(userTeam.getPokemon(i) == currentPokemon) {      
@@ -114,12 +204,39 @@ public class Battle {
             break;
             }
         }
+        */
+
+        Random rand = new Random();
+        int temp = rand.nextInt(4) + 1;
+        double endamage = calculateDamage(enemyCurrent.moveList[temp - 1], enemyCurrent, currentPokemon);
+        currentPokemon.setHealth(endamage);
+        System.out.println(enemyCurrent.name + " used " + enemyCurrent.moveList[i - 1].getName() + " dealing " + endamage);
+        System.out.println(currentPokemon.getName() + " has " + currentPokemon.getCurrHP() + " out of " + currentPokemon.getHP());
+
+        if(currentPokemon.isFainted()){
+            if(userTeam.allFainted()){
+                System.out.println("You have been defeated. :( Sucks to suck");
+                return;
+            }  else {
+                switchPokemon();
+            }
         }
+        }
+        
+        /* 
         Scanner scan = new Scanner(System.in);
         int a = scan.nextInt();
         double damage = calculateDamage(enemyCurrent.moveList[a - 1], enemyCurrent, currentPokemon);
         currentPokemon.setHealth(damage);
+        */
+    
 
+    public void damage(Pokemon offense, Pokemon defense, Moves move){       //Used to calculate damage after switch
+
+    }
+
+    public void switchEnemy(int i) {            //Used for AI
+        enemyCurrent = enemyTeam.getPokemon(i);
     }
 
     //damage calculator (STAB and critical hit included) //Added accuracy check -Kyle
@@ -139,9 +256,10 @@ public class Battle {
         if(isSTAB(attackingMove, attacker))
             damage *= 1.5;
 
-        if(isCritical())
+        if(isCritical()) {
             damage *= 1.5;
-
+            System.out.println(attacker.getName() + " has crit");
+        }
         return damage;
 
     }
