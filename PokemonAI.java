@@ -79,7 +79,7 @@ public class PokemonAI{
     static PokemonTeam Leader6 = new PokemonTeam("Donald Trump");
     static PokemonTeam Leader7 = new PokemonTeam("Chad");
     static PokemonTeam Leader8 = new PokemonTeam("Abhishek Verma");
-
+    static PokemonTeam[] enemyTeams = new PokemonTeam[8];
     public static void main(String[] args) throws InterruptedException{
 
        
@@ -90,30 +90,10 @@ public class PokemonAI{
         //Function to generate the player's team and all 8 Leaders' teams
         generateTeams();
         
-        doBattle(new Battle(player, Leader1));
-        player.healAll();
-        System.out.println("Continue to " + Leader2.trainerName);
-        doBattle(new Battle(player, Leader2));
-        player.healAll();
-
-        doBattle(new Battle(player, Leader3));
-        player.healAll();
-
-        doBattle(new Battle(player, Leader4));
-        player.healAll();
-
-        doBattle(new Battle(player, Leader5));
-        player.healAll();
-
-        doBattle(new Battle(player, Leader6));
-        player.healAll();
-
-        doBattle(new Battle(player, Leader7));
-        player.healAll();
-
-        doBattle(new Battle(player, Leader8));
-        player.healAll();
-
+        for(int i = 0; i < 8; i++) {
+            //player.healAll();
+            doBattle(new Battle(player, enemyTeams[i]));
+        }
 
         /* 
         System.out.println("Hello there! Welcome to the world of POKEMON! My name is OAK! People call me the POKEMON PROF!");
@@ -282,6 +262,7 @@ public class PokemonAI{
         Leader1.insertPokemon(sandshrew);
         Leader1.insertPokemon(onix);
 
+        enemyTeams[0] = Leader1;
 //LEADER 2
         //Pidgeot, Leader 2
         Pokemon pidgeot = new Pokemon("Pidgeot", 307, 196, 186, 238, 9);
@@ -315,6 +296,8 @@ public class PokemonAI{
         Leader2.insertPokemon(hitmonchan);
         Leader2.insertPokemon(electabuzz);
 
+        enemyTeams[1] = Leader2;
+
 //LEADER 3
         //Flareon, Leader 3
         Pokemon flareon = new Pokemon("Flareon", 271, 296, 256, 166, 1);
@@ -344,6 +327,8 @@ public class PokemonAI{
         Leader3.insertPokemon(jolteon);
         Leader3.insertPokemon(vaporeon);
 
+        enemyTeams[2] = Leader3;
+
 //LEADER 4
         //Starmie, Leader 4
         Pokemon starmie = new Pokemon("Starmie", 261, 236, 206, 266, 2);
@@ -366,6 +351,8 @@ public class PokemonAI{
         Leader4.insertPokemon(starmie);
         Leader4.insertPokemon(blastoise);
         Leader4.insertPokemon(seadra);
+
+        enemyTeams[3] = Leader4;
 
 //LEADER 5
         //Magmar, Leader 5
@@ -390,6 +377,8 @@ public class PokemonAI{
         Leader5.insertPokemon(charizard);
         Leader5.insertPokemon(arcanine);
 
+        enemyTeams[4] = Leader5;
+
 //LEADER 6
         //Venusaur, Leader 6
         //Tangela, Leader 6
@@ -412,6 +401,8 @@ public class PokemonAI{
         Leader6.insertPokemon(venusaur);
         Leader6.insertPokemon(tangela);
         Leader6.insertPokemon(vileplume);
+
+        enemyTeams[5] = Leader6;
 
 //LEADER 7
         //Articuno, Leader 7
@@ -439,6 +430,8 @@ public class PokemonAI{
         Leader7.insertPokemon(moltres);
         Leader7.insertPokemon(zapdos);
 
+        enemyTeams[6] = Leader7;
+
 //LEADER 8
         //Dragonite, Leader 8
         Pokemon dragonite = new Pokemon("Dragonite", 323, 304, 236, 196, 14);
@@ -465,6 +458,8 @@ public class PokemonAI{
         Leader8.insertPokemon(dragonite);
         Leader8.insertPokemon(mew);
         Leader8.insertPokemon(mewtwo);
+
+        enemyTeams[7] = Leader8;
     }
     
 }
