@@ -25,6 +25,10 @@ public class Pokemon{
         return false;
     }
 
+    public void heal(){
+        currentHP = health;
+    }
+
     //setter method only really needed for health, other stats should remain the same (for now)
     public void setHealth(double damage) {
         currentHP = currentHP - damage;

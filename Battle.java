@@ -61,7 +61,7 @@ public class Battle {
                                 System.out.println("You have been defeated. :( Sucks to suck");
                                 return;
                             }  else {
-                                switchPokemon();
+                                faintedPokemonSwap();
                             }
                         } 
                         
@@ -81,7 +81,7 @@ public class Battle {
                             System.out.println("You have been defeated. :( Sucks to suck");
                             return;
                         }  else {       //If user fainted, switches pokemon
-                            switchPokemon();
+                            faintedPokemonSwap();
                         }
                     } else {
                         enemyCurrent.setHealth(damage);
@@ -131,7 +131,7 @@ public class Battle {
                                 System.out.println("You have been defeated. :( Sucks to suck");
                                 return;
                             }  else {
-                                switchPokemon();
+                                faintedPokemonSwap();
                             }
                         } 
                      } 
@@ -146,7 +146,7 @@ public class Battle {
                                 System.out.println("You have been defeated. :( Sucks to suck");
                                 return;
                             }  else {
-                                switchPokemon();
+                                faintedPokemonSwap();
                             }
                     } else {
                         enemyCurrent.setHealth(damage);
@@ -176,17 +176,17 @@ public class Battle {
         System.out.println("Which pokemon would you like to switch out?");
         userTeam.printTeam();
         int i = scan.nextInt();
-        i--;
+        
         while(true){
-        if(userTeam.getPokemon(i) == currentPokemon) {      
+        if(userTeam.getPokemon(i - 1) == currentPokemon) {      
             System.out.println("Pokemon is already out, please pick another pokemon");
             i = scan.nextInt();
-        } if(userTeam.getPokemon(i).isFainted())  {
+        } if(userTeam.getPokemon(i - 1).isFainted())  {
             System.out.println("Pokemon is fainted, please pick another pokemon");
             i = scan.nextInt();
         }
             else {
-            currentPokemon = userTeam.getPokemon(i);
+            currentPokemon = userTeam.getPokemon(i - 1);
             break;
         } 
     }
@@ -210,7 +210,7 @@ public class Battle {
         int temp = rand.nextInt(4) + 1;
         double endamage = calculateDamage(enemyCurrent.moveList[temp - 1], enemyCurrent, currentPokemon);
         currentPokemon.setHealth(endamage);
-        System.out.println(enemyCurrent.name + " used " + enemyCurrent.moveList[i - 1].getName() + " dealing " + endamage);
+        System.out.println(enemyCurrent.name + " used " + enemyCurrent.moveList[temp- 1].getName() + " dealing " + endamage);
         System.out.println(currentPokemon.getName() + " has " + currentPokemon.getCurrHP() + " out of " + currentPokemon.getHP());
 
         if(currentPokemon.isFainted()){
@@ -218,8 +218,29 @@ public class Battle {
                 System.out.println("You have been defeated. :( Sucks to suck");
                 return;
             }  else {
-                switchPokemon();
+                faintedPokemonSwap();
             }
+        }
+        }
+
+        public void faintedPokemonSwap(){
+            Scanner scan = new Scanner(System.in);
+            System.out.println("Which pokemon would you like to switch out?");
+            userTeam.printTeam();
+            int i = scan.nextInt();
+            i--;
+            while(true){
+            if(userTeam.getPokemon(i) == currentPokemon) {      
+                System.out.println("Pokemon is already out, please pick another pokemon");
+                i = scan.nextInt();
+            } if(userTeam.getPokemon(i).isFainted())  {
+                System.out.println("Pokemon is fainted, please pick another pokemon");
+                i = scan.nextInt();
+            }
+                else {
+                currentPokemon = userTeam.getPokemon(i);
+                break;
+            } 
         }
         }
         

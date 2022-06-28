@@ -41,7 +41,7 @@ public class PokemonTeam{
 
     public void healAll(){
         for(int i = 0; i < 3; i++){
-            team.get(i).setHealth(team.get(i).getHP());
+            team.get(i).heal();
         }
     }
 
