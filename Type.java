@@ -108,5 +108,14 @@ class Type{
         typeNum = i;
     }
 
+    public boolean isNotEffective(Pokemon enemy, Pokemon user){
+        int enemyType = enemy.getPokeType().getTypeNum();
+        int userType = user.getPokeType().getTypeNum();
+        if(type[userType][enemyType] == .5 || type[userType][enemyType] == 0){
+            return true;
+        }
+        return true;
+    }
+
 }
 
