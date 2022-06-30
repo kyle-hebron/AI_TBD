@@ -15,14 +15,17 @@ public class Pokemon{
         this.attack = attack;
         this.defense = defense;
         this.speed = speed;
-        pokeType = new Type(typeNum);
-       
+        pokeType = new Type(typeNum); 
     }
     
     public boolean isFainted(){
         if(currentHP == 0)
             return true;
         return false;
+    }
+
+    public void heal(){
+        currentHP = health;
     }
 
     //setter method only really needed for health, other stats should remain the same (for now)
@@ -61,9 +64,23 @@ public class Pokemon{
     public double getCurrHP(){
         return currentHP;
     }
+    
+    // public Moves getMoves(){ 
+
+    //     return moveList;
+    // }
 
     public void changeName(String name){
         this.name = name;
+    }
+
+    
+
+    public void printMoves(){
+        for(int i = 0; i < 4; i++){
+            int k = i + 1;
+            System.out.println(k + ": " + moveList[i].getName());
+        }
     }
     
 }

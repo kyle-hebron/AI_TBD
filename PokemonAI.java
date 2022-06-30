@@ -2,7 +2,7 @@ import java.util.*;
 
 
 public class PokemonAI{
-
+ 
     //Battle AI needs to determine how to attack, or switch pokemon
 
     /*
@@ -67,19 +67,57 @@ public class PokemonAI{
     }
     */
 
+
+
+    static PokemonTeam player = new PokemonTeam("player");
+        
+    static PokemonTeam Leader1 = new PokemonTeam("Mo");
+    static PokemonTeam Leader2 = new PokemonTeam("Kelly Evans");
+    static PokemonTeam Leader3 = new PokemonTeam("John Noga");
+    static PokemonTeam Leader4 = new PokemonTeam("Richard Lorentz");
+    static PokemonTeam Leader5 = new PokemonTeam("Adam Kaplan");
+    static PokemonTeam Leader6 = new PokemonTeam("Donald Trump");
+    static PokemonTeam Leader7 = new PokemonTeam("Chad");
+    static PokemonTeam Leader8 = new PokemonTeam("Abhishek Verma");
+    
     public static void main(String[] args) throws InterruptedException{
 
-        // Scanner scan = new Scanner(System.in);
+       
+
+        
         // String name, rival;
         // double damage = 0.0;
         //Function to generate the player's team and all 8 Leaders' teams
         generateTeams();
-
-        //currentBattle.chooseOption();
         
-                
-        //Ignore this
-                
+        doBattle(new Battle(player, Leader1));
+        player.healAll();
+        System.out.println("Continue to " + Leader2.trainerName);
+        doBattle(new Battle(player, Leader2));
+        player.healAll();
+
+        doBattle(new Battle(player, Leader3));
+        player.healAll();
+
+        doBattle(new Battle(player, Leader4));
+        player.healAll();
+
+        doBattle(new Battle(player, Leader5));
+        player.healAll();
+
+        doBattle(new Battle(player, Leader6));
+        player.healAll();
+
+        doBattle(new Battle(player, Leader7));
+        player.healAll();
+
+        doBattle(new Battle(player, Leader8));
+        player.healAll();
+
+
+
+
+        
         /* 
         System.out.println("Hello there! Welcome to the world of POKEMON! My name is OAK! People call me the POKEMON PROF!");
         Thread.sleep(2000);
@@ -105,6 +143,129 @@ public class PokemonAI{
         */
 
     }
+
+     public double calcMonHVal(Pokemon monToCheck, Pokemon oppMon){
+	    double monHVal = 0; //initialize placeholder for caluclating the hvalue of target mon
+		double hpHVal = 0; //intended to calculate a hval based on HP
+		double moveHVal = 0; //intended to give value to moveset, may need 4 moveHVals? -- sam
+		double superHVal = 0; //initialize supereffect hval component
+		
+		//monHVal will be a sum of the component hVals?
+
+		//establish HVAL for HP
+        double monHP = monToCheck.getCurrHP()/monToCheck.health; //%percentages 
+        double oppHP = oppMon.getCurrHP()/oppMon.health;
+		
+		hpHVal = monHP/oppHP; //placeholder, idk
+		
+        //establish numerical value for type advantage (not sure on this one)
+        int monType = monToCheck.getPokeType().getTypeNum();
+        int oppType = oppMon.getPokeType().getTypeNum();
+
+        Type t = monToCheck.getPokeType();
+        //We need to look at the Type class and make sure it's set up right, this line gets an error: -- sam
+        double superEffective = Type.getEffectiveness(t);
+        //assume that function getEffectiveness() returns 0, 0.5, 1, or 2
+        if(superEffective < 2){
+            superHVal = 0; //if enemy is not supereffective, no impact to hVal
+        }else if(superEffective == 2){
+            superHVal = 2; //arbitrary placeholder value for impact of supereffectiveness
+        } 
+
+		moveHVal = calcMoveHVal(monToCheck);
+		
+		monHVal = superHVal + moveHVal + hpHVal;
+		
+		return monHVal; 
+   }
+
+   public double calcMoveHVal(Pokemon enemyCurrent){
+		//it will take into account, total HP and type effectiveness (of moves?)
+		double moveHVal = 0; //initialize
+		
+		//first get each mon's move types and powers
+        Moves[] pokeMoveTypes = new Moves[4];
+
+        Type pokeType = enemyCurrent.getPokeType();
+
+        for(int i = 0; i < 4; i++){
+            pokeMoveTypes[i] = enemyCurrent.;
+        }
+         
+		//check for supereffective move
+        if(pokeMoveNum < 2){
+            moveHVal = 0;  
+        }else if(pokeMoveNum == 2){
+            moveHVal = 2;  
+        } 
+		//check power of found supereffective move, or if none, check power of all moves 
+		//give heuristic value to each move then choose best move
+		
+		//moveHVal = damage calc / type effectiveness
+		
+		//returns the highest HVal of Pokemon's moves:
+		return moveHVal;
+	}
+
+
+
+
+
+    
+    public static void printBattle(Battle currentBattle){
+        Pokemon userPoke = currentBattle.currentPokemon;
+        Pokemon enemyPoke = currentBattle.enemyCurrent;
+        System.out.println("---------------------");
+        System.out.println(userPoke.getName());
+        
+        System.out.println(userPoke.getCurrHP() + "/" + userPoke.getHP());
+        System.out.println("---------------------");
+        System.out.println(enemyPoke.getName());
+        
+        System.out.println(enemyPoke.getCurrHP() + "/" + enemyPoke.getHP());
+        System.out.println("---------------------");
+    }
+
+    public static void doBattle(Battle currentBattle){
+        Scanner scan = new Scanner(System.in);
+        while(!player.allFainted() && !currentBattle.enemyTeam.allFainted()){
+            printBattle(currentBattle);
+            System.out.println("play (YOU)[10] or switch (YOU)[20]?");
+            int playOp = scan.nextInt();
+            /* 
+            System.out.println("play (PC)[10] or switch (PC)[20]?");
+            int pcOp = scan.nextInt();
+            */
+            // YOUr move
+            if(playOp == 10){ 
+                 currentBattle.chooseMove();
+            }
+            /* 
+            // PC's move
+            if(pcOp == 10){
+                 currentBattle.chooseMove();
+            } 
+            */
+            // YOUr fighter
+            if(playOp == 20){
+                System.out.println("Choose your Pokemon.");
+                
+                currentBattle.switchPokemon();
+            }
+            /* 
+            // PC's fighter
+            if(playOp == 20){
+                System.out.println("Choose PC's Pokemon.");
+                
+                currentBattle.switchPokemon();
+            }
+            */
+            if(player.allFainted() || currentBattle.enemyTeam.allFainted()){
+                break;
+            }
+        }
+    }
+
     static void generateTeams(){
         //create Types? not sure if we still need this but did it anyway -- sam
         Type normal = new Type(0);
@@ -124,16 +285,8 @@ public class PokemonAI{
         Type dragon = new Type(14);
 
         //Initialize Teams
-        PokemonTeam player = new PokemonTeam("player");
         
-        PokemonTeam Leader1 = new PokemonTeam("Leader1");
-        PokemonTeam Leader2 = new PokemonTeam("Leader2");
-        PokemonTeam Leader3 = new PokemonTeam("Leader3");
-        PokemonTeam Leader4 = new PokemonTeam("Leader4");
-        PokemonTeam Leader5 = new PokemonTeam("Leader5");
-        PokemonTeam Leader6 = new PokemonTeam("Leader6");
-        PokemonTeam Leader7 = new PokemonTeam("Leader7");
-        PokemonTeam Leader8 = new PokemonTeam("Leader8");
+        
 
         //Generate Mon
 
@@ -267,18 +420,18 @@ public class PokemonAI{
         Pokemon starmie = new Pokemon("Starmie", 261, 236, 206, 266, 2);
         Moves psychicMove = new Moves(90, 100, 16, "Psychic", psychic);
         Moves iceBeam = new Moves(90, 100, 16, "Ice Beam", ice);
-        flareon.insertMoves(iceBeam);
-        flareon.insertMoves(hydroPump);
-        flareon.insertMoves(psychicMove);
-        flareon.insertMoves(thunder);
+        starmie.insertMoves(iceBeam);
+        starmie.insertMoves(hydroPump);
+        starmie.insertMoves(psychicMove);
+        starmie.insertMoves(thunder);
         //Blastoise, Leader 4
         //Seadra, Leader 4
         Pokemon seadra = new Pokemon("Seadra", 251, 226, 226, 206, 2);
         Moves waterfall = new Moves(80, 100, 16, "Waterfall", water);
-        vaporeon.insertMoves(waterfall);
-        vaporeon.insertMoves(dragonPulse);
-        vaporeon.insertMoves(iceBeam);
-        vaporeon.insertMoves(hydroPump);
+        seadra.insertMoves(waterfall);
+        seadra.insertMoves(dragonPulse);
+        seadra.insertMoves(iceBeam);
+        seadra.insertMoves(hydroPump);
 
         //Leader 4
         Leader4.insertPokemon(starmie);
