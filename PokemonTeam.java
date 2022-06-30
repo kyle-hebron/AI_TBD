@@ -32,4 +32,17 @@ public class PokemonTeam{
         return true;
     }
 
+     public void printTeam(){
+        for(int i = 0; i < 3; i++){
+            int k = i + 1;
+            System.out.println(k + ": " + team.get(i).getCurrHP() + "/" + team.get(i).getHP() + ": " + team.get(i).getName());
+        }
+    }
+
+    public void healAll(){
+        for(int i = 0; i < 3; i++){
+            team.get(i).heal();
+        }
+    }
+
 }
