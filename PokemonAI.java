@@ -164,13 +164,13 @@ public class PokemonAI{
 
         Type t = monToCheck.getPokeType();
         //We need to look at the Type class and make sure it's set up right, this line gets an error: -- sam
-        double superEffective = Type.getEffectiveness(t);
+        // double superEffective = Type.getEffectiveness(t);
         //assume that function getEffectiveness() returns 0, 0.5, 1, or 2
-        if(superEffective < 2){
-            superHVal = 0; //if enemy is not supereffective, no impact to hVal
-        }else if(superEffective == 2){
-            superHVal = 2; //arbitrary placeholder value for impact of supereffectiveness
-        } 
+        // if(superEffective < 2){
+        //     superHVal = 0; //if enemy is not supereffective, no impact to hVal
+        // }else if(superEffective == 2){
+        //     superHVal = 2; //arbitrary placeholder value for impact of supereffectiveness
+        // } 
 
 		moveHVal = calcMoveHVal(monToCheck);
 		
@@ -189,15 +189,15 @@ public class PokemonAI{
         Type pokeType = enemyCurrent.getPokeType();
 
         for(int i = 0; i < 4; i++){
-            pokeMoveTypes[i] = enemyCurrent.;
+            // pokeMoveTypes[i] = enemyCurrent.;
         }
          
 		//check for supereffective move
-        if(pokeMoveNum < 2){
-            moveHVal = 0;  
-        }else if(pokeMoveNum == 2){
-            moveHVal = 2;  
-        } 
+        // if(pokeMoveNum < 2){
+        //     moveHVal = 0;  
+        // }else if(pokeMoveNum == 2){
+        //     moveHVal = 2;  
+        // } 
 		//check power of found supereffective move, or if none, check power of all moves 
 		//give heuristic value to each move then choose best move
 		
