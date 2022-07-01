@@ -67,11 +67,45 @@ static int minimax(int depth, int nodeIndex,
     public static void main (String[] args)
     {
          
-        int values[] = {1, 4, 7, 2, 5, 9, 5, 3};
+        int values[] = {3, 5, 6, 9, 1, 2, 0, -1};
         System.out.println("The optimal value is : " +
                             minimax(0, 0, true, values, MIN, MAX));
      
     }
 }
- 
-// This code is contributed by vt_m.
+	
+	
+	//Helper Functions
+	
+	//determines whether the AI should attack or switch
+	public void aiAtkOrSwitch(){
+		//calculate values for each pokemon and attack
+		int hvals[] = //blah intiialize
+		
+		for(int i = 0; i < 4; i++){
+			//populate aiChooseAtk() values in position 0 - 3
+		}
+		for(int i = 4; i < 6; i++){
+			//populate aiPokeSwitch() values in position 4 - 5
+		}
+		int res = minimax(0, 0, true, hvals, h); //broke
+		//find the position of the value of res within hvals[] in order to determine the action taken
+		//take that action
+	}
+	//which move the AI attacks with i.e. the hardcoded value at the bottom of the tree
+	public void aiChooseAtk(){
+		//consider the type of the moves versus the opp type, and the power of the move
+		//this function will calculate a single move and be used to calculate each move as needed in the algorithm
+		return //a single heuristic value
+	}
+	
+	//which Pokemon the AI switches to
+	public void aiPokeSwitch(){
+		//consider 
+		
+		return //a single heuristic value for a single pokemon in that situation
+		
+	}
+	
+	
+}
