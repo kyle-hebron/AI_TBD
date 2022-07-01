@@ -107,15 +107,13 @@ class Type{
     public void changeTypeNum(int i) {
         typeNum = i;
     }
-
-    public boolean isNotEffective(Pokemon enemy, Pokemon user){
-        int enemyType = enemy.getPokeType().getTypeNum();
+    /* 
+    public double isNotEffective(Pokemon ai, Pokemon user){
+        int enemyType = ai.getPokeType().getTypeNum();
         int userType = user.getPokeType().getTypeNum();
-        if(type[userType][enemyType] == .5 || type[userType][enemyType] == 0){
-            return true;
-        }
-        return true;
-    }
+        //return type[]
+            
+    }*/
 
 }
 
