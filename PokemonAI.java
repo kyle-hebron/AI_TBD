@@ -91,6 +91,7 @@ public class PokemonAI{
         generateTeams();
         
         doBattle(new Battle(player, Leader1));
+
         player.healAll();
         System.out.println("Continue to " + Leader2.trainerName);
         doBattle(new Battle(player, Leader2));
@@ -113,7 +114,7 @@ public class PokemonAI{
 
         doBattle(new Battle(player, Leader8));
         player.healAll();
-
+        
 
         /* 
         System.out.println("Hello there! Welcome to the world of POKEMON! My name is OAK! People call me the POKEMON PROF!");
@@ -221,7 +222,7 @@ public class PokemonAI{
 
 //PLAYER
         //Charizard, Player
-        Pokemon charizard = new Pokemon("Charizard", 359, 266, 268, 298, 1);
+        Pokemon charizard = new Pokemon("Charizard", 359, 266, 268, 1 /*298*/, 1);
         Moves fireBlast = new Moves(120, 85, 8, "Fire Blast", fire);
         Moves flamethrower = new Moves(95, 100, 24, "Flamethrower", fire);
         Moves ancientPwr = new Moves(60, 100, 8, "Ancient Power", rock);
@@ -231,7 +232,7 @@ public class PokemonAI{
         charizard.insertMoves(fly);
         charizard.insertMoves(ancientPwr);
         //Venusaur, Player
-        Pokemon venusaur = new Pokemon("Venusaur", 363, 262, 298, 258, 3);
+        Pokemon venusaur = new Pokemon("Venusaur", 363, 262, 298,1 /*258*/, 3);
         Moves earthquake = new Moves(100, 100, 16, "Earthquake", ground);
         Moves bodySlam = new Moves(85, 100, 24, "Body Slam", normal);
         Moves nrgBall = new Moves(90, 100, 16, "Energy Ball", grass);
@@ -241,7 +242,7 @@ public class PokemonAI{
         venusaur.insertMoves(nrgBall);
         venusaur.insertMoves(sludgeBomb);
         //Blastoise, Player
-        Pokemon blastoise = new Pokemon("Blastoise", 361, 264, 298, 254, 2);
+        Pokemon blastoise = new Pokemon("Blastoise", 361, 264, 298, 1/*254*/, 2);
         Moves dragonPulse = new Moves(85, 100, 16, "Dragon Pulse", dragon);
         Moves hydroPump = new Moves(110, 80, 8, "Hydro Pump", water);
         blastoise.insertMoves(bodySlam);
