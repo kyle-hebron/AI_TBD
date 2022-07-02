@@ -78,32 +78,48 @@ return (n==1)? 0 : 1 + log2(n/2);
 	//Helper Functions
 	
 	//determines whether the AI should attack or switch
-	public void aiAtkOrSwitch(){
+	public void aiAtkOrSwitch(Pokemon me, Pokemon target){
 		//calculate values for each pokemon and attack
-		int hvals[] = //blah intiialize
+		double[] hValues = new double[6];
 		
 		for(int i = 0; i < 4; i++){
-			//populate aiChooseAtk() values in position 0 - 3
+			Moves move = me.moveList[i];
+			hValues[i] = aiChooseAtk(move, target);
 		}
 		for(int i = 4; i < 6; i++){
-			//populate aiPokeSwitch() values in position 4 - 5
+			hValues[i] = aiPokeSwitch(me, target);
 		}
-		int res = minimax(0, 0, true, hvals, h); //broke
+		int res = minimax(0, 0, true, hValues, h); //broke
 		//find the position of the value of res within hvals[] in order to determine the action taken
 		//take that action
 	}
-	//which move the AI attacks with i.e. the hardcoded value at the bottom of the tree
-	public void aiChooseAtk(){
-		//consider the type of the moves versus the opp type, and the power of the move
-		//this function will calculate a single move and be used to calculate each move as needed in the algorithm
-		return //a single heuristic value
+
+	//determines a move's heuristic value in the current turn
+	public double aiChooseAtk(Moves move, Pokemon target){
+		double hValue = 0.0;
+
+		Type moveType = move.getType();
+		Type targetType = target.getPokeType();
+
+		double movePower = move.getDamage();
+		double effective = moveType.getEffectiveness(targetType);
+
+		hValue = movePower * effective;
+
+		return hValue;
 	}
 	
-	//which Pokemon the AI switches to
-	public void aiPokeSwitch(){
-		//consider 
-		
-		return //a single heuristic value for a single pokemon in that situation
+	//determines a Pokemon's heuristic value in the current turn
+	public double aiPokeSwitch(Pokemon toSwitch, Pokemon target){
+		double hValue = 1.0;
+
+		Type toSwitchType = toSwitch.getPokeType();
+		Type targetType = target.getPokeType();
+
+		//this is gonna return a very small value compared to aiChooseAtk(), need to determine how to bring up the value -MD
+		hValue = hValue * toSwitchType.getEffectiveness(targetType);
+
+		return hValue;
 		
 	}
 	
