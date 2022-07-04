@@ -20,8 +20,7 @@ public class PokemonAI{
         // double damage = 0.0;
         //Function to generate the player's team and all 8 Leaders' teams
         generateTeams();
-        Battle temp = new Battle(player, Leader1);
-        temp.test();
+        
         doBattle(new Battle(Leader1, player));
         /* 
         doBattle(new Battle(player, Leader1));
@@ -93,6 +92,7 @@ public class PokemonAI{
     public static void doBattle(Battle currentBattle){
         Scanner scan = new Scanner(System.in);
         while(!player.allFainted() && !currentBattle.enemyTeam.allFainted()){
+            currentBattle.test();
             printBattle(currentBattle);
             System.out.println("Attack by entering [1] or switch by entering [2]?");
             int playOp = scan.nextInt();
