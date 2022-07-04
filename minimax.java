@@ -106,7 +106,7 @@ static int minimax(int depth, int nodeIndex,
 		double effective = moveType.getEffectiveness(targetType);
 
 		hValue = movePower * effective;
-
+        System.out.println(hValue);
 		return hValue;
 	}
 	
@@ -119,7 +119,7 @@ static int minimax(int depth, int nodeIndex,
 
 		//this is gonna return a very small value compared to aiChooseAtk(), need to determine how to bring up the value -MD
 		hValue = hValue * toSwitchType.getEffectiveness(targetType);
-
+        System.out.println(hValue);
 		return hValue;
 		
 	}
