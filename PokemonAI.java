@@ -2,73 +2,6 @@ import java.util.*;
 
 
 public class PokemonAI{
-
-    //Battle AI needs to determine how to attack, or switch pokemon
-
-    /*
-    //Should AI have their own class? -Kyle
-    //AI checks both active pokemon on the field, their type matchup, and determines if it should stay on the field
-    public Pokemon shouldSwitch(PokemonTeam user, PokemonTeam computer) {
-        if(user.getCurrentPokemon().getPokeType().getEffectiveness() == 1) {
-            for(team size) {
-                if(any pokemon on the team are super effective against the user)
-                    switch to that pokemon
-                else if(any pokemon on the team aren't weak to the user)
-                    switch to that pokemon
-                else //i.e. all the pokemon are weak to the user
-                    switch to the pokemon with the most health
-            }
-        } else {
-            return NULL;
-        }
-    }
-
-    //AI checks the user's pokemon type, and searches for the best attack to use
-    public Moves whichAttack(PokemonTeam user, PokemonTeam computer) {
-        Type userType = user.getCurrentPokemon().getPokeType();
-        Moves[] computerMovesList = computer.getCurrentPokemon().getMovesList();
-        ArrayList<Moves> bestMoves = new ArrayList<Moves>();
-
-        //gather which moves are the best
-        for(movelist size) {
-            if(moveslist[i].getType.getEffectiveness() == 1)
-                bestMoves.add(moveslist[i]);
-        }
-
-        //if no moves are super effective, check for any neutral attacks
-        if(bestmoves.size() == 0) {
-            for(movelist size) {
-            if(moveslist[i].getType.getEffectiveness() == 0)
-                bestMoves.add(moveslist[i]);
-            }
-        }
-        //if no moves are neutral, check for any least effective attacks
-        if(bestmoves.size() == 0) {
-            for(movelist size) {
-            if(moveslist[i].getType.getEffectiveness() == 2)
-                bestMoves.add(moveslist[i]);
-            }
-        }
-        //at this point, switch pokemon or use a move
-        if(bestmoves.size() == 0) {
-            switch pokemon if possible,
-            otherwise use first available move
-        }
-
-        //out of all the moves, which deals the most damage
-        for(bestMoves.size()) {
-            if(size == 1)
-                return bestmoves.get(i);
-            else {
-                if(bestmoves.get(i).getDamage() > bestmoves.get(i + 1).getDamage())
-                    bestmoves.remove(i + 1);
-            }
-        }
-    }
-    */
-
-
-
     static PokemonTeam player = new PokemonTeam("player");
         
     static PokemonTeam Leader1 = new PokemonTeam("Mo");
@@ -80,9 +13,7 @@ public class PokemonAI{
     static PokemonTeam Leader7 = new PokemonTeam("Chad");
     static PokemonTeam Leader8 = new PokemonTeam("Abhishek Verma");
     
-    public static void main(String[] args) throws InterruptedException{
-
-       
+    public static void main(String[] args) throws InterruptedException{     
 
         
         // String name, rival;
@@ -163,14 +94,14 @@ public class PokemonAI{
         Scanner scan = new Scanner(System.in);
         while(!player.allFainted() && !currentBattle.enemyTeam.allFainted()){
             printBattle(currentBattle);
-            System.out.println("play (YOU)[10] or switch (YOU)[20]?");
+            System.out.println("Attack by entering [1] or switch by entering [2]?");
             int playOp = scan.nextInt();
             /* 
             System.out.println("play (PC)[10] or switch (PC)[20]?");
             int pcOp = scan.nextInt();
             */
             // YOUr move
-            if(playOp == 10){ 
+            if(playOp == 1){ 
                  currentBattle.chooseMove();
             }
             /* 
@@ -180,7 +111,7 @@ public class PokemonAI{
             } 
             */
             // YOUr fighter
-            if(playOp == 20){
+            if(playOp == 2){
                 System.out.println("Choose your Pokemon.");
                 
                 currentBattle.switchPokemon();
