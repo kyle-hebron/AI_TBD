@@ -65,6 +65,9 @@ public class Pokemon{
     public double getCurrHP(){
         return currentHP;
     }
+    public Moves[] getMoveList() {
+        return moveList;
+    }
 
     public void changeName(String name){
         this.name = name;
