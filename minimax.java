@@ -81,22 +81,21 @@ static int minimax(int depth, int nodeIndex,
 	//Helper Functions
 	
 	//determines whether the AI should attack or switch
-	public void aiAtkOrSwitch(Pokemon me, Pokemon target){
-		//calculate values for each pokemon and attack
-		double[] hValues = new double[6];
-		
-		for(int i = 0; i < 4; i++){
-			Moves move = me.moveList[i];
-			hValues[i] = aiChooseAtk(move, target);
-		}
-		for(int i = 4; i < 6; i++){
-			hValues[i] = aiPokeSwitch(me, target);
-		}
+    public void aiAtkOrSwitch(Pokemon me, Pokemon target){
+        //calculate values for each pokemon and attack
+        int[] hValues = new int[6];
 
-		int res = minimax(0, 0, true, hValues, MIN, MAX); //broke
-		//find the position of the value of res within hvals[] in order to determine the action taken
-		//take that action
-	}
+        for(int i = 0; i < 4; i++){
+            Moves move = me.moveList[i];
+            hValues[i] = (int)aiChooseAtk(move, target);
+        }
+        for(int i = 4; i < 6; i++){
+            hValues[i] = (int)aiPokeSwitch(me, target);
+        }
+        int res = minimax(0, 0, true, hValues, MIN, MAX); 
+        //find the position of the value of res within hvals[] in order to determine the action taken
+        //take that action
+    }
 
 	//determines a move's heuristic value in the current turn
 	public double aiChooseAtk(Moves move, Pokemon target){
