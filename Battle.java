@@ -38,8 +38,9 @@ public class Battle extends Minimax{
             i = scan.nextInt();
         */
             Random tempRand = new Random();
-            int temp = tempRand.nextInt(4) + 1;
-            double endamage = calculateDamage(enemyCurrent.moveList[aiAtkOrSwitch(enemyCurrent, currentPokemon)], enemyCurrent, currentPokemon);
+            int temp = aiAtkOrSwitch(enemyCurrent, currentPokemon);
+            if(temp < 4){
+            double endamage = calculateDamage(enemyCurrent.moveList[temp], enemyCurrent, currentPokemon);
             
                 if(currentPokemon.getSpd() > enemyCurrent.getSpd()){
                     //Then deal damage
@@ -167,7 +168,10 @@ public class Battle extends Minimax{
                         }
                     }
                      }
-      
+                    }
+                    else {
+                        //AI switched
+                    }
                 }
 
                 
@@ -194,25 +198,10 @@ public class Battle extends Minimax{
             break;
         } 
     }
-    /* 
-        if(userTeam.getPokemon(i) == currentPokemon) {      //Check to see if pokemon being brought out is fainted
-             while(true){
-        if(userTeam.getPokemon(i) == currentPokemon) {      
-            System.out.println("Pokemon is already out");
-        } 
-        
-         if(userTeam.getPokemon(i).isFainted())  {
-            System.out.println("Pokemon is fainted");
-        } else {
-            currentPokemon = userTeam.getPokemon(i);
-            break;
-            }
-        }
-        */
 
-        Random rand = new Random();
-        int temp = rand.nextInt(4) + 1;
-        double endamage = calculateDamage(enemyCurrent.moveList[aiAtkOrSwitch(enemyCurrent, currentPokemon)], enemyCurrent, currentPokemon);
+        int temp = aiAtkOrSwitch(enemyCurrent, currentPokemon);
+        if(temp < 4){
+        double endamage = calculateDamage(enemyCurrent.moveList[temp], enemyCurrent, currentPokemon);
         currentPokemon.setHealth(endamage);
         System.out.println(enemyCurrent.name + " used " + enemyCurrent.moveList[temp- 1].getName() + " dealing " + endamage);
         System.out.println(currentPokemon.getName() + " has " + currentPokemon.getCurrHP() + " out of " + currentPokemon.getHP());
@@ -225,6 +214,9 @@ public class Battle extends Minimax{
                 faintedPokemonSwap();
             }
         }
+    } else {
+        //If AI wants to switch
+    }
         }
 
         public void faintedPokemonSwap(){

@@ -96,8 +96,10 @@ public class PokemonAI{
         Scanner scan = new Scanner(System.in);
 
         while(!currentBattle.userTeam.allFainted() && !currentBattle.enemyTeam.allFainted()){
+            currentBattle.test();
             printBattle(currentBattle);
             System.out.println("Attack by entering [1] or switch by entering [2]?");
+
             int playOp = scan.nextInt();
             /* 
             System.out.println("play (PC)[10] or switch (PC)[20]?");
