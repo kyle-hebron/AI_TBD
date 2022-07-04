@@ -89,7 +89,9 @@ public class PokemonAI{
         // double damage = 0.0;
         //Function to generate the player's team and all 8 Leaders' teams
         generateTeams();
-        
+        Battle temp = new Battle(player, Leader1);
+        temp.test();
+        /* 
         doBattle(new Battle(player, Leader1));
 
         player.healAll();
@@ -115,7 +117,7 @@ public class PokemonAI{
         doBattle(new Battle(player, Leader8));
         player.healAll();
         
-
+        */
         /* 
         System.out.println("Hello there! Welcome to the world of POKEMON! My name is OAK! People call me the POKEMON PROF!");
         Thread.sleep(2000);

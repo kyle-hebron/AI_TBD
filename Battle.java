@@ -2,7 +2,7 @@ import java.util.*;
 
 
 //this class should be the battle simulator, will need to work as a "main" function for the game -MD
-public class Battle {
+public class Battle extends Minimax{
     PokemonTeam userTeam;
     PokemonTeam enemyTeam;
     Pokemon currentPokemon;
@@ -16,6 +16,10 @@ public class Battle {
         this.enemyTeam = enemyTeam;
         currentPokemon = userTeam.getPokemon(0);
         enemyCurrent = enemyTeam.getPokemon(0);
+    }
+
+    public void test(){
+        System.out.println(aiAtkOrSwitch(enemyCurrent, currentPokemon));
     }
 
     
