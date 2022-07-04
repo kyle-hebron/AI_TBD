@@ -1,9 +1,8 @@
-///////////FROM G4G
+///////////FROM Geeks For Geeks: https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-4-alpha-beta-pruning/
 // Java program to demonstrate
 // working of Alpha-Beta Pruning
-import java.io.*;
  
-class Minimax {
+class Minimax { //changed class name for our purposes
  
 // Initial values of
 // Alpha and Beta
@@ -63,17 +62,8 @@ static int minimax(int depth, int nodeIndex,
         return best;
     }
 }
- 
-    // Driver Code
-    public static void main (String[] args)
-    {
-         
-        int values[] = {3, 5, 6, 9, 1, 2, 0, -1};
-        System.out.println("The optimal value is : " +
-                            minimax(0, 0, true, values, MIN, MAX));
-     
-    }
-////////////////////////////////////////////
+
+////////////////////////////////////////////END GEEKS FOR GEEKS CODE
 	
 	
 	//Helper Functions
@@ -102,6 +92,7 @@ static int minimax(int depth, int nodeIndex,
             }
         }
         return choice;
+        //position 0 - 5; 0 - 3 are moves 4 & 5 switch
     }
 
 	//determines a move's heuristic value in the current turn
