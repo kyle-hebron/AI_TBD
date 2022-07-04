@@ -39,7 +39,7 @@ public class Battle extends Minimax{
         */
             Random tempRand = new Random();
             int temp = tempRand.nextInt(4) + 1;
-            double endamage = calculateDamage(enemyCurrent.moveList[temp - 1], enemyCurrent, currentPokemon);
+            double endamage = calculateDamage(enemyCurrent.moveList[aiAtkOrSwitch(enemyCurrent, currentPokemon)], enemyCurrent, currentPokemon);
             
                 if(currentPokemon.getSpd() > enemyCurrent.getSpd()){
                     //Then deal damage
