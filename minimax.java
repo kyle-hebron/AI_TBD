@@ -96,7 +96,7 @@ static int minimax(int depth, int nodeIndex,
     }
 
 	//determines a move's heuristic value in the current turn
-	public double aiChooseAtk(Moves move, Pokemon target){
+	public double aiChooseAtk(Pokemon me, Moves move, Pokemon target){
 		double hValue = 0.0;
 
 		Type moveType = move.getType();
@@ -105,7 +105,7 @@ static int minimax(int depth, int nodeIndex,
 		double movePower = move.getDamage();
 		double effective = moveType.getEffectiveness(targetType);
 
-		hValue = movePower * effective;
+		hValue = me.getAtk() * movePower * effective;
 
 		return hValue;
 	}

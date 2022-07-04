@@ -43,8 +43,7 @@ public class PokemonAI{
 
         // player.trainerName = name;
         generateTeams();
-        Battle temp = new Battle(player, Leader1);
-        temp.test();
+        
         doBattle(new Battle(Leader1, player));
         /* 
         doBattle(new Battle(player, Leader1));
@@ -95,6 +94,7 @@ public class PokemonAI{
 
     public static void doBattle(Battle currentBattle){
         Scanner scan = new Scanner(System.in);
+
         while(!currentBattle.userTeam.allFainted() && !currentBattle.enemyTeam.allFainted()){
             printBattle(currentBattle);
             System.out.println("Attack by entering [1] or switch by entering [2]?");
