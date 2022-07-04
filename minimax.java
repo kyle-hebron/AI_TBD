@@ -76,7 +76,7 @@ static int minimax(int depth, int nodeIndex,
 
         for(int i = 0; i < 4; i++){
             Moves move = me.moveList[i];
-            hValues[i] = (int)aiChooseAtk(me, move, target);
+            hValues[i] = (int)aiChooseAtk(move, target);
         }
         for(int i = 4; i < 6; i++){
             hValues[i] = (int)aiPokeSwitch(me, target);
@@ -96,7 +96,7 @@ static int minimax(int depth, int nodeIndex,
     }
 
 	//determines a move's heuristic value in the current turn
-	public double aiChooseAtk(Pokemon me, Moves move, Pokemon target){
+	public double aiChooseAtk(Moves move, Pokemon target){
 		double hValue = 0.0;
 
 		Type moveType = move.getType();
@@ -105,7 +105,7 @@ static int minimax(int depth, int nodeIndex,
 		double movePower = move.getDamage();
 		double effective = moveType.getEffectiveness(targetType);
 
-		hValue = me.getAtk() * movePower * effective;
+		hValue = movePower * effective;
 
 		return hValue;
 	}
