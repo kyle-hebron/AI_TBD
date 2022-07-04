@@ -16,9 +16,32 @@ public class PokemonAI{
     public static void main(String[] args) throws InterruptedException{     
 
         
-        // String name, rival;
-        // double damage = 0.0;
-        //Function to generate the player's team and all 8 Leaders' teams
+        // // String name, rival;
+        // // double damage = 0.0;
+        // //Function to generate the player's team and all 8 Leaders' teams
+        // String name = "";
+        // Scanner scanner = new Scanner(System.in);
+        // System.out.println("Hello there! Welcome to the world of POKEMON! My name is OAK! People call me the POKEMON PROF!");
+        // Thread.sleep(2000);
+        // System.out.println("This world is inhabited by creatures called POKEMON!");
+        // Thread.sleep(2000);
+        // System.out.println("For some people, POKEMON are pets. Others use them for fights. Myself...I study POKEMON as a profession.");
+        // Thread.sleep(2000);
+        // System.out.println("First, what is your name?");
+        // name = scanner.nextLine();
+        // System.out.println("Right! So your name is " + name + "!");
+        // Thread.sleep(2000);
+        // scanner.close();
+        // // System.out.println("This is my grandson. He's been your rival since you were a baby. ...Erm, what is his name again?");
+        // // rival = scan.nextLine();
+        // // Thread.sleep(2000);
+        // // System.out.println("That's right! I remember now! His name was " + rival + "! ");
+        // // Thread.sleep(2000);
+        // System.out.println( name + "!" + " Your very own POKEMON legend is about to unfold!");
+        // Thread.sleep(2000);
+        // System.out.println("A world of dreams and adventures with POKEMON awaits! Let's go!");
+
+        // player.trainerName = name;
         generateTeams();
         Battle temp = new Battle(player, Leader1);
         temp.test();
@@ -51,27 +74,7 @@ public class PokemonAI{
         
         */
         /* 
-        System.out.println("Hello there! Welcome to the world of POKEMON! My name is OAK! People call me the POKEMON PROF!");
-        Thread.sleep(2000);
-        System.out.println("This world is inhabited by creatures called POKEMON!");
-        Thread.sleep(2000);
-        System.out.println("For some people, POKEMON are pets. Others use them for fights. Myself...I study POKEMON as a profession.");
-        Thread.sleep(2000);
-        System.out.println("First, what is your name?");
-        name = scan.nextLine();
-        System.out.println("Right! So your name is " + name + "!");
-        Thread.sleep(2000);
-        System.out.println("This is my grandson. He's been your rival since you were a baby. ...Erm, what is his name again?");
-        rival = scan.nextLine();
-        Thread.sleep(2000);
-        System.out.println("That's right! I remember now! His name was " + rival + "! ");
-        Thread.sleep(2000);
-        System.out.println( name + "!" + " Your very own POKEMON legend is about to unfold!");
-        Thread.sleep(2000);
-        System.out.println("A world of dreams and adventures with POKEMON awaits! Let's go!");
-        scan.close();
-        PokemonTeam user = new PokemonTeam(name);
-        PokemonTeam enemy1 = new PokemonTeam(rival);
+
         */
 
     }
@@ -92,7 +95,7 @@ public class PokemonAI{
 
     public static void doBattle(Battle currentBattle){
         Scanner scan = new Scanner(System.in);
-        while(!player.allFainted() && !currentBattle.enemyTeam.allFainted()){
+        while(!currentBattle.userTeam.allFainted() && !currentBattle.enemyTeam.allFainted()){
             printBattle(currentBattle);
             System.out.println("Attack by entering [1] or switch by entering [2]?");
             int playOp = scan.nextInt();

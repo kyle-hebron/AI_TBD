@@ -212,7 +212,7 @@ public class Battle extends Minimax{
 
         Random rand = new Random();
         int temp = rand.nextInt(4) + 1;
-        double endamage = calculateDamage(enemyCurrent.moveList[temp - 1], enemyCurrent, currentPokemon);
+        double endamage = calculateDamage(enemyCurrent.moveList[aiAtkOrSwitch(enemyCurrent, currentPokemon)], enemyCurrent, currentPokemon);
         currentPokemon.setHealth(endamage);
         System.out.println(enemyCurrent.name + " used " + enemyCurrent.moveList[temp- 1].getName() + " dealing " + endamage);
         System.out.println(currentPokemon.getName() + " has " + currentPokemon.getCurrHP() + " out of " + currentPokemon.getHP());
