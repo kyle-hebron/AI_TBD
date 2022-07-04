@@ -19,7 +19,7 @@ public class Battle extends Minimax{
     }
 
     public void test(){
-        System.out.println(aiAtkOrSwitch(enemyCurrent, currentPokemon));
+        System.out.println("The best move to use is " + enemyCurrent.getMoveName(aiAtkOrSwitch(enemyCurrent, currentPokemon)));
     }
 
     

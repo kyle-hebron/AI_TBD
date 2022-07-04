@@ -70,6 +70,10 @@ public class Pokemon{
         this.name = name;
     }
 
+    public String getMoveName(int i){
+        return moveList[i].getName();
+    }
+
     public void printMoves(){
         for(int i = 0; i < 4; i++){
             int k = i + 1;

@@ -90,7 +90,7 @@ public class PokemonAI{
         //Function to generate the player's team and all 8 Leaders' teams
         generateTeams();
         Battle temp = new Battle(player, Leader1);
-        //temp.test();
+        temp.test();
         doBattle(new Battle(Leader1, player));
         /* 
         doBattle(new Battle(player, Leader1));
