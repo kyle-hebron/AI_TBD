@@ -1,24 +1,6 @@
-// public class Temp {
-    
- 
-
-//     //calculate heuristic value
-      
-//     if(heuristic_val > enemy.heuristicVal){ 
-//         switch; 
-//     }else if(heuristic_val < enemy.heuristicVal){
-//         return;
-//     }else{
-//         if(health < 25%){
-//             switch;
-//         }
-//         if(health > 75%){
-//             return;
-//         }
-//     }
-
-    
-
+import java.util.Arrays;
+import java.util.stream.Stream;
+///////////FROM G4G
 // Java program to demonstrate
 // working of Alpha-Beta Pruning
 import java.io.*;
@@ -93,9 +75,7 @@ static int minimax(int depth, int nodeIndex,
                             minimax(0, 0, true, values, MIN, MAX));
      
     }
-}
- 
-// This code is contributed by vt_m.
+////////////////////////////////////////////
 	
 	
 	//Helper Functions
@@ -112,7 +92,8 @@ static int minimax(int depth, int nodeIndex,
 		for(int i = 4; i < 6; i++){
 			hValues[i] = aiPokeSwitch(me, target);
 		}
-		int res = minimax(0, 0, true, hValues, h); //broke
+
+		int res = minimax(0, 0, true, hValues, MIN, MAX); //broke
 		//find the position of the value of res within hvals[] in order to determine the action taken
 		//take that action
 	}
