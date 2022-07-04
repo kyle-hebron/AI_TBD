@@ -19,60 +19,83 @@
 
     
 
-// }
-
-// A simple java program to find maximum score that
-// maximizing player can get.
- 
+// Java program to demonstrate
+// working of Alpha-Beta Pruning
 import java.io.*;
  
-class GFG {
-   
+class Temp {
  
-// Returns the optimal value a maximizer can obtain.
-// depth is current depth in game tree.
-// nodeIndex is index of current node in scores[].
-// isMax is true if current move is of maximizer, else false
-// scores[] stores leaves of Game tree.
-// h is maximum height of Game tree
- static int minimax(int depth, int nodeIndex, boolean  isMax,
-            int scores[], int h)
+// Initial values of
+// Alpha and Beta
+static int MAX = 1000;
+static int MIN = -1000;
+ 
+// Returns optimal value for
+// current player (Initially called
+// for root and maximizer)
+static int minimax(int depth, int nodeIndex,
+                   Boolean maximizingPlayer,
+                   int values[], int alpha,
+                   int beta)
 {
-    // Terminating condition. i.e leaf node is reached
-    if (depth == h)
-        return scores[nodeIndex];
+    // Terminating condition. i.e
+    // leaf node is reached
+    if (depth == 3)
+        return values[nodeIndex];
  
-    // If current move is maximizer, find the maximum attainable
-    // value
-    if (isMax)
-    return Math.max(minimax(depth+1, nodeIndex*2, false, scores, h),
-            minimax(depth+1, nodeIndex*2 + 1, false, scores, h));
+    if (maximizingPlayer)
+    {
+        int best = MIN;
  
-    // Else (If current move is Minimizer), find the minimum
-    // attainable value
-    else
-        return Math.min(minimax(depth+1, nodeIndex*2, true, scores, h),
-            minimax(depth+1, nodeIndex*2 + 1, true, scores, h));
-}
+        // Recur for left and
+        // right children
+        for (int i = 0; i < 2; i++)
+        {
+            int val = minimax(depth + 1, nodeIndex * 2 + i,
+                              false, values, alpha, beta);
+            best = Math.max(best, val);
+            alpha = Math.max(alpha, best);
  
-// A utility function to find Log n in base 2
- static int log2(int n)
-{
-return (n==1)? 0 : 1 + log2(n/2);
-}
- 
-// Driver code
- 
-    public static void main (String[] args) {
-            // The number of elements in scores must be
-    // a power of 2.
-    int scores[] = {3, 5, 2, 9, 12, 5, 23, 23};
-    int n = scores.length;
-    int h = log2(n);
-    int res = minimax(0, 0, true, scores, h);
-    System.out.println( "The optimal value is : "  +res);
-         
+            // Alpha Beta Pruning
+            if (beta <= alpha)
+                break;
+        }
+        return best;
     }
+    else
+    {
+        int best = MAX;
+ 
+        // Recur for left and
+        // right children
+        for (int i = 0; i < 2; i++)
+        {
+             
+            int val = minimax(depth + 1, nodeIndex * 2 + i,
+                              true, values, alpha, beta);
+            best = Math.min(best, val);
+            beta = Math.min(beta, best);
+ 
+            // Alpha Beta Pruning
+            if (beta <= alpha)
+                break;
+        }
+        return best;
+    }
+}
+ 
+    // Driver Code
+    public static void main (String[] args)
+    {
+         
+        int values[] = {3, 5, 6, 9, 1, 2, 0, -1};
+        System.out.println("The optimal value is : " +
+                            minimax(0, 0, true, values, MIN, MAX));
+     
+    }
+}
+ 
+// This code is contributed by vt_m.
 	
 	
 	//Helper Functions

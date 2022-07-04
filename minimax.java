@@ -2,7 +2,7 @@
 // working of Alpha-Beta Pruning
 import java.io.*;
  
-class GFG {
+class Minimax {
  
 // Initial values of
 // Alpha and Beta
@@ -15,8 +15,7 @@ static int MIN = -1000;
 static int minimax(int depth, int nodeIndex,
                    Boolean maximizingPlayer,
                    int values[], int alpha,
-                   int beta)
-{
+                   int beta){
     // Terminating condition. i.e
     // leaf node is reached
     if (depth == 3)
@@ -72,7 +71,7 @@ static int minimax(int depth, int nodeIndex,
                             minimax(0, 0, true, values, MIN, MAX));
      
     }
-}
+
 	
 	
 	//Helper Functions
@@ -80,7 +79,8 @@ static int minimax(int depth, int nodeIndex,
 	//determines whether the AI should attack or switch
 	public void aiAtkOrSwitch(){
 		//calculate values for each pokemon and attack
-		int hvals[] = //blah intiialize
+		int hvals[] = new int[6];
+        int min = 
 		
 		for(int i = 0; i < 4; i++){
 			//populate aiChooseAtk() values in position 0 - 3
@@ -88,7 +88,7 @@ static int minimax(int depth, int nodeIndex,
 		for(int i = 4; i < 6; i++){
 			//populate aiPokeSwitch() values in position 4 - 5
 		}
-		int res = minimax(0, 0, true, hvals, h); //broke
+		int res = minimax(0, 0, true, hvals, min, max); //broke
 		//find the position of the value of res within hvals[] in order to determine the action taken
 		//take that action
 	}
