@@ -125,7 +125,14 @@ static int minimax(int depth, int nodeIndex,
 		Type targetType = target.getPokeType();
 
 		//this is gonna return a very small value compared to aiChooseAtk(), need to determine how to bring up the value -MD
-		hValue = hValue * toSwitchType.getEffectiveness(targetType);
+		if(toSwitchType.getEffectiveness(targetType) == 2.0) {
+            Moves moveList[] = toSwitch.getMoveList();
+            for(int i = 0; i < moveList.length; i++) {
+                double newHValue = aiChooseAtk(moveList[i], target);
+                if(newHValue > hValue)
+                    hValue = newHValue;
+            }
+        }
         System.out.println(hValue);
 		return hValue;
 		
