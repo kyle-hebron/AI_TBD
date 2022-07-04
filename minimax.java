@@ -113,7 +113,7 @@ static int minimax(int depth, int nodeIndex,
         double health = target.getHP();
 		hValue =  temp.calculateDamage(move, user, target) / health;
         
-        System.out.println(hValue);
+        //System.out.println(hValue);
 		return hValue;
 	}
 	
@@ -128,7 +128,7 @@ static int minimax(int depth, int nodeIndex,
 		if(toSwitchType.getEffectiveness(targetType) == 2.0) {
             Moves moveList[] = toSwitch.getMoveList();
             for(int i = 0; i < moveList.length; i++) {
-                double newHValue = aiChooseAtk(moveList[i], target);
+                double newHValue = aiChooseAtk(moveList[i], target, toSwitch);
                 if(newHValue > hValue)
                     hValue = newHValue;
             }
