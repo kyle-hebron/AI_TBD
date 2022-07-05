@@ -15,78 +15,79 @@ public class PokemonAI{
     
     public static void main(String[] args) throws InterruptedException{     
         String name, rival;
-        int res;
+        int res = -1;
         double damage = 0.0;
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to Poke-Battle Emulator!");
-        System.out.println("Enter 1 to start a new adventure! Enter 0 to exit.");
-        res = scanner.nextInt();
-        if(res == 1){
+        while(res != 1 && res != 0){
+            System.out.println("Enter 1 to start a new adventure! Enter 0 to exit.");
+            res = scanner.nextInt();
+            if(res == 1){
 
-            Scanner scanz = new Scanner(System.in);
-            System.out.println("Hello there! Welcome to the world of POKEMON! My name is OAK! People call me the POKEMON PROF!");
-            Thread.sleep(2000);
-            System.out.println("This world is inhabited by creatures called POKEMON!");
-            Thread.sleep(2000);
-            System.out.println("For some people, POKEMON are pets. Others use them for fights. Myself...I study POKEMON as a profession.");
-            Thread.sleep(2000);
-            System.out.println("First, what is your name?");
-            name = scanz.nextLine();
-            System.out.println("Right! So your name is " + name + "!");
-            Thread.sleep(2000);
-            
-            // System.out.println("This is my grandson. He's been your rival since you were a baby. ...Erm, what is his name again?");
-            // rival = scan.nextLine();
-            // Thread.sleep(2000);
-            // System.out.println("That's right! I remember now! His name was " + rival + "! ");
-            // Thread.sleep(2000);
-            System.out.println( name + "!" + " Your very own POKEMON legend is about to unfold!");
-            Thread.sleep(2000);
-            System.out.println("A world of dreams and adventures with POKEMON awaits! Let's go!");
+                Scanner scanz = new Scanner(System.in);
+                System.out.println("Hello there! Welcome to the world of POKEMON! My name is OAK! People call me the POKEMON PROF!");
+                Thread.sleep(2000);
+                System.out.println("This world is inhabited by creatures called POKEMON!");
+                Thread.sleep(2000);
+                System.out.println("For some people, POKEMON are pets. Others use them for fights. Myself...I study POKEMON as a profession.");
+                Thread.sleep(2000);
+                System.out.println("First, what is your name?");
+                name = scanz.nextLine();
+                System.out.println("Right! So your name is " + name + "!");
+                Thread.sleep(2000);
+                
+                // System.out.println("This is my grandson. He's been your rival since you were a baby. ...Erm, what is his name again?");
+                // rival = scan.nextLine();
+                // Thread.sleep(2000);
+                // System.out.println("That's right! I remember now! His name was " + rival + "! ");
+                // Thread.sleep(2000);
+                System.out.println( name + "!" + " Your very own POKEMON legend is about to unfold!");
+                Thread.sleep(2000);
+                System.out.println("A world of dreams and adventures with POKEMON awaits! Let's go!");
 
-            player.trainerName = name;
-            generateTeams();
-            System.out.println("A New Challenger has appeared! " + Leader1.getName() + " wants to battle!");
-            doBattle(new Battle(player, Leader1));
-            player.healAll();
+                player.trainerName = name;
+                generateTeams();
+                System.out.println("A New Challenger has appeared! " + Leader1.getName() + " wants to battle!");
+                doBattle(new Battle(player, Leader1));
+                player.healAll();
 
-            System.out.println("A New Challenger has appeared! " + Leader2.getName() + " wants to battle!");
-            doBattle(new Battle(player, Leader2));
-            player.healAll();
+                System.out.println("A New Challenger has appeared! " + Leader2.getName() + " wants to battle!");
+                doBattle(new Battle(player, Leader2));
+                player.healAll();
 
-            System.out.println("A New Challenger has appeared! " + Leader3.getName() + " wants to battle!");
-            doBattle(new Battle(player, Leader3));
-            player.healAll();
+                System.out.println("A New Challenger has appeared! " + Leader3.getName() + " wants to battle!");
+                doBattle(new Battle(player, Leader3));
+                player.healAll();
 
-            System.out.println("A New Challenger has appeared! " + Leader4.getName() + " wants to battle!");
-            doBattle(new Battle(player, Leader4));
-            player.healAll();
+                System.out.println("A New Challenger has appeared! " + Leader4.getName() + " wants to battle!");
+                doBattle(new Battle(player, Leader4));
+                player.healAll();
 
-            System.out.println("A New Challenger has appeared! " + Leader5.getName() + " wants to battle!");
-            doBattle(new Battle(player, Leader5));
-            player.healAll();
+                System.out.println("A New Challenger has appeared! " + Leader5.getName() + " wants to battle!");
+                doBattle(new Battle(player, Leader5));
+                player.healAll();
 
-            System.out.println("A New Challenger has appeared! " + Leader6.getName() + " wants to battle!");
-            doBattle(new Battle(player, Leader6));
-            player.healAll();
+                System.out.println("A New Challenger has appeared! " + Leader6.getName() + " wants to battle!");
+                doBattle(new Battle(player, Leader6));
+                player.healAll();
 
-            System.out.println("A New Challenger has appeared! " + Leader7.getName() + " wants to battle!");
-            doBattle(new Battle(player, Leader7));
-            player.healAll();
+                System.out.println("A New Challenger has appeared! " + Leader7.getName() + " wants to battle!");
+                doBattle(new Battle(player, Leader7));
+                player.healAll();
 
-            System.out.println("A New Challenger has appeared! " + Leader8.getName() + " wants to battle!");
-            doBattle(new Battle(player, Leader8));
-            player.healAll();
+                System.out.println("A New Challenger has appeared! " + Leader8.getName() + " wants to battle!");
+                doBattle(new Battle(player, Leader8));
+                player.healAll();
 
-            System.out.println("You've defeated all challengers! Congratulations!");
-            System.exit(0);
-        }else if(res == 0){
-            System.exit(0);
-        }else{
-            System.out.println("Invalid input. Try again!");
+                System.out.println("You've defeated all challengers! Congratulations!");
+                System.exit(0);
+            }else if(res == 0){
+                System.exit(0);
+            }else{
+                System.out.println("Invalid input. Try again!");
+            }
         }
-
 
     }
 
