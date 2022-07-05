@@ -56,7 +56,7 @@ static int minimax(int depth, int nodeIndex,
             beta = Math.min(beta, best);
  
             // Alpha Beta Pruning
-            if (beta <= alpha)
+            if (beta >= alpha)
                 break;
         }
         return best;
@@ -114,7 +114,7 @@ static int minimax(int depth, int nodeIndex,
         temper.insertPokemon(user);
         Battle temp = new Battle(temps, temper);
         double health = target.getHP();
-		hValue =  temp.calculateDamageNoCrit(move, user, target) / health;
+		hValue =  temp.calculateDamageNoCrit(move, target, user);
         
         
 		return hValue;

@@ -16,9 +16,9 @@ public class PokemonAI{
     public static void main(String[] args) throws InterruptedException{     
 
         
-        // // String name, rival;
-        // // double damage = 0.0;
-        // //Function to generate the player's team and all 8 Leaders' teams
+        // String name, rival;
+        // double damage = 0.0;
+        //Function to generate the player's team and all 8 Leaders' teams
         // String name = "";
         // Scanner scanner = new Scanner(System.in);
         // System.out.println("Hello there! Welcome to the world of POKEMON! My name is OAK! People call me the POKEMON PROF!");
@@ -31,7 +31,7 @@ public class PokemonAI{
         // name = scanner.nextLine();
         // System.out.println("Right! So your name is " + name + "!");
         // Thread.sleep(2000);
-        // scanner.close();
+        
         // // System.out.println("This is my grandson. He's been your rival since you were a baby. ...Erm, what is his name again?");
         // // rival = scan.nextLine();
         // // Thread.sleep(2000);
@@ -45,11 +45,8 @@ public class PokemonAI{
         generateTeams();
         
         doBattle(new Battle(player, Leader1));
-        /* 
-        doBattle(new Battle(player, Leader1));
-
         player.healAll();
-        System.out.println("Continue to " + Leader2.trainerName);
+
         doBattle(new Battle(player, Leader2));
         player.healAll();
 
@@ -71,14 +68,12 @@ public class PokemonAI{
         doBattle(new Battle(player, Leader8));
         player.healAll();
         
-        */
-        /* 
 
-        */
 
     }
 
     public static void printBattle(Battle currentBattle){
+        System.out.println(player.trainerName + " has sent out " + currentBattle.currentPokemon);
         Pokemon userPoke = currentBattle.currentPokemon;
         Pokemon enemyPoke = currentBattle.enemyCurrent;
         System.out.println("---------------------");
@@ -96,7 +91,7 @@ public class PokemonAI{
         Scanner scan = new Scanner(System.in);
 
         while(!currentBattle.userTeam.allFainted() && !currentBattle.enemyTeam.allFainted()){
-            currentBattle.test();
+            
             printBattle(currentBattle);
             System.out.println("Attack by entering [1] or switch by entering [2]?");
 
@@ -198,22 +193,23 @@ public class PokemonAI{
         //Geodude, Leader 1
         Pokemon geodude = new Pokemon("Geodude", 221, 196, 236, 96, 12);
         Moves brickBreak = new Moves(75, 100, 24, "Brick Break", fighting);
-        
-        
-        geodude.insertMoves(bodySlam);
         geodude.insertMoves(ancientPwr);
-        geodude.insertMoves(earthquake);
+        geodude.insertMoves(bodySlam);  
         geodude.insertMoves(brickBreak);
-
+        geodude.insertMoves(earthquake);
+        
         
         //Sandshrew, Leader 1
         Pokemon sandshrew = new Pokemon("Sandshrew", 241, 186, 206, 116, 8);
         Moves focusPunch = new Moves(150, 100, 32, "Focus Punch", fighting);
         Moves poisonJab = new Moves(80, 100, 32, "Poison Jab", poison);
-        sandshrew.insertMoves(bodySlam);
+        
+        
         sandshrew.insertMoves(brickBreak);
         sandshrew.insertMoves(focusPunch);
         sandshrew.insertMoves(poisonJab);
+        sandshrew.insertMoves(bodySlam);
+        
         //Onix, Leader 1
         Pokemon onix = new Pokemon("Onix", 211, 126, 356, 176, 12);
         onix.insertMoves(bodySlam);
