@@ -111,7 +111,7 @@ public class Battle extends Minimax{
                          //Check to see if pokemon fainted
                          if(enemyCurrent.isFainted()){
                             if(enemyTeam.allFainted()){
-                                System.out.println("You have been defeated. :( Sucks to suck");
+                                System.out.println("You have been defeated. :( Restart the game to try again!");
                                 return;
                             }  else {
                                 if(enemyTeam.allFainted()){
@@ -128,7 +128,7 @@ public class Battle extends Minimax{
                         System.out.println(currentPokemon.getName() + " has " + currentPokemon.getCurrHP() + " out of " + currentPokemon.getHP());}
                         if(currentPokemon.isFainted()){ //If user fainted, switches pokemon
                             if(userTeam.allFainted()){
-                                System.out.println("You have been defeated. :( Sucks to suck");
+                                System.out.println("You have been defeated. :( Restart the game to try again!");
                                 return;
                             }  else {
                                 faintedPokemonSwap();
