@@ -6,8 +6,8 @@ class Minimax { //changed class name for our purposes
  
 // Initial values of
 // Alpha and Beta
-static int MAX = 1000;
-static int MIN = -1000;
+static int MAX = Integer.MAX_VALUE;
+static int MIN = Integer.MIN_VALUE;
 
 // Returns optimal value for
 // current player (Initially called
@@ -72,7 +72,7 @@ static int minimax(int depth, int nodeIndex,
     public int aiAtkOrSwitch(Pokemon me, Pokemon target){
         //calculate values for each pokemon and attack
         int choice = -1;
-        int[] hValues = new int[6];
+        int[] hValues = new int[8];
 
         for(int i = 0; i < 4; i++){
             Moves move = me.moveList[i];
@@ -80,6 +80,9 @@ static int minimax(int depth, int nodeIndex,
         }
         for(int i = 4; i < 6; i++){
             hValues[i] = (int)aiPokeSwitch(me, target);
+        }
+        for(int i = 6; i < 8; i++){
+            hValues[i] = 0;
         }
         int res = minimax(0, 0, true, hValues, MIN, MAX); 
         //find the position of the value of res within hvals[] in order to determine the action taken
