@@ -5,13 +5,13 @@ public class PokemonAI{
     static PokemonTeam player = new PokemonTeam("player");
         
     static PokemonTeam Leader1 = new PokemonTeam("Mo");
-    static PokemonTeam Leader2 = new PokemonTeam("Kelly Evans");
-    static PokemonTeam Leader3 = new PokemonTeam("John Noga");
-    static PokemonTeam Leader4 = new PokemonTeam("Richard Lorentz");
-    static PokemonTeam Leader5 = new PokemonTeam("Adam Kaplan");
-    static PokemonTeam Leader6 = new PokemonTeam("Donald Trump");
+    static PokemonTeam Leader2 = new PokemonTeam("Kelly");
+    static PokemonTeam Leader3 = new PokemonTeam("John");
+    static PokemonTeam Leader4 = new PokemonTeam("Richard");
+    static PokemonTeam Leader5 = new PokemonTeam("Adam");
+    static PokemonTeam Leader6 = new PokemonTeam("Kevin");
     static PokemonTeam Leader7 = new PokemonTeam("Chad");
-    static PokemonTeam Leader8 = new PokemonTeam("Abhishek Verma");
+    static PokemonTeam Leader8 = new PokemonTeam("Vardan");
     
     public static void main(String[] args) throws InterruptedException{     
         String name, rival;
@@ -24,7 +24,7 @@ public class PokemonAI{
         res = scanner.nextInt();
         if(res == 1){
 
-
+            Scanner scanz = new Scanner(System.in);
             System.out.println("Hello there! Welcome to the world of POKEMON! My name is OAK! People call me the POKEMON PROF!");
             Thread.sleep(2000);
             System.out.println("This world is inhabited by creatures called POKEMON!");
@@ -32,7 +32,7 @@ public class PokemonAI{
             System.out.println("For some people, POKEMON are pets. Others use them for fights. Myself...I study POKEMON as a profession.");
             Thread.sleep(2000);
             System.out.println("First, what is your name?");
-            name = scanner.nextLine();
+            name = scanz.nextLine();
             System.out.println("Right! So your name is " + name + "!");
             Thread.sleep(2000);
             
@@ -47,30 +47,40 @@ public class PokemonAI{
 
             player.trainerName = name;
             generateTeams();
-            
+            System.out.println("A New Challenger has appeared! " + Leader1.getName() + " wants to battle!");
             doBattle(new Battle(player, Leader1));
             player.healAll();
 
+            System.out.println("A New Challenger has appeared! " + Leader2.getName() + " wants to battle!");
             doBattle(new Battle(player, Leader2));
             player.healAll();
 
+            System.out.println("A New Challenger has appeared! " + Leader3.getName() + " wants to battle!");
             doBattle(new Battle(player, Leader3));
             player.healAll();
 
+            System.out.println("A New Challenger has appeared! " + Leader4.getName() + " wants to battle!");
             doBattle(new Battle(player, Leader4));
             player.healAll();
 
+            System.out.println("A New Challenger has appeared! " + Leader5.getName() + " wants to battle!");
             doBattle(new Battle(player, Leader5));
             player.healAll();
 
+            System.out.println("A New Challenger has appeared! " + Leader6.getName() + " wants to battle!");
             doBattle(new Battle(player, Leader6));
             player.healAll();
 
+            System.out.println("A New Challenger has appeared! " + Leader7.getName() + " wants to battle!");
             doBattle(new Battle(player, Leader7));
             player.healAll();
 
+            System.out.println("A New Challenger has appeared! " + Leader8.getName() + " wants to battle!");
             doBattle(new Battle(player, Leader8));
             player.healAll();
+
+            System.out.println("You've defeated all challengers! Congratulations!");
+            System.exit(0);
         }else if(res == 0){
             System.exit(0);
         }else{
