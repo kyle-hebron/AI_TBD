@@ -44,7 +44,7 @@ public class PokemonAI{
         // player.trainerName = name;
         generateTeams();
         
-        doBattle(new Battle(Leader1, player));
+        doBattle(new Battle(player, Leader1));
         /* 
         doBattle(new Battle(player, Leader1));
 
@@ -161,7 +161,7 @@ public class PokemonAI{
 
 //PLAYER
         //Charizard, Player
-        Pokemon charizard = new Pokemon("Charizard", 359, 266, 268, 1 /*298*/, 1);
+        Pokemon charizard = new Pokemon("Charizard", 359, 266, 268,  298, 1);
         Moves fireBlast = new Moves(120, 85, 8, "Fire Blast", fire);
         Moves flamethrower = new Moves(95, 100, 24, "Flamethrower", fire);
         Moves ancientPwr = new Moves(60, 100, 8, "Ancient Power", rock);
@@ -171,7 +171,7 @@ public class PokemonAI{
         charizard.insertMoves(fly);
         charizard.insertMoves(ancientPwr);
         //Venusaur, Player
-        Pokemon venusaur = new Pokemon("Venusaur", 363, 262, 298,1 /*258*/, 3);
+        Pokemon venusaur = new Pokemon("Venusaur", 363, 262, 298,258, 3);
         Moves earthquake = new Moves(100, 100, 16, "Earthquake", ground);
         Moves bodySlam = new Moves(85, 100, 24, "Body Slam", normal);
         Moves nrgBall = new Moves(90, 100, 16, "Energy Ball", grass);
@@ -181,7 +181,7 @@ public class PokemonAI{
         venusaur.insertMoves(nrgBall);
         venusaur.insertMoves(sludgeBomb);
         //Blastoise, Player
-        Pokemon blastoise = new Pokemon("Blastoise", 361, 264, 298, 1/*254*/, 2);
+        Pokemon blastoise = new Pokemon("Blastoise", 361, 264, 298, 254, 2);
         Moves dragonPulse = new Moves(85, 100, 16, "Dragon Pulse", dragon);
         Moves hydroPump = new Moves(110, 80, 8, "Hydro Pump", water);
         blastoise.insertMoves(bodySlam);
@@ -198,10 +198,14 @@ public class PokemonAI{
         //Geodude, Leader 1
         Pokemon geodude = new Pokemon("Geodude", 221, 196, 236, 96, 12);
         Moves brickBreak = new Moves(75, 100, 24, "Brick Break", fighting);
-        geodude.insertMoves(ancientPwr);
+        
+        
         geodude.insertMoves(bodySlam);
+        geodude.insertMoves(ancientPwr);
         geodude.insertMoves(earthquake);
         geodude.insertMoves(brickBreak);
+
+        
         //Sandshrew, Leader 1
         Pokemon sandshrew = new Pokemon("Sandshrew", 241, 186, 206, 116, 8);
         Moves focusPunch = new Moves(150, 100, 32, "Focus Punch", fighting);

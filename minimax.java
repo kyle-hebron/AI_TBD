@@ -102,11 +102,11 @@ static int minimax(int depth, int nodeIndex,
 	public double aiChooseAtk(Moves move, Pokemon target, Pokemon user){
 		double hValue = 0.0;
 
-		Type moveType = move.getType();
-		Type targetType = target.getPokeType();
+		//Type moveType = move.getType();
+		//Type targetType = target.getPokeType();
 
-		double movePower = move.getDamage();
-		double effective = moveType.getEffectiveness(targetType);
+		//double movePower = move.getDamage();
+		//double effective = moveType.getEffectiveness(targetType);
 
         PokemonTeam temps = new PokemonTeam("");    //Filler
         PokemonTeam temper = new PokemonTeam("");
@@ -114,9 +114,9 @@ static int minimax(int depth, int nodeIndex,
         temper.insertPokemon(user);
         Battle temp = new Battle(temps, temper);
         double health = target.getHP();
-		hValue =  temp.calculateDamage(move, user, target) / health;
+		hValue =  temp.calculateDamageNoCrit(move, user, target) / health;
         
-        //System.out.println(hValue);
+        
 		return hValue;
 	}
 	
@@ -136,7 +136,7 @@ static int minimax(int depth, int nodeIndex,
                     hValue = newHValue;
             }
         }
-        System.out.println(hValue);
+        
 		return hValue;
 		
 	}
