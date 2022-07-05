@@ -58,7 +58,7 @@ public class Battle extends Minimax{
                         System.out.println(currentPokemon.getName() + " has " + currentPokemon.getCurrHP() + " out of " + currentPokemon.getHP());
                         if(currentPokemon.isFainted()){ //If user fainted, switches pokemon
                             if(userTeam.allFainted()){
-                                System.out.println("You have been defeated. :( Sucks to suck");
+                                System.out.println("You have been defeated. :( Restart to try again!");
                                 return;
                             }  else {
                                 faintedPokemonSwap();
@@ -78,7 +78,7 @@ public class Battle extends Minimax{
 
                     if(currentPokemon.isFainted()){     //Checls to see if user pokemon has fainted
                         if(userTeam.allFainted()){
-                            System.out.println("You have been defeated. :( Sucks to suck");
+                            System.out.println("You have been defeated. :( Restart to try again!");
                             return;
                         }  else {       //If user fainted, switches pokemon
                             faintedPokemonSwap();
@@ -143,7 +143,7 @@ public class Battle extends Minimax{
 
                         if(currentPokemon.isFainted()){
                             if(userTeam.allFainted()){
-                                System.out.println("You have been defeated. :( Sucks to suck");
+                                System.out.println("You have been defeated. :( Restart to try again!");
                                 return;
                             }  else {
                                 faintedPokemonSwap();
@@ -225,7 +225,7 @@ public class Battle extends Minimax{
 
         if(currentPokemon.isFainted()){
             if(userTeam.allFainted()){
-                System.out.println("You have been defeated. :( Sucks to suck");
+                System.out.println("You have been defeated. :( Restart to try again!");
                 return;
             }  else {
                 faintedPokemonSwap();
