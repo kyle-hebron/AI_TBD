@@ -138,12 +138,3 @@ static int minimax(int depth, int nodeIndex,
 		return hValue; 
 	} 
 }
-
-
-// Nullam et ultricies neque. Etiam sagittis turpis maximus, porta nibh at, 
-// consectetur elit. Vestibulum facilisis odio sit amet tincidunt ultrices. 
-// Fusce gravida libero vel consectetur ultrices. Nulla ultrices nibh mattis, 
-// facilisis nulla varius, ultrices erat. Sed aliquet eget elit ut lobortis. 
-// In vitae viverra justo.
-
-
