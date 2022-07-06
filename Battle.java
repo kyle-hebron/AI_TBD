@@ -67,7 +67,7 @@ public class Battle extends Minimax{
                         if(currentPokemon.isFainted()){ //If user fainted, switches pokemon
                             if(userTeam.allFainted()){
                                 System.out.println("You have been defeated. :( Restart to try again!");
-                                return;
+                                System.exit(0);
                             }  else {
                                 faintedPokemonSwap();
                             }
@@ -82,7 +82,7 @@ public class Battle extends Minimax{
                     if(currentPokemon.isFainted()){     //Checls to see if user pokemon has fainted
                         if(userTeam.allFainted()){
                             System.out.println("You have been defeated. :( Restart to try again!");
-                            return;
+                            System.exit(0);
                         }  else {       //If user fainted, switches pokemon
                             faintedPokemonSwap();
                         }
@@ -116,7 +116,7 @@ public class Battle extends Minimax{
                          if(enemyCurrent.isFainted()){
                             if(enemyTeam.allFainted()){
                                 System.out.println("You have been defeated. :( Restart the game to try again!");
-                                return;
+                                System.exit(0);
                             }  else {
                                 if(enemyTeam.allFainted()){
                                     System.out.println("Congrats! You have defeated " + enemyTeam.trainerName);
@@ -133,7 +133,7 @@ public class Battle extends Minimax{
                         if(currentPokemon.isFainted()){ //If user fainted, switches pokemon
                             if(userTeam.allFainted()){
                                 System.out.println("You have been defeated. :( Restart the game to try again!");
-                                return;
+                                System.exit(0);
                             }  else {
                                 faintedPokemonSwap();
                             }
@@ -148,7 +148,7 @@ public class Battle extends Minimax{
                         if(currentPokemon.isFainted()){
                             if(userTeam.allFainted()){
                                 System.out.println("You have been defeated. :( Restart to try again!");
-                                return;
+                                System.exit(0);
                             }  else {
                                 faintedPokemonSwap();
                             }
@@ -238,7 +238,7 @@ public class Battle extends Minimax{
             if(currentPokemon.isFainted()){
                 if(userTeam.allFainted()){
                     System.out.println("You have been defeated. :( Restart to try again!");
-                    return;
+                    System.exit(0);
                 }  else {
                     faintedPokemonSwap();
                 }
