@@ -204,10 +204,14 @@ public class Battle extends Minimax{
         System.out.println("Which pokemon would you like to switch out?");
         userTeam.printTeam();
         int i = scan.nextInt();
-        while(i > 4 || i < 1) {
-            System.out.println("Please pick a valid Pokemon choice (1, 2, or 3):");
-            userTeam.printTeam();
-            i = scan.nextInt();
+        Boolean track = true;
+        while(track == true){
+            if(i < 1 || i > 3){
+                System.out.println("Invalid input, please try again!");
+                i = scan.nextInt();
+            }else{
+                track = false;
+            }
         }
         
         while(true){
@@ -270,18 +274,27 @@ public class Battle extends Minimax{
             System.out.println("Which pokemon would you like to switch out?");
             userTeam.printTeam();
             int i = scan.nextInt();
+            Boolean track = true;
+            while(track == true){
+                if(i < 1 || i > 3){
+                    System.out.println("Invalid input, please try again!");
+                    i = scan.nextInt();
+                }else{
+                    track = false;
+                }
+            }
             i--;
+
             while(true){
             if(userTeam.getPokemon(i) == currentPokemon) {      
                 System.out.println("Pokemon is already out, please pick another pokemon");
                 i = scan.nextInt();
                 i--;
-            } if(userTeam.getPokemon(i).isFainted())  {
+            }if(userTeam.getPokemon(i).isFainted())  {
                 System.out.println("Pokemon is fainted, please pick another pokemon");
                 i = scan.nextInt();
                 i--;
-            }
-                else {
+            }else {
                 currentPokemon = userTeam.getPokemon(i);
                 break;
             } 
