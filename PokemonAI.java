@@ -218,10 +218,6 @@ public class PokemonAI{
         onix.insertMoves(ancientPwr);
         onix.insertMoves(dragonPulse);
 
-        //Leader 1
-        Leader1.insertPokemon(geodude);
-        Leader1.insertPokemon(sandshrew);
-        Leader1.insertPokemon(onix);
 
 //LEADER 2
         //Pidgeot, Leader 2
@@ -251,11 +247,6 @@ public class PokemonAI{
         electabuzz.insertMoves(icePunch);
         electabuzz.insertMoves(firePunch);
 
-        //Leader 2
-        Leader2.insertPokemon(pidgeot);
-        Leader2.insertPokemon(hitmonchan);
-        Leader2.insertPokemon(electabuzz);
-
 //LEADER 3
         //Flareon, Leader 3
         Pokemon flareon = new Pokemon("Flareon", 271, 296, 256, 166, 1);
@@ -280,10 +271,7 @@ public class PokemonAI{
         vaporeon.insertMoves(shadowBall);
         vaporeon.insertMoves(hydroPump);
 
-        //Leader 3
-        Leader3.insertPokemon(flareon);
-        Leader3.insertPokemon(jolteon);
-        Leader3.insertPokemon(vaporeon);
+
 
 //LEADER 4
         //Starmie, Leader 4
@@ -308,10 +296,7 @@ public class PokemonAI{
         blastoise2.insertMoves(dragonPulse);
         blastoise2.insertMoves(hydroPump);
 
-        //Leader 4
-        Leader4.insertPokemon(starmie);
-        Leader4.insertPokemon(blastoise2);
-        Leader4.insertPokemon(seadra);
+
 
 //LEADER 5
         //Magmar, Leader 5
@@ -335,10 +320,7 @@ public class PokemonAI{
         charizard2.insertMoves(flamethrower);
         charizard2.insertMoves(fly);
         charizard2.insertMoves(ancientPwr);
-        //Leader 5
-        Leader5.insertPokemon(magmar);
-        Leader5.insertPokemon(charizard2);
-        Leader5.insertPokemon(arcanine);
+
 
 //LEADER 6
         //Venusaur, Leader 6
@@ -363,10 +345,7 @@ public class PokemonAI{
         venusaur2.insertMoves(bodySlam);
         venusaur2.insertMoves(nrgBall);
         venusaur2.insertMoves(sludgeBomb);
-        //Leader 6
-        Leader6.insertPokemon(venusaur2);
-        Leader6.insertPokemon(tangela);
-        Leader6.insertPokemon(vileplume);
+
 
 //LEADER 7
         //Articuno, Leader 7
@@ -389,10 +368,7 @@ public class PokemonAI{
         zapdos.insertMoves(braveBird);
         zapdos.insertMoves(extrasensory);
 
-        //Leader 7
-        Leader7.insertPokemon(articuno);
-        Leader7.insertPokemon(moltres);
-        Leader7.insertPokemon(zapdos);
+
 
 //LEADER 8
         //Dragonite, Leader 8
@@ -415,7 +391,36 @@ public class PokemonAI{
         mew.insertMoves(psychicMove);
         mew.insertMoves(thunderBolt);
         mew.insertMoves(braveBird);
-
+//POKEMON TEAM INSERTION
+        
+        //Leader 1
+        Leader1.insertPokemon(geodude);
+        Leader1.insertPokemon(seadra);
+        Leader1.insertPokemon(vileplume);           
+        //Leader 2
+        Leader2.insertPokemon(pidgeot);
+        Leader2.insertPokemon(hitmonchan);
+        Leader2.insertPokemon(arcanine);         
+        //Leader 3
+        Leader3.insertPokemon(flareon);
+        Leader3.insertPokemon(jolteon);
+        Leader3.insertPokemon(vaporeon);    
+        //Leader 4
+        Leader4.insertPokemon(magmar);
+        Leader4.insertPokemon(sandshrew);
+        Leader4.insertPokemon(blastoise2);
+        //Leader 5
+        Leader5.insertPokemon(starmie);
+        Leader5.insertPokemon(charizard2);
+        Leader5.insertPokemon(electabuzz);
+        //Leader 6
+        Leader6.insertPokemon(venusaur2);
+        Leader6.insertPokemon(tangela);
+        Leader6.insertPokemon(onix);
+        //Leader 7
+        Leader7.insertPokemon(articuno);
+        Leader7.insertPokemon(moltres);
+        Leader7.insertPokemon(zapdos);
         //Leader 8
         Leader8.insertPokemon(dragonite);
         Leader8.insertPokemon(mew);

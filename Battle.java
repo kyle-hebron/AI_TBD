@@ -169,33 +169,35 @@ public class Battle extends Minimax{
                         }
                     }
                 }
-                    else {
-                        temp = temp - 4;
-                        if(enemyTeam.getPokemon(temp).isFainted() || enemyTeam.getPokemon(temp) == enemyCurrent) {
-                            for(int k = 0; k < 3; k++) {
-                                if(!enemyTeam.getPokemon(k).isFainted()){
-                                    enemyCurrent = enemyTeam.getPokemon(k);
-                                    break;
-                                }
-                            }
-                        } 
-                        else {
-                            enemyCurrent = enemyTeam.getPokemon(temp);
-                        }
-
-                        enemyCurrent.setHealth(damage);
-                        System.out.println(currentPokemon.name + " used " + currentPokemon.moveList[i - 1].getName() + " dealing " + damage);
-                        System.out.println(enemyCurrent.getName() + " has " + enemyCurrent.getCurrHP() + " out of " + enemyCurrent.getHP());
-                        if(enemyCurrent.isFainted()) {
-                            for(int k = 0; k < 3; k++) {
-                                if(!enemyTeam.getPokemon(k).isFainted()){
-                                    enemyCurrent = enemyTeam.getPokemon(k);
-                                    break;
-                                }
-                            }
+                    
+            } else {
+                        
+                temp = temp - 4;
+                if(enemyTeam.getPokemon(temp).isFainted() || enemyTeam.getPokemon(temp) == enemyCurrent) {
+                    for(int k = 0; k < 3; k++) {
+                        if(!enemyTeam.getPokemon(k).isFainted()){
+                            enemyCurrent = enemyTeam.getPokemon(k);
+                            break;
                         }
                     }
-            }   
+                } 
+                else {
+                    enemyCurrent = enemyTeam.getPokemon(temp);
+                }
+                System.out.println("AI Trying to Switch");
+                enemyCurrent.setHealth(damage);
+                System.out.println(currentPokemon.name + " used " + currentPokemon.moveList[i - 1].getName() + " dealing " + damage);
+                System.out.println(enemyCurrent.getName() + " has " + enemyCurrent.getCurrHP() + " out of " + enemyCurrent.getHP());
+                if(enemyCurrent.isFainted()) {
+                    for(int k = 0; k < 3; k++) {
+                        if(!enemyTeam.getPokemon(k).isFainted()){
+                            enemyCurrent = enemyTeam.getPokemon(k);
+                            System.out.println("Switch completed");
+                            break;
+                        }
+                    }
+                }
+            }
     }
 
     public void switchPokemon() {
