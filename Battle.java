@@ -401,7 +401,7 @@ public class Battle extends Minimax{
     public boolean hit(Moves move) {
         Random rand = new Random();
         int randomInt = rand.nextInt(100) + 1;
-        if(randomInt < move.getAccuracy())
+        if(randomInt <= move.getAccuracy())
             return true;
         return false;
     }
