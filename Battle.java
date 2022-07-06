@@ -204,6 +204,11 @@ public class Battle extends Minimax{
         System.out.println("Which pokemon would you like to switch out?");
         userTeam.printTeam();
         int i = scan.nextInt();
+        while(i > 4 || i < 1) {
+            System.out.println("Please pick a valid Pokemon choice (1, 2, or 3):");
+            userTeam.printTeam();
+            i = scan.nextInt();
+        }
         
         while(true){
         if(userTeam.getPokemon(i - 1) == currentPokemon) {      
