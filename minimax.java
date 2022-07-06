@@ -139,7 +139,6 @@ static int minimax(int depth, int nodeIndex,
 	}
     */
     
-    //needs to take in a team?
     public double aiPokeSwitch(PokemonTeam team, Pokemon me, Pokemon target) {
         double hValue = 1.0;
 
