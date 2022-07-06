@@ -31,6 +31,11 @@ public class Battle extends Minimax{
             currentPokemon.printMoves();;
             System.out.println("Please pick a move");
             int i = scan.nextInt();
+            while(i > 4 || i < 1) {
+                System.out.println("Please pick a valid move choice (1, 2, 3, or 4):");
+                currentPokemon.printMoves();
+                i = scan.nextInt();
+            }
             double damage = calculateDamage(currentPokemon.moveList[i - 1], currentPokemon, enemyCurrent);
             
             int temp = aiAtkOrSwitch(enemyCurrent, currentPokemon);
