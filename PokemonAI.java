@@ -415,13 +415,7 @@ public class PokemonAI{
 
 
 
-// Fusce condimentum lacus vel eros aliquet, eu aliquet est hendrerit. 
-// Vestibulum suscipit venenatis eleifend. Pellentesque sollicitudin malesuada 
-// sapien, et imperdiet lacus viverra ut. Nulla gravida sapien in cursus 
-// mollis. Quisque purus ligula, aliquet interdum augue non, fermentum aliquet 
-// nibh. Integer sed finibus tellus, vel laoreet mi. Donec vehicula ligula non 
-// neque scelerisque vulputate eget ut dui. Proin mattis ante vitae mi egestas 
-// blandit. Sed a lobortis magna.
+
 
 // Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet
 //  lorem sapien, bibendum interdum augue suscipit nec. Phasellus rhoncus 
