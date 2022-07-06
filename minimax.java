@@ -150,6 +150,9 @@ static int minimax(int depth, int nodeIndex,
             int i = 1;
             while(i < 3) {
                 Pokemon toSwitch = team.getPokemon(i);
+                if(toSwitch.isFainted()){
+                    return 0;
+                }
                 Type toSwitchType = toSwitch.getPokeType();
                 if(team.getPokemon(i).equals(me))
                     i++;
