@@ -206,7 +206,7 @@ public class Battle extends Minimax{
         int i = scan.nextInt();
         Boolean track = true;
         while(track == true){
-            if(i < 1 || i > 3){
+            if(i <= 0 || i > 3){
                 System.out.println("Invalid input, please try again!");
                 i = scan.nextInt();
             }else{
@@ -276,7 +276,7 @@ public class Battle extends Minimax{
             int i = scan.nextInt();
             Boolean track = true;
             while(track == true){
-                if(i < 1 || i > 3){
+                if(i <= 0 || i >= 4){
                     System.out.println("Invalid input, please try again!");
                     i = scan.nextInt();
                 }else{

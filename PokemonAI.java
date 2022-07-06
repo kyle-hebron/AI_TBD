@@ -302,7 +302,11 @@ public class PokemonAI{
         seadra.insertMoves(dragonPulse);
         seadra.insertMoves(iceBeam);
         seadra.insertMoves(hydroPump);
-        Pokemon blastoise2 = blastoise;
+        Pokemon blastoise2 = new Pokemon("Blastoise", 361, 264, 298, 254, 2);
+        blastoise2.insertMoves(bodySlam);
+        blastoise2.insertMoves(earthquake);
+        blastoise2.insertMoves(dragonPulse);
+        blastoise2.insertMoves(hydroPump);
 
         //Leader 4
         Leader4.insertPokemon(starmie);
@@ -326,7 +330,11 @@ public class PokemonAI{
         arcanine.insertMoves(fireBlast);
         arcanine.insertMoves(dragonPulse);
         //Charizard, Leader 5
-        Pokemon charizard2 = charizard;
+        Pokemon charizard2 = new Pokemon("Charizard", 359, 266, 268,  298, 1);
+        charizard2.insertMoves(fireBlast);
+        charizard2.insertMoves(flamethrower);
+        charizard2.insertMoves(fly);
+        charizard2.insertMoves(ancientPwr);
         //Leader 5
         Leader5.insertPokemon(magmar);
         Leader5.insertPokemon(charizard2);
@@ -350,7 +358,11 @@ public class PokemonAI{
         vileplume.insertMoves(sludgeBomb);
         vileplume.insertMoves(bodySlam);
 
-        Pokemon venusaur2 = venusaur;
+        Pokemon venusaur2 = new Pokemon("Venusaur", 363, 262, 298,258, 3);
+        venusaur2.insertMoves(earthquake);
+        venusaur2.insertMoves(bodySlam);
+        venusaur2.insertMoves(nrgBall);
+        venusaur2.insertMoves(sludgeBomb);
         //Leader 6
         Leader6.insertPokemon(venusaur2);
         Leader6.insertPokemon(tangela);
