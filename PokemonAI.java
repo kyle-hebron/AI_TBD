@@ -133,7 +133,6 @@ public class PokemonAI{
     }
 
     static void generateTeams(){
-        //create Types? not sure if we still need this but did it anyway -- sam
         Type normal = new Type(0);
         Type fire = new Type(1);
         Type water = new Type(2);
@@ -413,19 +412,6 @@ public class PokemonAI{
 
 
 
-
-// In non orci quis augue vehicula imperdiet. Ut a erat in ex congue bibendum 
-// sit amet quis dui. Class aptent taciti sociosqu ad litora torquent per 
-// conubia nostra, per inceptos himenaeos. Vivamus blandit mollis nisi eget 
-// efficitur. Donec et rutrum sapien, ac iaculis mi. Phasellus molestie lacus 
-// sapien. Morbi sem quam, malesuada eleifend augue tempus, rhoncus tempor 
-
-// sem. Duis pulvinar ex elit, non dignissim ex sagittis quis. Vivamus pretium 
-// congue enim ac finibus. Aliquam ut elit ac sem ornare hendrerit non ac 
-// sapien. Nullam imperdiet viverra egestas. Donec et dignissim dui. Praesent 
-// maximus, dolor a dignissim sagittis, nisi neque elementum magna, laoreet 
-// varius felis erat a mauris. Phasellus ligula ante, efficitur vel imperdiet 
-// vitae, porttitor eu magna.
 
 
 
