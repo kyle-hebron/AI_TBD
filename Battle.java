@@ -384,17 +384,3 @@ public class Battle extends Minimax{
     }
  
 }
-
-
-//  lorem sapien, bibendum interdum augue suscipit nec. Phasellus rhoncus 
-//  auctor rhoncus. Nulla facilisi. Nam egestas augue est, a luctus erat 
-//  condimentum vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-
-//  maximus risus hendrerit a. Proin dictum tortor quis iaculis congue. 
-//  Quisque facilisis non nunc efficitur condimentum. Pellentesque condimentum 
-//  ante ut leo dictum cursus. Praesent lacus sem, mattis quis nunc sit amet, 
-//  convallis molestie risus.
-
-
-
-
