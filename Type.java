@@ -518,11 +518,4 @@ class Type{
 // maximus, dolor a dignissim sagittis, nisi neque elementum magna, laoreet 
 // varius felis erat a mauris. Phasellus ligula ante, efficitur vel imperdiet 
 // vitae, porttitor eu magna.
-
-
-
-// Fusce condimentum lacus vel eros aliquet, eu aliquet est hendrerit. 
-// Vestibulum suscipit venenatis eleifend. Pellentesque sollicitudin malesuada 
-// sapien, et imperdiet lacus viverra ut. Nulla gravida sapien in cursus 
-// mollis. Quisque purus ligula, aliquet interdum augue non, fermentum aliquet  
-
+ 
