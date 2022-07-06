@@ -15,8 +15,7 @@ public class Pokemon{
         this.attack = attack;
         this.defense = defense;
         this.speed = speed;
-        pokeType = new Type(typeNum);
-       
+        pokeType = new Type(typeNum); 
     }
     
     public boolean isFainted(){
@@ -40,31 +39,38 @@ public class Pokemon{
             if(moveList[i] == null){
                 moveList[i] = move;
                 break;
-            }
-                
+            }    
     }
+
     //getter methods
     public String getName() {
         return name;
     }
+
     public double getHP() {
         return health;
     }
+
     public int getAtk() {
         return attack;
     }
+
     public int getDef() {
         return defense;
     }
+
     public int getSpd() {
         return speed;
     }
+
     public Type getPokeType(){
         return pokeType;
     }
+    
     public double getCurrHP(){
         return currentHP;
     }
+
     public Moves[] getMoveList() {
         return moveList;
     }
