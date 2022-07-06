@@ -159,9 +159,9 @@ static int minimax(int depth, int nodeIndex,
                 if(i == 3) {
                     Moves moveList[] = toSwitch.getMoveList();
                     for(int j = 0; j < moveList.length; j++) {
-                    double newHValue = aiChooseAtk(moveList[j], target, toSwitch);
-                    if(newHValue > hValue)
-                        hValue = newHValue * 2;
+                        double newHValue = aiChooseAtk(moveList[j], target, toSwitch);
+                        if(newHValue > hValue)
+                            hValue = newHValue * 2;
                     }
                     break;
                 }
@@ -169,9 +169,9 @@ static int minimax(int depth, int nodeIndex,
                 if(toSwitchType.getEffectiveness(targetType) == 2.0) {
                     Moves moveList[] = toSwitch.getMoveList();
                     for(int j = 0; j < moveList.length; j++) {
-                    double newHValue = aiChooseAtk(moveList[j], target, toSwitch);
-                    if(newHValue > hValue)
-                        hValue = newHValue * 2;
+                        double newHValue = aiChooseAtk(moveList[j], target, toSwitch);
+                        if(newHValue > hValue)
+                            hValue = newHValue * 2;
                     }
                     break;
                 }
