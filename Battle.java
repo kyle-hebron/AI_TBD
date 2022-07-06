@@ -19,7 +19,7 @@ public class Battle extends Minimax{
     }
 
     public void test(){
-        System.out.println("--------The best move to use is " + aiAtkOrSwitch(enemyCurrent, currentPokemon));
+        System.out.println("--------The best move to use is " + aiAtkOrSwitch(enemyTeam, enemyCurrent, currentPokemon));
     }
 
     
@@ -38,7 +38,7 @@ public class Battle extends Minimax{
             }
             double damage = calculateDamage(currentPokemon.moveList[i - 1], currentPokemon, enemyCurrent);
             
-            int temp = aiAtkOrSwitch(enemyCurrent, currentPokemon);
+            int temp = aiAtkOrSwitch(enemyTeam, enemyCurrent, currentPokemon);
             if(temp < 4){
             double endamage = calculateDamage(enemyCurrent.moveList[temp], enemyCurrent, currentPokemon);
             
@@ -224,7 +224,7 @@ public class Battle extends Minimax{
         } 
     }
 
-        int temp = aiAtkOrSwitch(enemyCurrent, currentPokemon);
+        int temp = aiAtkOrSwitch(enemyTeam, enemyCurrent, currentPokemon);
         if(temp < 4){
             double endamage = calculateDamage(enemyCurrent.moveList[temp], enemyCurrent, currentPokemon);
             currentPokemon.setHealth(endamage);

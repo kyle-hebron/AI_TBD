@@ -68,7 +68,7 @@ static int minimax(int depth, int nodeIndex,
 	//Helper Functions
 	
 	//determines whether the AI should attack or switch
-    public int aiAtkOrSwitch(Pokemon me, Pokemon target){
+    public int aiAtkOrSwitch(PokemonTeam myTeam, Pokemon me, Pokemon target){
         //calculate values for each pokemon and attack
         int choice = -1;
         int[] hValues = new int[8];
@@ -78,7 +78,7 @@ static int minimax(int depth, int nodeIndex,
             hValues[i] = (int)aiChooseAtk(move, target, me);
         }
         for(int i = 4; i < 6; i++){
-            hValues[i] = (int)aiPokeSwitch(me, target);
+            hValues[i] = (int)aiPokeSwitch(myTeam, me, target);
         }
         for(int i = 6; i < 8; i++){
             hValues[i] = 0;
@@ -119,6 +119,7 @@ static int minimax(int depth, int nodeIndex,
 	}
 	
 	//determines a Pokemon's heuristic value in the current turn
+    /*
 	public double aiPokeSwitch(Pokemon toSwitch, Pokemon target){
 		double hValue = 1.0;
 
@@ -134,7 +135,48 @@ static int minimax(int depth, int nodeIndex,
                     hValue = newHValue;
             }
         }
-        
 		return hValue; 
-	} 
+	}
+    */
+    
+    //needs to take in a team?
+    public double aiPokeSwitch(PokemonTeam team, Pokemon me, Pokemon target) {
+        double hValue = 1.0;
+
+        Type myType = me.getPokeType();
+        Type targetType = target.getPokeType();
+
+        //if the enemy is effective against me, i should switch
+        if(targetType.getEffectiveness(myType) == 2.0) {
+            int i = 1;
+            while(i < 3) {
+                Pokemon toSwitch = team.getPokemon(i);
+                Type toSwitchType = toSwitch.getPokeType();
+                if(team.getPokemon(i).equals(me))
+                    i++;
+                if(i == 3) {
+                    Moves moveList[] = toSwitch.getMoveList();
+                    for(int j = 0; j < moveList.length; j++) {
+                    double newHValue = aiChooseAtk(moveList[j], target, toSwitch);
+                    if(newHValue > hValue)
+                        hValue = newHValue * 2;
+                    }
+                    break;
+                }
+                //if the Pokemon i want to switch to is super effective against the enemy, switch to that Pokemon
+                if(toSwitchType.getEffectiveness(targetType) == 2.0) {
+                    Moves moveList[] = toSwitch.getMoveList();
+                    for(int j = 0; j < moveList.length; j++) {
+                    double newHValue = aiChooseAtk(moveList[j], target, toSwitch);
+                    if(newHValue > hValue)
+                        hValue = newHValue * 2;
+                    }
+                    break;
+                }
+                i++;
+            }
+        }
+        return hValue;
+    }
+    
 }
