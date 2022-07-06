@@ -513,9 +513,4 @@ class Type{
 // sapien. Morbi sem quam, malesuada eleifend augue tempus, rhoncus tempor 
 
 // sem. Duis pulvinar ex elit, non dignissim ex sagittis quis. Vivamus pretium 
-// congue enim ac finibus. Aliquam ut elit ac sem ornare hendrerit non ac 
-// sapien. Nullam imperdiet viverra egestas. Donec et dignissim dui. Praesent 
-// maximus, dolor a dignissim sagittis, nisi neque elementum magna, laoreet 
-// varius felis erat a mauris. Phasellus ligula ante, efficitur vel imperdiet 
-// vitae, porttitor eu magna.
  
