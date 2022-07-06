@@ -1,8 +1,10 @@
-import java.util.*; 
 
-public class PokemonAI{
+import java.util.*;
+
+public class PokemonAI {
+
     static PokemonTeam player = new PokemonTeam("player");
-        
+
     static PokemonTeam Leader1 = new PokemonTeam("Mo");
     static PokemonTeam Leader2 = new PokemonTeam("Kelly");
     static PokemonTeam Leader3 = new PokemonTeam("John");
@@ -11,18 +13,18 @@ public class PokemonAI{
     static PokemonTeam Leader6 = new PokemonTeam("Kevin");
     static PokemonTeam Leader7 = new PokemonTeam("Chad");
     static PokemonTeam Leader8 = new PokemonTeam("Vardan");
-    
-    public static void main(String[] args) throws InterruptedException{     
+
+    public static void main(String[] args) throws InterruptedException {
         String name;
         int res = -1;
         // double damage = 0.0;
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to Poke-Battle Emulator!");
-        while(res != 1 && res != 0){
+        while (res != 1 && res != 0) {
             System.out.println("Enter 1 to start a new adventure! Enter 0 to exit.");
             res = scanner.nextInt();
-            if(res == 1){
+            if (res == 1) {
 
                 Scanner scanz = new Scanner(System.in);
                 System.out.println("Hello there! Welcome to the world of POKEMON! My name is OAK! People call me the POKEMON PROF!");
@@ -35,13 +37,13 @@ public class PokemonAI{
                 name = scanz.nextLine();
                 System.out.println("Right! So your name is " + name + "!");
                 Thread.sleep(2000);
-                
+
                 // System.out.println("This is my grandson. He's been your rival since you were a baby. ...Erm, what is his name again?");
                 // rival = scan.nextLine();
                 // Thread.sleep(2000);
                 // System.out.println("That's right! I remember now! His name was " + rival + "! ");
                 // Thread.sleep(2000);
-                System.out.println( name + "!" + " Your very own POKEMON legend is about to unfold!");
+                System.out.println(name + "!" + " Your very own POKEMON legend is about to unfold!");
                 Thread.sleep(2000);
                 System.out.println("A world of dreams and adventures with POKEMON awaits! Let's go!");
 
@@ -81,58 +83,59 @@ public class PokemonAI{
 
                 System.out.println("You've defeated all challengers! Congratulations!");
                 System.exit(0);
-            }else if(res == 0){
+            } else if (res == 0) {
                 System.exit(0);
-            }else{
+            } else {
                 System.out.println("Invalid input. Try again!");
             }
         }
 
     }
 
-    public static void printBattle(Battle currentBattle){
+    public static void printBattle(Battle currentBattle) {
         System.out.println(player.trainerName + " has sent out " + currentBattle.currentPokemon.getName());
         Pokemon userPoke = currentBattle.currentPokemon;
         Pokemon enemyPoke = currentBattle.enemyCurrent;
         System.out.println("---------------------");
         System.out.println(userPoke.getName());
-        
+
         System.out.println(userPoke.getCurrHP() + "/" + userPoke.getHP());
         System.out.println("---------------------");
         System.out.println(enemyPoke.getName());
-        
+
         System.out.println(enemyPoke.getCurrHP() + "/" + enemyPoke.getHP());
         System.out.println("---------------------");
     }
 
-    public static void doBattle(Battle currentBattle){
+    public static void doBattle(Battle currentBattle) {
         Scanner scan = new Scanner(System.in);
 
-        while(!currentBattle.userTeam.allFainted() && !currentBattle.enemyTeam.allFainted()){
-            
+        while (!currentBattle.userTeam.allFainted() && !currentBattle.enemyTeam.allFainted()) {
+
             printBattle(currentBattle);
             System.out.println("Attack by entering [1] or switch by entering [2]?");
 
-            int playOp = scan.nextInt(); 
+            int playOp = scan.nextInt();
 
             // YOUr move
-            if(playOp == 1){ 
-                 currentBattle.chooseMove();
-            } 
+            if (playOp == 1) {
+                currentBattle.chooseMove();
+            }
 
             // YOUr fighter
-            if(playOp == 2){
+            if (playOp == 2) {
                 System.out.println("Choose your Pokemon.");
-                
+
                 currentBattle.switchPokemon();
-            } 
-            if(player.allFainted() || currentBattle.enemyTeam.allFainted()){
+            }
+            if (player.allFainted() || currentBattle.enemyTeam.allFainted()) {
                 break;
             }
         }
+
     }
 
-    static void generateTeams(){
+    static void generateTeams() {
         Type normal = new Type(0);
         Type fire = new Type(1);
         Type water = new Type(2);
@@ -150,14 +153,10 @@ public class PokemonAI{
         Type dragon = new Type(14);
 
         //Initialize Teams
-        
-        
-
         //Generate Mon
-
 //PLAYER
         //Charizard, Player
-        Pokemon charizard = new Pokemon("Charizard", 359, 266, 268,  298, 1);
+        Pokemon charizard = new Pokemon("Charizard", 359, 266, 268, 298, 1);
         Moves fireBlast = new Moves(120, 85, 8, "Fire Blast", fire);
         Moves flamethrower = new Moves(95, 100, 24, "Flamethrower", fire);
         Moves ancientPwr = new Moves(60, 100, 8, "Ancient Power", rock);
@@ -167,7 +166,7 @@ public class PokemonAI{
         charizard.insertMoves(fly);
         charizard.insertMoves(ancientPwr);
         //Venusaur, Player
-        Pokemon venusaur = new Pokemon("Venusaur", 363, 262, 298,258, 3);
+        Pokemon venusaur = new Pokemon("Venusaur", 363, 262, 298, 258, 3);
         Moves earthquake = new Moves(100, 100, 16, "Earthquake", ground);
         Moves bodySlam = new Moves(85, 100, 24, "Body Slam", normal);
         Moves nrgBall = new Moves(90, 100, 16, "Energy Ball", grass);
@@ -195,22 +194,20 @@ public class PokemonAI{
         Pokemon geodude = new Pokemon("Geodude", 221, 196, 236, 96, 12);
         Moves brickBreak = new Moves(75, 100, 24, "Brick Break", fighting);
         geodude.insertMoves(ancientPwr);
-        geodude.insertMoves(bodySlam);  
+        geodude.insertMoves(bodySlam);
         geodude.insertMoves(brickBreak);
         geodude.insertMoves(earthquake);
-        
-        
+
         //Sandshrew, Leader 1
         Pokemon sandshrew = new Pokemon("Sandshrew", 241, 186, 206, 116, 8);
         Moves focusPunch = new Moves(150, 100, 32, "Focus Punch", fighting);
         Moves poisonJab = new Moves(80, 100, 32, "Poison Jab", poison);
-        
-        
+
         sandshrew.insertMoves(brickBreak);
         sandshrew.insertMoves(focusPunch);
         sandshrew.insertMoves(poisonJab);
         sandshrew.insertMoves(bodySlam);
-        
+
         //Onix, Leader 1
         Pokemon onix = new Pokemon("Onix", 211, 126, 356, 176, 12);
         onix.insertMoves(bodySlam);
@@ -218,6 +215,10 @@ public class PokemonAI{
         onix.insertMoves(ancientPwr);
         onix.insertMoves(dragonPulse);
 
+        //Leader 1
+        Leader1.insertPokemon(geodude);
+        Leader1.insertPokemon(sandshrew);
+        Leader1.insertPokemon(onix);
 
 //LEADER 2
         //Pidgeot, Leader 2
@@ -247,6 +248,11 @@ public class PokemonAI{
         electabuzz.insertMoves(icePunch);
         electabuzz.insertMoves(firePunch);
 
+        //Leader 2
+        Leader2.insertPokemon(pidgeot);
+        Leader2.insertPokemon(hitmonchan);
+        Leader2.insertPokemon(electabuzz);
+
 //LEADER 3
         //Flareon, Leader 3
         Pokemon flareon = new Pokemon("Flareon", 271, 296, 256, 166, 1);
@@ -271,7 +277,10 @@ public class PokemonAI{
         vaporeon.insertMoves(shadowBall);
         vaporeon.insertMoves(hydroPump);
 
-
+        //Leader 3
+        Leader3.insertPokemon(flareon);
+        Leader3.insertPokemon(jolteon);
+        Leader3.insertPokemon(vaporeon);
 
 //LEADER 4
         //Starmie, Leader 4
@@ -290,13 +299,11 @@ public class PokemonAI{
         seadra.insertMoves(dragonPulse);
         seadra.insertMoves(iceBeam);
         seadra.insertMoves(hydroPump);
-        Pokemon blastoise2 = new Pokemon("Blastoise", 361, 264, 298, 254, 2);
-        blastoise2.insertMoves(bodySlam);
-        blastoise2.insertMoves(earthquake);
-        blastoise2.insertMoves(dragonPulse);
-        blastoise2.insertMoves(hydroPump);
 
-
+        //Leader 4
+        Leader4.insertPokemon(starmie);
+        Leader4.insertPokemon(blastoise);
+        Leader4.insertPokemon(seadra);
 
 //LEADER 5
         //Magmar, Leader 5
@@ -315,12 +322,11 @@ public class PokemonAI{
         arcanine.insertMoves(fireBlast);
         arcanine.insertMoves(dragonPulse);
         //Charizard, Leader 5
-        Pokemon charizard2 = new Pokemon("Charizard", 359, 266, 268,  298, 1);
-        charizard2.insertMoves(fireBlast);
-        charizard2.insertMoves(flamethrower);
-        charizard2.insertMoves(fly);
-        charizard2.insertMoves(ancientPwr);
 
+        //Leader 5
+        Leader5.insertPokemon(magmar);
+        Leader5.insertPokemon(charizard);
+        Leader5.insertPokemon(arcanine);
 
 //LEADER 6
         //Venusaur, Leader 6
@@ -340,12 +346,10 @@ public class PokemonAI{
         vileplume.insertMoves(sludgeBomb);
         vileplume.insertMoves(bodySlam);
 
-        Pokemon venusaur2 = new Pokemon("Venusaur", 363, 262, 298,258, 3);
-        venusaur2.insertMoves(earthquake);
-        venusaur2.insertMoves(bodySlam);
-        venusaur2.insertMoves(nrgBall);
-        venusaur2.insertMoves(sludgeBomb);
-
+        //Leader 6
+        Leader6.insertPokemon(venusaur);
+        Leader6.insertPokemon(tangela);
+        Leader6.insertPokemon(vileplume);
 
 //LEADER 7
         //Articuno, Leader 7
@@ -368,7 +372,10 @@ public class PokemonAI{
         zapdos.insertMoves(braveBird);
         zapdos.insertMoves(extrasensory);
 
-
+        //Leader 7
+        Leader7.insertPokemon(articuno);
+        Leader7.insertPokemon(moltres);
+        Leader7.insertPokemon(zapdos);
 
 //LEADER 8
         //Dragonite, Leader 8
@@ -391,40 +398,11 @@ public class PokemonAI{
         mew.insertMoves(psychicMove);
         mew.insertMoves(thunderBolt);
         mew.insertMoves(braveBird);
-//POKEMON TEAM INSERTION
-        
-        //Leader 1
-        Leader1.insertPokemon(geodude);
-        Leader1.insertPokemon(seadra);
-        Leader1.insertPokemon(vileplume);           
-        //Leader 2
-        Leader2.insertPokemon(pidgeot);
-        Leader2.insertPokemon(hitmonchan);
-        Leader2.insertPokemon(arcanine);         
-        //Leader 3
-        Leader3.insertPokemon(flareon);
-        Leader3.insertPokemon(jolteon);
-        Leader3.insertPokemon(vaporeon);    
-        //Leader 4
-        Leader4.insertPokemon(magmar);
-        Leader4.insertPokemon(sandshrew);
-        Leader4.insertPokemon(blastoise2);
-        //Leader 5
-        Leader5.insertPokemon(starmie);
-        Leader5.insertPokemon(charizard2);
-        Leader5.insertPokemon(electabuzz);
-        //Leader 6
-        Leader6.insertPokemon(venusaur2);
-        Leader6.insertPokemon(tangela);
-        Leader6.insertPokemon(onix);
-        //Leader 7
-        Leader7.insertPokemon(articuno);
-        Leader7.insertPokemon(moltres);
-        Leader7.insertPokemon(zapdos);
+
         //Leader 8
         Leader8.insertPokemon(dragonite);
         Leader8.insertPokemon(mew);
         Leader8.insertPokemon(mewtwo);
     }
-    
+
 }
