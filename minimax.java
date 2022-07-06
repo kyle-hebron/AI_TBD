@@ -22,14 +22,14 @@ static int minimax(int depth, int nodeIndex,
     if (depth == 3)
         return values[nodeIndex];
  
-    if (maximizingPlayer)
-    {
+    if (maximizingPlayer){
+
         int best = MIN;
  
         // Recur for left and
         // right children
-        for (int i = 0; i < 2; i++)
-        {
+        for (int i = 0; i < 2; i++){
+
             int val = minimax(depth + 1, nodeIndex * 2 + i,
                               false, values, alpha, beta);
             best = Math.max(best, val);
@@ -47,8 +47,7 @@ static int minimax(int depth, int nodeIndex,
  
         // Recur for left and
         // right children
-        for (int i = 0; i < 2; i++)
-        {
+        for (int i = 0; i < 2; i++){
              
             int val = minimax(depth + 1, nodeIndex * 2 + i,
                               true, values, alpha, beta);
@@ -115,8 +114,7 @@ static int minimax(int depth, int nodeIndex,
         Battle temp = new Battle(temps, temper);
         double health = target.getHP();
 		hValue =  temp.calculateDamageNoCrit(move, target, user);
-        
-        
+         
 		return hValue;
 	}
 	
@@ -137,9 +135,7 @@ static int minimax(int depth, int nodeIndex,
             }
         }
         
-		return hValue;
-		
-	}
-	
-	
+		return hValue; 
+	} 
+
 }

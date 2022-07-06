@@ -1,5 +1,4 @@
-import java.util.*;
-
+import java.util.*; 
 
 public class PokemonAI{
     static PokemonTeam player = new PokemonTeam("player");
@@ -14,9 +13,9 @@ public class PokemonAI{
     static PokemonTeam Leader8 = new PokemonTeam("Vardan");
     
     public static void main(String[] args) throws InterruptedException{     
-        String name, rival;
+        String name;
         int res = -1;
-        double damage = 0.0;
+        // double damage = 0.0;
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to Poke-Battle Emulator!");
@@ -114,35 +113,19 @@ public class PokemonAI{
             printBattle(currentBattle);
             System.out.println("Attack by entering [1] or switch by entering [2]?");
 
-            int playOp = scan.nextInt();
-            /* 
-            System.out.println("play (PC)[10] or switch (PC)[20]?");
-            int pcOp = scan.nextInt();
-            */
+            int playOp = scan.nextInt(); 
+
             // YOUr move
             if(playOp == 1){ 
                  currentBattle.chooseMove();
-            }
-            /* 
-            // PC's move
-            if(pcOp == 10){
-                 currentBattle.chooseMove();
             } 
-            */
+
             // YOUr fighter
             if(playOp == 2){
                 System.out.println("Choose your Pokemon.");
                 
                 currentBattle.switchPokemon();
-            }
-            /* 
-            // PC's fighter
-            if(playOp == 20){
-                System.out.println("Choose PC's Pokemon.");
-                
-                currentBattle.switchPokemon();
-            }
-            */
+            } 
             if(player.allFainted() || currentBattle.enemyTeam.allFainted()){
                 break;
             }

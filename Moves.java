@@ -1,5 +1,4 @@
-import java.util.*;
-
+import java.util.*; 
 
 public class Moves {
     int damage, accuracy, pp;
@@ -32,8 +31,5 @@ public class Moves {
     
     public String getName(){
         return moveName;
-    }
-
-    
-
+    } 
 }

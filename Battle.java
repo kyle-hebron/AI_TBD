@@ -23,9 +23,10 @@ public class Battle extends Minimax{
     }
 
     
-    public void chooseMove(){ //Maybe have this for the main to call -Kyle
-        Scanner scan = new Scanner(System.in);
-        
+    //Maybe have this for the main to call -Kyle
+    public void chooseMove(){ 
+
+        Scanner scan = new Scanner(System.in); 
 
             currentPokemon.printMoves();;
             System.out.println("Please pick a move");
@@ -48,11 +49,13 @@ public class Battle extends Minimax{
                         if(enemyTeam.allFainted()){     //Checks to see if enemy has all fainted pokemon
                             System.out.println("Congrats! You have defeated " + enemyTeam.trainerName);
                             return;
-                        }  else {       //Switches out for the next pokemon in the party
+                        }  else {       
+                            //Switches out for the next pokemon in the party
                             enemyCurrent = searchAvailable();
                             System.out.println(enemyTeam.trainerName + " has brought out " + enemyCurrent.getName());
                         }
-                    } else {    //If the pokemon has not fainted, enemy deals damage to user
+                    } else {    
+                        //If the pokemon has not fainted, enemy deals damage to user
                         currentPokemon.setHealth(endamage);
                         System.out.println(enemyCurrent.name + " used " + enemyCurrent.moveList[temp].getName() + " dealing " + endamage);
                         System.out.println(currentPokemon.getName() + " has " + currentPokemon.getCurrHP() + " out of " + currentPokemon.getHP());
@@ -63,14 +66,9 @@ public class Battle extends Minimax{
                             }  else {
                                 faintedPokemonSwap();
                             }
-                        } 
-                        
-                    }
-
-                    
-
+                        }  
+                    }  
                 }
-                
                 else if(currentPokemon.getSpd() < enemyCurrent.getSpd()){
                     currentPokemon.setHealth(endamage);
                     System.out.println(enemyCurrent.name + " used " + enemyCurrent.moveList[temp].getName() + " dealing " + endamage);
@@ -100,6 +98,7 @@ public class Battle extends Minimax{
                 }
                 
                 else if(currentPokemon.getSpd() == enemyCurrent.getSpd()){
+
                      Random rand = new Random();
                      int a = rand.nextInt(2);
 
@@ -148,22 +147,23 @@ public class Battle extends Minimax{
                             }  else {
                                 faintedPokemonSwap();
                             }
-                    } else {
-                        enemyCurrent.setHealth(damage);
-                        System.out.println(currentPokemon.name + " used " + currentPokemon.moveList[i - 1].getName() + " dealing " + damage);
-                        System.out.println(enemyCurrent.getName() + " has " + enemyCurrent.getCurrHP() + " out of " + enemyCurrent.getHP());
-                        if(enemyCurrent.isFainted()){
-                            if(enemyTeam.allFainted()){
-                                System.out.println("Congrats! You have defeated " + enemyTeam.trainerName);
-                                return;
-                            }  else {
-                                enemyCurrent = searchAvailable();
-                                System.out.println(enemyTeam.trainerName + " has brought out " + enemyCurrent.getName());
+                        }
+                        else {
+                            enemyCurrent.setHealth(damage);
+                            System.out.println(currentPokemon.name + " used " + currentPokemon.moveList[i - 1].getName() + " dealing " + damage);
+                            System.out.println(enemyCurrent.getName() + " has " + enemyCurrent.getCurrHP() + " out of " + enemyCurrent.getHP());
+                            if(enemyCurrent.isFainted()){
+                                if(enemyTeam.allFainted()){
+                                    System.out.println("Congrats! You have defeated " + enemyTeam.trainerName);
+                                    return;
+                                }  else {
+                                    enemyCurrent = searchAvailable();
+                                    System.out.println(enemyTeam.trainerName + " has brought out " + enemyCurrent.getName()); 
+                                }
                             }
                         }
                     }
-                     }
-                    }
+                }
                     else {
                         temp = temp - 4;
                         if(enemyTeam.getPokemon(temp).isFainted() || enemyTeam.getPokemon(temp) == enemyCurrent) {
@@ -173,7 +173,8 @@ public class Battle extends Minimax{
                                     break;
                                 }
                             }
-                        } else {
+                        } 
+                        else {
                             enemyCurrent = enemyTeam.getPokemon(temp);
                         }
 
@@ -189,14 +190,11 @@ public class Battle extends Minimax{
                             }
                         }
                     }
-                }
-
-                
-                
-          
+            }   
     }
 
     public void switchPokemon() {
+
         Scanner scan = new Scanner(System.in);
         System.out.println("Which pokemon would you like to switch out?");
         userTeam.printTeam();
@@ -218,39 +216,40 @@ public class Battle extends Minimax{
 
         int temp = aiAtkOrSwitch(enemyCurrent, currentPokemon);
         if(temp < 4){
-        double endamage = calculateDamage(enemyCurrent.moveList[temp], enemyCurrent, currentPokemon);
-        currentPokemon.setHealth(endamage);
-        System.out.println(enemyCurrent.name + " used " + enemyCurrent.moveList[temp].getName() + " dealing " + endamage);
-        System.out.println(currentPokemon.getName() + " has " + currentPokemon.getCurrHP() + " out of " + currentPokemon.getHP());
+            double endamage = calculateDamage(enemyCurrent.moveList[temp], enemyCurrent, currentPokemon);
+            currentPokemon.setHealth(endamage);
+            System.out.println(enemyCurrent.name + " used " + enemyCurrent.moveList[temp].getName() + " dealing " + endamage);
+            System.out.println(currentPokemon.getName() + " has " + currentPokemon.getCurrHP() + " out of " + currentPokemon.getHP());
 
-        if(currentPokemon.isFainted()){
-            if(userTeam.allFainted()){
-                System.out.println("You have been defeated. :( Restart to try again!");
-                return;
-            }  else {
-                faintedPokemonSwap();
+            if(currentPokemon.isFainted()){
+                if(userTeam.allFainted()){
+                    System.out.println("You have been defeated. :( Restart to try again!");
+                    return;
+                }  else {
+                    faintedPokemonSwap();
+                }
             }
+        } 
+    else {
+            temp = temp - 4;
+            if(enemyTeam.getPokemon(temp).isFainted() || enemyTeam.getPokemon(temp) == enemyCurrent){
+            for(int k = 0; k < 3; k++) {
+                if(!enemyTeam.getPokemon(k).isFainted()){
+                   enemyCurrent = enemyTeam.getPokemon(k);
+                     break;
+                    }
+                }
+             } else {
+              enemyCurrent = enemyTeam.getPokemon(temp);
+             }
         }
-    } else {
-        temp = temp - 4;
-                        if(enemyTeam.getPokemon(temp).isFainted() || enemyTeam.getPokemon(temp) == enemyCurrent) {
-                            for(int k = 0; k < 3; k++) {
-                                if(!enemyTeam.getPokemon(k).isFainted()){
-                                    enemyCurrent = enemyTeam.getPokemon(k);
-                                    break;
-                                }
-                            }
-                        } else {
-                            enemyCurrent = enemyTeam.getPokemon(temp);
-                        }
     }
-        }
 
         public Pokemon searchAvailable(){
             for(int k = 0; k < 3; k++) {
+
                 if(!enemyTeam.getPokemon(k).isFainted()){
-                    return enemyTeam.getPokemon(k);
-                    
+                    return enemyTeam.getPokemon(k); 
                 }
             }
             return null;
@@ -285,10 +284,7 @@ public class Battle extends Minimax{
         double damage = calculateDamage(enemyCurrent.moveList[a - 1], enemyCurrent, currentPokemon);
         currentPokemon.setHealth(damage);
         */
-    
-
-
-
+     
     public void switchEnemy(int i) {            //Used for AI
         enemyCurrent = enemyTeam.getPokemon(i);
     }
@@ -314,8 +310,7 @@ public class Battle extends Minimax{
             damage *= 1.5;
             System.out.println(attacker.getName() + " has crit");
         }
-        return damage;
-
+        return damage; 
     }
 
     public double calculateDamageNoCrit(Moves attackingMove, Pokemon attacker, Pokemon target) {
@@ -331,13 +326,12 @@ public class Battle extends Minimax{
         if(isSTAB(attackingMove, attacker))
             damage *= 1.5;
 
-        return damage;
-
+        return damage; 
     }
 
     //damage multiplier based off type matchup is done in a separate method
     public double typeEffectivenesMultiplier(Moves move, Pokemon attacker, Pokemon defender) {
-        double multiplier = 1.0;
+        // double multiplier = 1.0;
         Type atkType, defType;
         
         //the type of the attacker's move
@@ -388,7 +382,6 @@ public class Battle extends Minimax{
             return true;
         return false;
     }
-
-
+ 
 }
 
