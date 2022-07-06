@@ -174,7 +174,6 @@ class Minimax { //changed class name for our purposes
                         break;
                     }
                     i++;
-                }
             }
             return hValue;
         }
