@@ -167,34 +167,3 @@ class Type{
 // varius felis erat a mauris. Phasellus ligula ante, efficitur vel imperdiet 
 // vitae, porttitor eu magna.
 
-
-
-// Fusce condimentum lacus vel eros aliquet, eu aliquet est hendrerit. 
-// Vestibulum suscipit venenatis eleifend. Pellentesque sollicitudin malesuada 
-// sapien, et imperdiet lacus viverra ut. Nulla gravida sapien in cursus 
-// mollis. Quisque purus ligula, aliquet interdum augue non, fermentum aliquet 
-// nibh. Integer sed finibus tellus, vel laoreet mi. Donec vehicula ligula non 
-// neque scelerisque vulputate eget ut dui. Proin mattis ante vitae mi egestas 
-// blandit. Sed a lobortis magna.
-
-// Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet
-//  lorem sapien, bibendum interdum augue suscipit nec. Phasellus rhoncus 
-//  auctor rhoncus. Nulla facilisi. Nam egestas augue est, a luctus erat 
-//  condimentum vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-//  Suspendisse varius ac mi vel mattis. Nullam tristique rhoncus elit, non 
-//  maximus risus hendrerit a. Proin dictum tortor quis iaculis congue. 
-//  Quisque facilisis non nunc efficitur condimentum. Pellentesque condimentum 
-//  ante ut leo dictum cursus. Praesent lacus sem, mattis quis nunc sit amet, 
-//  convallis molestie risus.
-// In non orci quis augue vehicula imperdiet. Ut a erat in ex congue bibendum 
-// sit amet quis dui. Class aptent taciti sociosqu ad litora torquent per 
-// conubia nostra, per inceptos himenaeos. Vivamus blandit mollis nisi eget 
-// efficitur. Donec et rutrum sapien, ac iaculis mi. Phasellus molestie lacus 
-// sapien. Morbi sem quam, malesuada eleifend augue tempus, rhoncus tempor 
-
-// sem. Duis pulvinar ex elit, non dignissim ex sagittis quis. Vivamus pretium 
-// congue enim ac finibus. Aliquam ut elit ac sem ornare hendrerit non ac 
-// sapien. Nullam imperdiet viverra egestas. Donec et dignissim dui. Praesent 
-// maximus, dolor a dignissim sagittis, nisi neque elementum magna, laoreet 
-// varius felis erat a mauris. Phasellus ligula ante, efficitur vel imperdiet 
-// vitae, porttitor eu magna.
