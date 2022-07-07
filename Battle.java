@@ -179,7 +179,7 @@ public class Battle extends Minimax {
                     temp++;
                 }
             }
-
+            System.out.println(enemyTeam.trainerName + " has brought out " + enemyCurrent.getName());
             enemyCurrent = enemyTeam.getPokemon(temp);
 
             System.out.println("AI switching to " + enemyCurrent.getName());
@@ -258,6 +258,7 @@ public class Battle extends Minimax {
                 }
             }
             enemyCurrent = enemyTeam.getPokemon(temp);
+            System.out.println(enemyTeam.trainerName + " has brought out " + enemyCurrent.getName());
         }
     }
 
