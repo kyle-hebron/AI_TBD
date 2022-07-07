@@ -245,7 +245,7 @@ public class Battle extends Minimax {
             }
         } else {
             temp = temp - 4;
-            if (enemyTeam.getPokemon(temp).isFainted() || enemyTeam.getPokemon(temp) == enemyCurrent) {
+            if (enemyTeam.getPokemon(temp).isFainted()) {
                 for (int k = 0; k < 3; k++) {
                     if (!enemyTeam.getPokemon(k).isFainted()) {
                         enemyCurrent = enemyTeam.getPokemon(k);
@@ -253,8 +253,11 @@ public class Battle extends Minimax {
                     }
                 }
             } else {
-                enemyCurrent = enemyTeam.getPokemon(temp);
+                if(enemyTeam.getPokemon(temp) == enemyCurrent) {
+                    temp++;
+                }
             }
+            enemyCurrent = enemyTeam.getPokemon(temp);
         }
     }
 
