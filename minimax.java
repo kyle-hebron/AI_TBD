@@ -176,6 +176,7 @@ class Minimax { //changed class name for our purposes
                     i++;
                 }
             }
+            System.out.println("HVALUE of AI Switch is: " + hValue);
             return hValue;
         }
     
