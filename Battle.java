@@ -167,12 +167,16 @@ public class Battle extends Minimax {
         } else {
 
             temp = temp - 4;
-            if (enemyTeam.getPokemon(temp).isFainted() || enemyTeam.getPokemon(temp) == enemyCurrent) {
+            if (enemyTeam.getPokemon(temp).isFainted()) {
                 for (int k = 0; k < 3; k++) {
                     if (!enemyTeam.getPokemon(k).isFainted()) {
                         enemyCurrent = enemyTeam.getPokemon(k);
                         break;
                     }
+                }
+            } else {
+                if(enemyTeam.getPokemon(temp) == enemyCurrent) {
+                    temp++;
                 }
             }
 
