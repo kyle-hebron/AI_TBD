@@ -3,13 +3,13 @@ import java.util.*;
 public class PokemonAI{
     static PokemonTeam player = new PokemonTeam("player");
         
-    static PokemonTeam Leader1 = new PokemonTeam("Mo");
-    static PokemonTeam Leader2 = new PokemonTeam("Kelly");
-    static PokemonTeam Leader3 = new PokemonTeam("John");
-    static PokemonTeam Leader4 = new PokemonTeam("Richard");
-    static PokemonTeam Leader5 = new PokemonTeam("Adam");
-    static PokemonTeam Leader6 = new PokemonTeam("Kevin");
-    static PokemonTeam Leader7 = new PokemonTeam("Chad");
+    static PokemonTeam Leader1 = new PokemonTeam("Adam");
+    static PokemonTeam Leader2 = new PokemonTeam("Bertha");
+    static PokemonTeam Leader3 = new PokemonTeam("Ivan");
+    static PokemonTeam Leader4 = new PokemonTeam("Shrek");
+    static PokemonTeam Leader5 = new PokemonTeam("Harrison");
+    static PokemonTeam Leader6 = new PokemonTeam("Ethan");
+    static PokemonTeam Leader7 = new PokemonTeam("Kelly");
     static PokemonTeam Leader8 = new PokemonTeam("Vardan");
     
     public static void main(String[] args) throws InterruptedException{     
