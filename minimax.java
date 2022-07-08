@@ -97,8 +97,7 @@ class Minimax { //changed class name for our purposes
         //determines a move's heuristic value in the current turn
         public double aiChooseAtk(Moves move, Pokemon target, Pokemon user) {
             double hValue = 0.0;
-    
-            //double effective = moveType.getEffectiveness(targetType);
+
             PokemonTeam temps = new PokemonTeam("");    //Filler
             PokemonTeam temper = new PokemonTeam("");
             temps.insertPokemon(target);
