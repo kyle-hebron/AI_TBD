@@ -98,7 +98,6 @@ class Minimax { //changed class name for our purposes
         public double aiChooseAtk(Moves move, Pokemon target, Pokemon user) {
             double hValue = 0.0;
     
-            //double movePower = move.getDamage();
             //double effective = moveType.getEffectiveness(targetType);
             PokemonTeam temps = new PokemonTeam("");    //Filler
             PokemonTeam temper = new PokemonTeam("");
