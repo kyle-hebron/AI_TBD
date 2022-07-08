@@ -306,8 +306,6 @@ public class Battle extends Minimax {
     }
 
     /* 
-        Scanner scan = new Scanner(System.in);
-        int a = scan.nextInt();
         double damage = calculateDamage(enemyCurrent.moveList[a - 1], enemyCurrent, currentPokemon);
         currentPokemon.setHealth(damage);
      */
