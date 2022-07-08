@@ -305,9 +305,6 @@ public class Battle extends Minimax {
         }
     }
 
-    /* 
-        currentPokemon.setHealth(damage);
-     */
     public void switchEnemy(int i) {            //Used for AI
         enemyCurrent = enemyTeam.getPokemon(i);
     }
