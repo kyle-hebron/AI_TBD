@@ -117,7 +117,6 @@ class Minimax { //changed class name for our purposes
             Type toSwitchType = toSwitch.getPokeType();
             Type targetType = target.getPokeType();
     
-            //this is gonna return a very small value compared to aiChooseAtk(), need to determine how to bring up the value -MD
             if(toSwitchType.getEffectiveness(targetType) == 2.0) {
                 Moves moveList[] = toSwitch.getMoveList();
                 for(int i = 0; i < moveList.length; i++) {
