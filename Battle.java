@@ -306,7 +306,6 @@ public class Battle extends Minimax {
     }
 
     /* 
-        double damage = calculateDamage(enemyCurrent.moveList[a - 1], enemyCurrent, currentPokemon);
         currentPokemon.setHealth(damage);
      */
     public void switchEnemy(int i) {            //Used for AI
