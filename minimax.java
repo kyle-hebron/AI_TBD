@@ -129,7 +129,7 @@ class Minimax { //Changed class name for our purposes.
         */
         
          //Current version of the switch heuristic function.
-         //Does NOT yet determine the health of the remaining Pokemon into the heuristic value calculation. (Maybe in the next patch?)
+         //Does NOT yet determine the health of the remaining Pokemon into the heuristic value calculation.
         public double aiPokeSwitch(PokemonTeam team, Pokemon me, Pokemon target) {
             double hValue = 1.0;
     
