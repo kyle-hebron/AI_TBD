@@ -87,7 +87,8 @@ class Minimax { //Changed class name for our purposes.
                 }
             }
             return choice;
-            //Position 0 - 5: 0 - 3 are moves, 4 and 5 are Pokemon to switch to.
+            //Position 0 - 5:
+            //0 - 3 are moves, 4 and 5 are Pokemon to switch to.
         }
     
         //Determines a move's heuristic value in the current turn.
