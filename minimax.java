@@ -136,7 +136,7 @@ class Minimax { //Changed class name for our purposes.
             Type myType = me.getPokeType();
             Type targetType = target.getPokeType();
     
-            //Ff the enemy is effective against me, I should switch.
+            //If the enemy is effective against me, I should switch.
             if (targetType.getEffectiveness(myType) == 2.0) {
                 int i = 1;
                 while (i < 3) {
@@ -173,6 +173,21 @@ class Minimax { //Changed class name for our purposes.
                 }
             }
             return hValue;
+        }
+
+        //Helper function for aiPokeSwitch.
+        //Determines which Pokemon has the most current health on the team.
+        //Taken in as part of the calculation for the heuristic value of each available Pokemon.
+        private double[] healthCalculationForHValue(PokemonTeam team, Pokemon current) {
+            double[] teamCurrentHP = new double[2];
+
+            for(int i = 0; i < 2; i++) {
+                if(!current.equals(team.getPokemon(i))) {
+                    teamCurrentHP[i] = team.getPokemon(i).getCurrHP();
+                }
+            }
+
+            return teamCurrentHP;
         }
     
     }
