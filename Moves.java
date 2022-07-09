@@ -1,5 +1,6 @@
 import java.util.*; 
 
+//Moves class is an ins
 public class Moves {
     int damage, accuracy, pp;
     String moveName;
