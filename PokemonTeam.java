@@ -1,8 +1,11 @@
 import java.util.*;
 
+//PokemonTeam is an instance of an ArrayList of Pokemon objects.
+//Normally this would be utilized under the battle simulator as a local variable.
+//However, there were functions we could implement better if the ArrayList of Pokemon were it's own object.
 public class PokemonTeam{
 
-    //switched from standard array to ArrayList to optimize insertPokemon()
+    //Switched from standard array to ArrayList to optimize insertPokemon().
     String trainerName;
     ArrayList<Pokemon> team = new ArrayList<Pokemon>();
 
@@ -26,7 +29,7 @@ public class PokemonTeam{
     public String getName(){
         return trainerName;
     }
-    //Checks to see if all the pokemon are fainted
+    //Checks to see if all the Pokemon are fainted.
     public boolean allFainted(){
         for(int i = 0; i < 3; i++){
             if(!team.get(i).isFainted())
