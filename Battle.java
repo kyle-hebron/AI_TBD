@@ -1,7 +1,7 @@
 
 import java.util.*;
 
-//Battle class creates a Battle object that runs a simulation of a single Pokemon battle using AI.
+//Battle class is an instance of the Battle object that runs a simulation of a single Pokemon battle using AI.
 //The AI algorithm used is the minimax algorithm, which is extended in this class.
 public class Battle extends Minimax {
 
