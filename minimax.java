@@ -1,4 +1,4 @@
-///////////FROM Geeks For Geeks: https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-4-alpha-beta-pruning/
+//////////FROM Geeks For Geeks: https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-4-alpha-beta-pruning/
 // Java program to demonstrate the working of Alpha-Beta pruning.
 
 class Minimax { //Changed class name for our purposes.
