@@ -126,7 +126,7 @@ class Minimax { //Changed class name for our purposes.
             }
             return hValue; 
         }
-         */
+        */
         
          //Current version of the switch heuristic function.
          //Does NOT yet determine the health of the remaining Pokemon into the heuristic value calculation. (Maybe in the next patch?)
