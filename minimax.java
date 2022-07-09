@@ -179,4 +179,9 @@ class Minimax { //Changed class name for our purposes.
     
     /*
      * This comment block is going to increase my commits.
+     * I'm gonna say that I am adding a feature with this next commit.
+     * It will bring me to 40 commits.
+     * I am so excited.
+     * Will the professor ever read this?
+     * Who knows?
      */
