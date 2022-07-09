@@ -184,4 +184,11 @@ class Minimax { //Changed class name for our purposes.
      * I am so excited.
      * Will the professor ever read this?
      * Who knows?
+     * Now I am gonna say that there was a logic error in the conditional statements I put in the new implementation.
+     * I am working on a hotfix.
+     * The feature still does not work.
+     * Man this sucks,
+     * I wish I could figure out where the bug is.
+     * Wait I found it.
+     * I am commiting this hotfix.
      */
