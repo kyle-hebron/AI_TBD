@@ -1,6 +1,7 @@
 import java.util.*; 
 
-//Moves class is an ins
+//Moves class is an instance of an object utilizing Pokemon's move data.
+//Source of the stats come from the game's original code to their moves.
 public class Moves {
     int damage, accuracy, pp;
     String moveName;
@@ -26,7 +27,7 @@ public class Moves {
         return accuracy;
     }
 
-    //PP = power points, i.e. how many times a moved can be used
+    //PP = power points, i.e. how many times a moved can be used.
     public int getPP(){
         return pp;
     }
