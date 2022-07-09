@@ -1,5 +1,8 @@
-//import java.util.*;
+import java.util.*;
 
+//Pokemon object utilizes the stats originated from the standard game.
+//Moveset of a Pokemon is an array of Moves objects.
+//Type is instantiated as a seperate object, where type matchups and effectiveness are calculated elsewhere.
 public class Pokemon{
 
     String name;
@@ -17,18 +20,20 @@ public class Pokemon{
         this.speed = speed;
         pokeType = new Type(typeNum); 
     }
-    
+
+    //Checks if the Pokemon's currnetHP = 0.
     public boolean isFainted(){
         if(currentHP == 0)
             return true;
         return false;
     }
 
+    //Technical setter method.
     public void heal(){
         currentHP = health;
     }
 
-    //setter method only really needed for health, other stats should remain the same (for now)
+    //Setter method only really needed for health and initializing the moveset for each Pokemon.
     public void setHealth(double damage) {
         currentHP = currentHP - damage;
         if(currentHP < 0)
@@ -42,7 +47,7 @@ public class Pokemon{
             }    
     }
 
-    //getter methods
+    //Getter methods.
     public String getName() {
         return name;
     }
