@@ -1,5 +1,8 @@
 import java.util.*; 
 
+//Battle simulation is done under this class.
+//No PokemonAI object is created, this counts as our driver class.
+//All Pokemon trainers and Pokemon are created under this class.
 public class PokemonAI{
     static PokemonTeam player = new PokemonTeam("player");
         
@@ -15,7 +18,6 @@ public class PokemonAI{
     public static void main(String[] args) throws InterruptedException{     
         String name;
         int res = -1;
-        // double damage = 0.0;
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to Poke-Battle Emulator!");
@@ -35,12 +37,6 @@ public class PokemonAI{
                 name = scanz.nextLine();
                 System.out.println("Right! So your name is " + name + "!");
                 Thread.sleep(2000);
-                
-                // System.out.println("This is my grandson. He's been your rival since you were a baby. ...Erm, what is his name again?");
-                // rival = scan.nextLine();
-                // Thread.sleep(2000);
-                // System.out.println("That's right! I remember now! His name was " + rival + "! ");
-                // Thread.sleep(2000);
                 System.out.println( name + "!" + " Your very own POKEMON legend is about to unfold!");
                 Thread.sleep(2000);
                 System.out.println("A world of dreams and adventures with POKEMON awaits! Let's go!");
@@ -90,6 +86,7 @@ public class PokemonAI{
 
     }
 
+    //The current "GUI" of the simulator.
     public static void printBattle(Battle currentBattle){
         System.out.println(player.trainerName + " has sent out " + currentBattle.currentPokemon.getName());
         Pokemon userPoke = currentBattle.currentPokemon;
@@ -105,6 +102,7 @@ public class PokemonAI{
         System.out.println("---------------------");
     }
 
+    //Battle simulator.
     public static void doBattle(Battle currentBattle){
         Scanner scan = new Scanner(System.in);
 
@@ -115,12 +113,12 @@ public class PokemonAI{
 
             int playOp = scan.nextInt(); 
 
-            // YOUr move
+            // Your move.
             if(playOp == 1){ 
                  currentBattle.chooseMove();
             } 
 
-            // YOUr fighter
+            // Your opponent's move.
             if(playOp == 2){
                 System.out.println("Choose your Pokemon.");
                 
@@ -149,11 +147,11 @@ public class PokemonAI{
         Type ghost = new Type(13);
         Type dragon = new Type(14);
 
-        //Initialize Teams
+        //Initialize teams.
         
         
 
-        //Generate Mon
+        //Generate all the Pokemon.
 
 //PLAYER
         //Charizard, Player
