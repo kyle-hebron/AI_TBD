@@ -1,11 +1,18 @@
 import java.util.*;
 
-
+//This object is the stat "type" of a Pokemon.
+//Utilizes the type to do effectiveness checks.
+//Those checks being utilized under heuristic function calculations and damage calculations.
 class Type{
     
-    // The order of appearance - from left to right / top to bottom
-    // Normal, Fire, Water, Grass, Electric, Ice, Fighting, 
+    //The order of appearance - from left to right / top to bottom.
+    //Normal, Fire, Water, Grass, Electric, Ice, Fighting, 
     //Poison, Ground, Flying, Psychic, Bug, Rock, Ghost, Dragon
+    //Type effectiveness is valued as the following:
+    //0 = no effect
+    //0.5 = not very effective
+    //1 = neutral
+    //2 = super effective
     private double[][] type = {
         {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0, 1},      
         {1, 0.5, 0.5, 2, 1, 2, 1, 1, 1, 1, 1, 2, 0.5, 1, 0.5},     
