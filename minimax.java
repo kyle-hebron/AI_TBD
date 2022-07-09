@@ -178,8 +178,9 @@ class Minimax { //Changed class name for our purposes.
         //Helper function for aiPokeSwitch.
         //Determines which Pokemon has the most current health on the team.
         //Taken in as part of the calculation for the heuristic value of each available Pokemon.
-        private double[] healthCalculationForHValue(PokemonTeam team, Pokemon current) {
+        private int healthCalculationForHValue(PokemonTeam team, Pokemon current) {
             double[] teamCurrentHP = new double[2];
+            int location;
 
             for(int i = 0; i < 2; i++) {
                 if(!current.equals(team.getPokemon(i))) {
@@ -187,7 +188,9 @@ class Minimax { //Changed class name for our purposes.
                 }
             }
 
-            return teamCurrentHP;
+            location = (teamCurrentHP[0] < teamCurrentHP[1]) ? 1 : 0;
+
+            return location;
         }
     
     }
